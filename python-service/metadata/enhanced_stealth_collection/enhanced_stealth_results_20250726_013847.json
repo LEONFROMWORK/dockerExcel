@@ -1,0 +1,49 @@
+{
+  "start_time": "20250726_013750",
+  "successful_downloads": [
+    {
+      "file_id": "420334",
+      "filename": "iframe_bypass_420334.xlsx",
+      "size": 706221,
+      "path": "downloads/enhanced_stealth_collection/iframe_bypass_420334.xlsx",
+      "method": "iframe_bypass"
+    },
+    {
+      "file_id": "404675",
+      "filename": "iframe_bypass_404675.xlsx",
+      "size": 80100,
+      "path": "downloads/enhanced_stealth_collection/iframe_bypass_404675.xlsx",
+      "method": "iframe_bypass"
+    },
+    {
+      "file_id": "419920",
+      "filename": "iframe_bypass_419920.xlsx",
+      "size": 995765,
+      "path": "downloads/enhanced_stealth_collection/iframe_bypass_419920.xlsx",
+      "method": "iframe_bypass"
+    }
+  ],
+  "failed_downloads": [],
+  "methods_tested": [
+    {
+      "file_id": "420334",
+      "method": "iframe bypass",
+      "result": "success"
+    },
+    {
+      "file_id": "404675",
+      "method": "iframe bypass",
+      "result": "success"
+    },
+    {
+      "file_id": "419920",
+      "method": "iframe bypass",
+      "result": "success"
+    }
+  ],
+  "end_time": "20250726_013847",
+  "total_processed": 3,
+  "total_successful": 3,
+  "total_failed": 0,
+  "success_rate": 100.0
+}

@@ -1,0 +1,55 @@
+# Development overrides for docker-compose
+# This file is automatically loaded by docker-compose in development
+
+services:
+  rails:
+    build:
+      args:
+        RAILS_ENV: development
+    environment:
+      RAILS_ENV: development
+      # Enable debugging
+      RUBYOPT: '-W:deprecated'
+      # Webpacker/Vite dev server
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      VITE_RUBY_HOST: 0.0.0.0
+    # Mount source code for hot reloading
+    volumes:
+      - ./rails-app:/rails:cached
+      - bundle_cache:/usr/local/bundle
+      - node_modules:/rails/node_modules
+      - ./rails-app/tmp:/rails/tmp
+      - ./rails-app/log:/rails/log
+    # Enable debugger
+    stdin_open: true
+    tty: true
+    # Expose additional ports for debugging
+    ports:
+      - "3000:3000"
+      - "3036:3036"  # Vite dev server
+
+  sidekiq:
+    build:
+      args:
+        RAILS_ENV: development
+    environment:
+      RAILS_ENV: development
+    volumes:
+      - ./rails-app:/rails:cached
+      - bundle_cache:/usr/local/bundle
+
+  python:
+    # Mount source code for development
+    volumes:
+      - ./python-service:/app:cached
+      - python_cache:/root/.cache
+    environment:
+      PYTHONUNBUFFERED: 1
+      FLASK_ENV: development
+
+  # Development-only services
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"

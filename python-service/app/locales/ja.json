@@ -1,0 +1,162 @@
+{
+  "common": {
+    "success": "成功",
+    "error": "エラー",
+    "warning": "警告",
+    "info": "情報",
+    "loading": "読み込み中...",
+    "processing": "処理中...",
+    "completed": "完了",
+    "failed": "失敗",
+    "pending": "保留中",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "retry": "再試行",
+    "download": "ダウンロード",
+    "upload": "アップロード",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "create": "作成",
+    "update": "更新",
+    "search": "検索",
+    "filter": "フィルター",
+    "sort": "並び替え",
+    "export": "エクスポート",
+    "import": "インポート"
+  },
+  "file": {
+    "invalid_type": "無効なファイル形式です。許可された形式: {extensions}",
+    "too_large": "ファイルが大きすぎます。最大サイズ: {max_size}バイト",
+    "not_found": "ファイルが見つかりません",
+    "upload_failed": "ファイルのアップロードに失敗しました",
+    "processing": "ファイル処理中...",
+    "analysis_complete": "ファイル分析が完了しました",
+    "excel_only": "Excelファイルのみアップロード可能です"
+  },
+  "excel": {
+    "analysis": {
+      "title": "Excel分析",
+      "sheets_found": "{count}個のシートが見つかりました",
+      "formulas_found": "{count}個の数式が見つかりました",
+      "errors_found": "{count}個のエラーが見つかりました",
+      "no_errors": "エラーは見つかりませんでした",
+      "data_quality": "データ品質",
+      "structure_analysis": "構造分析",
+      "formula_validation": "数式検証"
+    },
+    "errors": {
+      "circular_reference": "循環参照",
+      "invalid_formula": "無効な数式",
+      "missing_reference": "参照の欠落",
+      "type_mismatch": "型の不一致",
+      "division_by_zero": "ゼロ除算",
+      "name_error": "名前エラー",
+      "value_error": "値エラー",
+      "ref_error": "参照エラー"
+    },
+    "charts": {
+      "title": "チャート分析",
+      "suggestions": "チャート提案",
+      "line_chart": "線グラフ",
+      "bar_chart": "棒グラフ",
+      "pie_chart": "円グラフ",
+      "scatter_plot": "散布図",
+      "area_chart": "面グラフ",
+      "histogram": "ヒストグラム",
+      "box_plot": "箱ひげ図",
+      "heatmap": "ヒートマップ"
+    },
+    "pivot": {
+      "title": "ピボットテーブル",
+      "suggestions": "ピボットテーブル提案",
+      "rows": "行",
+      "columns": "列",
+      "values": "値",
+      "filters": "フィルター",
+      "aggregation": "集計",
+      "sum": "合計",
+      "average": "平均",
+      "count": "個数",
+      "max": "最大値",
+      "min": "最小値"
+    }
+  },
+  "templates": {
+    "title": "テンプレート",
+    "categories": "カテゴリ",
+    "recommendation": "推奨",
+    "generation": "生成",
+    "not_found": "テンプレートが見つかりません: {template_id}",
+    "generation_failed": "テンプレート生成に失敗しました",
+    "no_suitable_template": "適切なテンプレートが見つかりません",
+    "feedback_submitted": "フィードバックが正常に送信されました",
+    "search_results": "検索結果",
+    "categories_list": {
+      "financial_statements": "財務諸表",
+      "analytics_dashboard": "分析ダッシュボード",
+      "project_management": "プロジェクト管理",
+      "hr_management": "人事管理",
+      "marketing_reports": "マーケティングレポート",
+      "academic_research": "学術研究",
+      "inventory_management": "在庫管理",
+      "budget_planning": "予算計画"
+    },
+    "complexity": {
+      "basic": "基本",
+      "intermediate": "中級",
+      "advanced": "上級",
+      "expert": "専門家"
+    },
+    "tier": {
+      "basic": "ベーシック",
+      "pro": "プロ",
+      "enterprise": "エンタープライズ"
+    }
+  },
+  "ai": {
+    "analysis": "AI分析",
+    "insights": "AIインサイト",
+    "suggestions": "AI提案",
+    "processing": "AI処理中...",
+    "error": "AI分析中にエラーが発生しました",
+    "no_response": "AI応答を受信できません"
+  },
+  "progress": {
+    "stages": {
+      "uploaded": "アップロード済み",
+      "analyzing": "分析中",
+      "detecting_errors": "エラー検出中",
+      "fixing_formulas": "数式修正中",
+      "generating_charts": "チャート生成中",
+      "creating_pivots": "ピボットテーブル作成中",
+      "applying_templates": "テンプレート適用中",
+      "finalizing": "仕上げ中",
+      "completed": "完了",
+      "failed": "失敗"
+    },
+    "percentage": "{percent}% 完了",
+    "estimated_time": "推定時間: {time}",
+    "real_time_updates": "リアルタイム更新"
+  },
+  "api": {
+    "success": "リクエストが正常に処理されました",
+    "error": "リクエスト処理中にエラーが発生しました",
+    "invalid_request": "無効なリクエストです",
+    "unauthorized": "認証されていないリクエストです",
+    "forbidden": "アクセスが禁止されています",
+    "not_found": "要求されたリソースが見つかりません",
+    "internal_error": "内部サーバーエラーが発生しました",
+    "service_unavailable": "サービスが一時的に利用できません"
+  },
+  "validation": {
+    "required": "必須入力項目です",
+    "min_length": "最低{min}文字以上入力してください",
+    "max_length": "最大{max}文字以下で入力してください",
+    "invalid_format": "フォーマットが正しくありません",
+    "invalid_email": "無効なメールアドレスです",
+    "invalid_phone": "無効な電話番号です",
+    "invalid_date": "無効な日付です",
+    "out_of_range": "許可範囲外です: {min}-{max}"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "common": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information",
+    "loading": "Loading...",
+    "processing": "Processing...",
+    "completed": "Completed",
+    "failed": "Failed",
+    "pending": "Pending",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "retry": "Retry",
+    "download": "Download",
+    "upload": "Upload",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export",
+    "import": "Import"
+  },
+  "file": {
+    "invalid_type": "Invalid file type. Allowed types: {extensions}",
+    "too_large": "File too large. Maximum size: {max_size} bytes",
+    "not_found": "File not found",
+    "upload_failed": "File upload failed",
+    "processing": "Processing file...",
+    "analysis_complete": "File analysis completed",
+    "excel_only": "Only Excel files can be uploaded"
+  },
+  "excel": {
+    "analysis": {
+      "title": "Excel Analysis",
+      "sheets_found": "Found {count} sheets",
+      "formulas_found": "Found {count} formulas",
+      "errors_found": "Found {count} errors",
+      "no_errors": "No errors found",
+      "data_quality": "Data Quality",
+      "structure_analysis": "Structure Analysis",
+      "formula_validation": "Formula Validation"
+    },
+    "errors": {
+      "circular_reference": "Circular Reference",
+      "invalid_formula": "Invalid Formula",
+      "missing_reference": "Missing Reference",
+      "type_mismatch": "Type Mismatch",
+      "division_by_zero": "Division by Zero",
+      "name_error": "Name Error",
+      "value_error": "Value Error",
+      "ref_error": "Reference Error"
+    },
+    "charts": {
+      "title": "Chart Analysis",
+      "suggestions": "Chart Suggestions",
+      "line_chart": "Line Chart",
+      "bar_chart": "Bar Chart",
+      "pie_chart": "Pie Chart",
+      "scatter_plot": "Scatter Plot",
+      "area_chart": "Area Chart",
+      "histogram": "Histogram",
+      "box_plot": "Box Plot",
+      "heatmap": "Heatmap"
+    },
+    "pivot": {
+      "title": "Pivot Table",
+      "suggestions": "Pivot Table Suggestions",
+      "rows": "Rows",
+      "columns": "Columns",
+      "values": "Values",
+      "filters": "Filters",
+      "aggregation": "Aggregation",
+      "sum": "Sum",
+      "average": "Average",
+      "count": "Count",
+      "max": "Maximum",
+      "min": "Minimum"
+    }
+  },
+  "templates": {
+    "title": "Templates",
+    "categories": "Categories",
+    "recommendation": "Recommendation",
+    "generation": "Generation",
+    "not_found": "Template not found: {template_id}",
+    "generation_failed": "Template generation failed",
+    "no_suitable_template": "No suitable template found",
+    "feedback_submitted": "Feedback submitted successfully",
+    "search_results": "Search Results",
+    "categories_list": {
+      "financial_statements": "Financial Statements",
+      "analytics_dashboard": "Analytics Dashboard",
+      "project_management": "Project Management",
+      "hr_management": "HR Management",
+      "marketing_reports": "Marketing Reports",
+      "academic_research": "Academic Research",
+      "inventory_management": "Inventory Management",
+      "budget_planning": "Budget Planning"
+    },
+    "complexity": {
+      "basic": "Basic",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "tier": {
+      "basic": "Basic",
+      "pro": "Pro",
+      "enterprise": "Enterprise"
+    }
+  },
+  "ai": {
+    "analysis": "AI Analysis",
+    "insights": "AI Insights",
+    "suggestions": "AI Suggestions",
+    "processing": "AI Processing...",
+    "error": "An error occurred during AI analysis",
+    "no_response": "Unable to receive AI response"
+  },
+  "progress": {
+    "stages": {
+      "uploaded": "Uploaded",
+      "analyzing": "Analyzing",
+      "detecting_errors": "Detecting Errors",
+      "fixing_formulas": "Fixing Formulas",
+      "generating_charts": "Generating Charts",
+      "creating_pivots": "Creating Pivot Tables",
+      "applying_templates": "Applying Templates",
+      "finalizing": "Finalizing",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+    "percentage": "{percent}% Complete",
+    "estimated_time": "Estimated time: {time}",
+    "real_time_updates": "Real-time Updates"
+  },
+  "api": {
+    "success": "Request processed successfully",
+    "error": "An error occurred while processing the request",
+    "invalid_request": "Invalid request",
+    "unauthorized": "Unauthorized request",
+    "forbidden": "Access forbidden",
+    "not_found": "Requested resource not found",
+    "internal_error": "Internal server error occurred",
+    "service_unavailable": "Service temporarily unavailable"
+  },
+  "validation": {
+    "required": "This field is required",
+    "min_length": "Please enter at least {min} characters",
+    "max_length": "Please enter no more than {max} characters",
+    "invalid_format": "Invalid format",
+    "invalid_email": "Invalid email address",
+    "invalid_phone": "Invalid phone number",
+    "invalid_date": "Invalid date",
+    "out_of_range": "Out of allowed range: {min}-{max}"
+  }
+}

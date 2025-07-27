@@ -1,0 +1,2756 @@
+{
+  "template_id": "free_cash_flow_management_template_20250725",
+  "original_filename": "Free-Cash-Flow-Management-Template.xlsx",
+  "template_name": "Free Cash Flow Management Template",
+  "file_size": 8234,
+  "analyzed_at": "2025-07-25T20:37:33.828698",
+  "sheets": {
+    "Cash Flow": {
+      "name": "Cash Flow",
+      "dimensions": "41x15",
+      "used_range": "A1:O41",
+      "cell_analysis": {
+        "total_cells": 262,
+        "formula_cells": 88,
+        "text_cells": 55,
+        "number_cells": 119,
+        "empty_cells": 353
+      },
+      "content_sections": [
+        {
+          "title": "BTT Corporation",
+          "start_cell": "A1",
+          "type": "section",
+          "estimated_range": "A1:F11"
+        },
+        {
+          "title": "OPERATIONS",
+          "start_cell": "A6",
+          "type": "section",
+          "estimated_range": "A6:F16"
+        },
+        {
+          "title": "January",
+          "start_cell": "C6",
+          "type": "section",
+          "estimated_range": "C6:H16"
+        },
+        {
+          "title": "February",
+          "start_cell": "D6",
+          "type": "section",
+          "estimated_range": "D6:I16"
+        },
+        {
+          "title": "March",
+          "start_cell": "E6",
+          "type": "section",
+          "estimated_range": "E6:J16"
+        },
+        {
+          "title": "April",
+          "start_cell": "F6",
+          "type": "section",
+          "estimated_range": "F6:K16"
+        },
+        {
+          "title": "May",
+          "start_cell": "G6",
+          "type": "section",
+          "estimated_range": "G6:L16"
+        },
+        {
+          "title": "June",
+          "start_cell": "H6",
+          "type": "section",
+          "estimated_range": "H6:M16"
+        },
+        {
+          "title": "July",
+          "start_cell": "I6",
+          "type": "section",
+          "estimated_range": "I6:N16"
+        },
+        {
+          "title": "August",
+          "start_cell": "J6",
+          "type": "section",
+          "estimated_range": "J6:O16"
+        },
+        {
+          "title": "September",
+          "start_cell": "K6",
+          "type": "section",
+          "estimated_range": "K6:P16"
+        },
+        {
+          "title": "October",
+          "start_cell": "L6",
+          "type": "section",
+          "estimated_range": "L6:Q16"
+        },
+        {
+          "title": "November",
+          "start_cell": "M6",
+          "type": "section",
+          "estimated_range": "M6:R16"
+        },
+        {
+          "title": "December",
+          "start_cell": "N6",
+          "type": "section",
+          "estimated_range": "N6:S16"
+        },
+        {
+          "title": "TOTAL",
+          "start_cell": "O6",
+          "type": "section",
+          "estimated_range": "O6:T16"
+        },
+        {
+          "title": "Net Cash Flow from Operations",
+          "start_cell": "B15",
+          "type": "section",
+          "estimated_range": "B15:G25"
+        },
+        {
+          "title": "=SUM(C8:C10)-SUM(C12:C14)",
+          "start_cell": "C15",
+          "type": "section",
+          "estimated_range": "C15:H25"
+        },
+        {
+          "title": "=SUM(D8:D10)-SUM(D12:D14)",
+          "start_cell": "D15",
+          "type": "section",
+          "estimated_range": "D15:I25"
+        },
+        {
+          "title": "=SUM(E8:E10)-SUM(E12:E14)",
+          "start_cell": "E15",
+          "type": "section",
+          "estimated_range": "E15:J25"
+        },
+        {
+          "title": "=SUM(F8:F10)-SUM(F12:F14)",
+          "start_cell": "F15",
+          "type": "section",
+          "estimated_range": "F15:K25"
+        },
+        {
+          "title": "=SUM(G8:G10)-SUM(G12:G14)",
+          "start_cell": "G15",
+          "type": "section",
+          "estimated_range": "G15:L25"
+        },
+        {
+          "title": "=SUM(H8:H10)-SUM(H12:H14)",
+          "start_cell": "H15",
+          "type": "section",
+          "estimated_range": "H15:M25"
+        },
+        {
+          "title": "=SUM(I8:I10)-SUM(I12:I14)",
+          "start_cell": "I15",
+          "type": "section",
+          "estimated_range": "I15:N25"
+        },
+        {
+          "title": "=SUM(J8:J10)-SUM(J12:J14)",
+          "start_cell": "J15",
+          "type": "section",
+          "estimated_range": "J15:O25"
+        },
+        {
+          "title": "=SUM(K8:K10)-SUM(K12:K14)",
+          "start_cell": "K15",
+          "type": "section",
+          "estimated_range": "K15:P25"
+        },
+        {
+          "title": "=SUM(L8:L10)-SUM(L12:L14)",
+          "start_cell": "L15",
+          "type": "section",
+          "estimated_range": "L15:Q25"
+        },
+        {
+          "title": "=SUM(M8:M10)-SUM(M12:M14)",
+          "start_cell": "M15",
+          "type": "section",
+          "estimated_range": "M15:R25"
+        },
+        {
+          "title": "=SUM(N8:N10)-SUM(N12:N14)",
+          "start_cell": "N15",
+          "type": "section",
+          "estimated_range": "N15:S25"
+        },
+        {
+          "title": "=SUM(C15:N15)",
+          "start_cell": "O15",
+          "type": "section",
+          "estimated_range": "O15:T25"
+        },
+        {
+          "title": "FINANCES",
+          "start_cell": "A17",
+          "type": "section",
+          "estimated_range": "A17:F27"
+        },
+        {
+          "title": "TOTAL",
+          "start_cell": "O17",
+          "type": "section",
+          "estimated_range": "O17:T27"
+        },
+        {
+          "title": "Net Cash Flow from Finances",
+          "start_cell": "B26",
+          "type": "section",
+          "estimated_range": "B26:G36"
+        },
+        {
+          "title": "=SUM(C19:C21)-SUM(C23:C25)",
+          "start_cell": "C26",
+          "type": "section",
+          "estimated_range": "C26:H36"
+        },
+        {
+          "title": "=SUM(D19:D21)-SUM(D23:D25)",
+          "start_cell": "D26",
+          "type": "section",
+          "estimated_range": "D26:I36"
+        },
+        {
+          "title": "=SUM(E19:E21)-SUM(E23:E25)",
+          "start_cell": "E26",
+          "type": "section",
+          "estimated_range": "E26:J36"
+        },
+        {
+          "title": "=SUM(F19:F21)-SUM(F23:F25)",
+          "start_cell": "F26",
+          "type": "section",
+          "estimated_range": "F26:K36"
+        },
+        {
+          "title": "=SUM(G19:G21)-SUM(G23:G25)",
+          "start_cell": "G26",
+          "type": "section",
+          "estimated_range": "G26:L36"
+        },
+        {
+          "title": "=SUM(H19:H21)-SUM(H23:H25)",
+          "start_cell": "H26",
+          "type": "section",
+          "estimated_range": "H26:M36"
+        },
+        {
+          "title": "=SUM(I19:I21)-SUM(I23:I25)",
+          "start_cell": "I26",
+          "type": "section",
+          "estimated_range": "I26:N36"
+        },
+        {
+          "title": "=SUM(J19:J21)-SUM(J23:J25)",
+          "start_cell": "J26",
+          "type": "section",
+          "estimated_range": "J26:O36"
+        },
+        {
+          "title": "=SUM(K19:K21)-SUM(K23:K25)",
+          "start_cell": "K26",
+          "type": "section",
+          "estimated_range": "K26:P36"
+        },
+        {
+          "title": "=SUM(L19:L21)-SUM(L23:L25)",
+          "start_cell": "L26",
+          "type": "section",
+          "estimated_range": "L26:Q36"
+        },
+        {
+          "title": "=SUM(M19:M21)-SUM(M23:M25)",
+          "start_cell": "M26",
+          "type": "section",
+          "estimated_range": "M26:R36"
+        },
+        {
+          "title": "=SUM(N19:N21)-SUM(N23:N25)",
+          "start_cell": "N26",
+          "type": "section",
+          "estimated_range": "N26:S36"
+        },
+        {
+          "title": "=SUM(C26:N26)",
+          "start_cell": "O26",
+          "type": "section",
+          "estimated_range": "O26:T36"
+        },
+        {
+          "title": "INVESTMENTS",
+          "start_cell": "A28",
+          "type": "section",
+          "estimated_range": "A28:F38"
+        },
+        {
+          "title": "TOTAL",
+          "start_cell": "O28",
+          "type": "section",
+          "estimated_range": "O28:T38"
+        },
+        {
+          "title": "Net Cash Flow from Finances",
+          "start_cell": "B36",
+          "type": "section",
+          "estimated_range": "B36:G46"
+        },
+        {
+          "title": "=SUM(C30:C32)-SUM(C34:C35)",
+          "start_cell": "C36",
+          "type": "section",
+          "estimated_range": "C36:H46"
+        },
+        {
+          "title": "=SUM(D30:D32)-SUM(D34:D35)",
+          "start_cell": "D36",
+          "type": "section",
+          "estimated_range": "D36:I46"
+        },
+        {
+          "title": "=SUM(E30:E32)-SUM(E34:E35)",
+          "start_cell": "E36",
+          "type": "section",
+          "estimated_range": "E36:J46"
+        },
+        {
+          "title": "=SUM(F30:F32)-SUM(F34:F35)",
+          "start_cell": "F36",
+          "type": "section",
+          "estimated_range": "F36:K46"
+        },
+        {
+          "title": "=SUM(G30:G32)-SUM(G34:G35)",
+          "start_cell": "G36",
+          "type": "section",
+          "estimated_range": "G36:L46"
+        },
+        {
+          "title": "=SUM(H30:H32)-SUM(H34:H35)",
+          "start_cell": "H36",
+          "type": "section",
+          "estimated_range": "H36:M46"
+        },
+        {
+          "title": "=SUM(I30:I32)-SUM(I34:I35)",
+          "start_cell": "I36",
+          "type": "section",
+          "estimated_range": "I36:N46"
+        },
+        {
+          "title": "=SUM(J30:J32)-SUM(J34:J35)",
+          "start_cell": "J36",
+          "type": "section",
+          "estimated_range": "J36:O46"
+        },
+        {
+          "title": "=SUM(K30:K32)-SUM(K34:K35)",
+          "start_cell": "K36",
+          "type": "section",
+          "estimated_range": "K36:P46"
+        },
+        {
+          "title": "=SUM(L30:L32)-SUM(L34:L35)",
+          "start_cell": "L36",
+          "type": "section",
+          "estimated_range": "L36:Q46"
+        },
+        {
+          "title": "=SUM(M30:M32)-SUM(M34:M35)",
+          "start_cell": "M36",
+          "type": "section",
+          "estimated_range": "M36:R46"
+        },
+        {
+          "title": "=SUM(N30:N32)-SUM(N34:N35)",
+          "start_cell": "N36",
+          "type": "section",
+          "estimated_range": "N36:S46"
+        },
+        {
+          "title": "=SUM(C36:N36)",
+          "start_cell": "O36",
+          "type": "section",
+          "estimated_range": "O36:T46"
+        },
+        {
+          "title": "ANNUAL ENDING",
+          "start_cell": "A38",
+          "type": "section",
+          "estimated_range": "A38:F48"
+        },
+        {
+          "title": "TOTAL",
+          "start_cell": "O38",
+          "type": "section",
+          "estimated_range": "O38:T48"
+        },
+        {
+          "title": "Closing Cash Balance",
+          "start_cell": "B41",
+          "type": "section",
+          "estimated_range": "B41:G51"
+        },
+        {
+          "title": "=SUM(C39:C40)",
+          "start_cell": "C41",
+          "type": "section",
+          "estimated_range": "C41:H51"
+        },
+        {
+          "title": "=SUM(D39:D40)",
+          "start_cell": "D41",
+          "type": "section",
+          "estimated_range": "D41:I51"
+        },
+        {
+          "title": "=SUM(E39:E40)",
+          "start_cell": "E41",
+          "type": "section",
+          "estimated_range": "E41:J51"
+        },
+        {
+          "title": "=SUM(F39:F40)",
+          "start_cell": "F41",
+          "type": "section",
+          "estimated_range": "F41:K51"
+        },
+        {
+          "title": "=SUM(G39:G40)",
+          "start_cell": "G41",
+          "type": "section",
+          "estimated_range": "G41:L51"
+        },
+        {
+          "title": "=SUM(H39:H40)",
+          "start_cell": "H41",
+          "type": "section",
+          "estimated_range": "H41:M51"
+        },
+        {
+          "title": "=SUM(I39:I40)",
+          "start_cell": "I41",
+          "type": "section",
+          "estimated_range": "I41:N51"
+        },
+        {
+          "title": "=SUM(J39:J40)",
+          "start_cell": "J41",
+          "type": "section",
+          "estimated_range": "J41:O51"
+        },
+        {
+          "title": "=SUM(K39:K40)",
+          "start_cell": "K41",
+          "type": "section",
+          "estimated_range": "K41:P51"
+        },
+        {
+          "title": "=SUM(L39:L40)",
+          "start_cell": "L41",
+          "type": "section",
+          "estimated_range": "L41:Q51"
+        },
+        {
+          "title": "=SUM(M39:M40)",
+          "start_cell": "M41",
+          "type": "section",
+          "estimated_range": "M41:R51"
+        },
+        {
+          "title": "=SUM(N39:N40)",
+          "start_cell": "N41",
+          "type": "section",
+          "estimated_range": "N41:S51"
+        },
+        {
+          "title": "=SUM(C41:N41)",
+          "start_cell": "O41",
+          "type": "section",
+          "estimated_range": "O41:T51"
+        }
+      ],
+      "table_structures": [],
+      "input_areas": [
+        {
+          "coordinate": "A2",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "A3",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "A4",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B7",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B8",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I8",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B9",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I9",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B10",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I10",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B11",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B12",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I12",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B13",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I13",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B14",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I14",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B18",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B19",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I19",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B20",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I20",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B21",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I21",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B22",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B23",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I23",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B24",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I24",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B25",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I25",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B29",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B30",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I30",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B31",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I31",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B32",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I32",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B33",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B34",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C34",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D34",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E34",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F34",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G34",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H34",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I34",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B35",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "D35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "E35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "F35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "G35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "H35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I35",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B39",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "B40",
+          "data_type": "text",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "C40",
+          "data_type": "number",
+          "type": "potential_input"
+        },
+        {
+          "coordinate": "I40",
+          "data_type": "number",
+          "type": "potential_input"
+        }
+      ],
+      "output_areas": [
+        {
+          "coordinate": "O8",
+          "formula": "=SUM(C8:N8)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O9",
+          "formula": "=SUM(C9:N9)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O10",
+          "formula": "=SUM(C10:N10)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O12",
+          "formula": "=SUM(C12:N12)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O13",
+          "formula": "=SUM(C13:N13)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O14",
+          "formula": "=SUM(C14:N14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "C15",
+          "formula": "=SUM(C8:C10)-SUM(C12:C14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "D15",
+          "formula": "=SUM(D8:D10)-SUM(D12:D14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "E15",
+          "formula": "=SUM(E8:E10)-SUM(E12:E14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "F15",
+          "formula": "=SUM(F8:F10)-SUM(F12:F14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "G15",
+          "formula": "=SUM(G8:G10)-SUM(G12:G14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "H15",
+          "formula": "=SUM(H8:H10)-SUM(H12:H14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "I15",
+          "formula": "=SUM(I8:I10)-SUM(I12:I14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "J15",
+          "formula": "=SUM(J8:J10)-SUM(J12:J14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "K15",
+          "formula": "=SUM(K8:K10)-SUM(K12:K14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "L15",
+          "formula": "=SUM(L8:L10)-SUM(L12:L14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "M15",
+          "formula": "=SUM(M8:M10)-SUM(M12:M14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "N15",
+          "formula": "=SUM(N8:N10)-SUM(N12:N14)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O15",
+          "formula": "=SUM(C15:N15)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O19",
+          "formula": "=SUM(C19:N19)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O20",
+          "formula": "=SUM(C20:N20)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O21",
+          "formula": "=SUM(C21:N21)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O23",
+          "formula": "=SUM(C23:N23)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O24",
+          "formula": "=SUM(C24:N24)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O25",
+          "formula": "=SUM(C25:N25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "C26",
+          "formula": "=SUM(C19:C21)-SUM(C23:C25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "D26",
+          "formula": "=SUM(D19:D21)-SUM(D23:D25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "E26",
+          "formula": "=SUM(E19:E21)-SUM(E23:E25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "F26",
+          "formula": "=SUM(F19:F21)-SUM(F23:F25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "G26",
+          "formula": "=SUM(G19:G21)-SUM(G23:G25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "H26",
+          "formula": "=SUM(H19:H21)-SUM(H23:H25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "I26",
+          "formula": "=SUM(I19:I21)-SUM(I23:I25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "J26",
+          "formula": "=SUM(J19:J21)-SUM(J23:J25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "K26",
+          "formula": "=SUM(K19:K21)-SUM(K23:K25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "L26",
+          "formula": "=SUM(L19:L21)-SUM(L23:L25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "M26",
+          "formula": "=SUM(M19:M21)-SUM(M23:M25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "N26",
+          "formula": "=SUM(N19:N21)-SUM(N23:N25)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O26",
+          "formula": "=SUM(C26:N26)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O30",
+          "formula": "=SUM(C30:N30)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O31",
+          "formula": "=SUM(C31:N31)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O32",
+          "formula": "=SUM(C32:N32)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O34",
+          "formula": "=SUM(C34:N34)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O35",
+          "formula": "=SUM(C35:N35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "C36",
+          "formula": "=SUM(C30:C32)-SUM(C34:C35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "D36",
+          "formula": "=SUM(D30:D32)-SUM(D34:D35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "E36",
+          "formula": "=SUM(E30:E32)-SUM(E34:E35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "F36",
+          "formula": "=SUM(F30:F32)-SUM(F34:F35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "G36",
+          "formula": "=SUM(G30:G32)-SUM(G34:G35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "H36",
+          "formula": "=SUM(H30:H32)-SUM(H34:H35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "I36",
+          "formula": "=SUM(I30:I32)-SUM(I34:I35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "J36",
+          "formula": "=SUM(J30:J32)-SUM(J34:J35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "K36",
+          "formula": "=SUM(K30:K32)-SUM(K34:K35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "L36",
+          "formula": "=SUM(L30:L32)-SUM(L34:L35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "M36",
+          "formula": "=SUM(M30:M32)-SUM(M34:M35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "N36",
+          "formula": "=SUM(N30:N32)-SUM(N34:N35)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O36",
+          "formula": "=SUM(C36:N36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "C39",
+          "formula": "=SUM(C15,C26,C36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "D39",
+          "formula": "=SUM(D15,D26,D36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "E39",
+          "formula": "=SUM(E15,E26,E36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "F39",
+          "formula": "=SUM(F15,F26,F36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "G39",
+          "formula": "=SUM(G15,G26,G36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "H39",
+          "formula": "=SUM(H15,H26,H36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "I39",
+          "formula": "=SUM(I15,I26,I36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "J39",
+          "formula": "=SUM(J15,J26,J36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "K39",
+          "formula": "=SUM(K15,K26,K36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "L39",
+          "formula": "=SUM(L15,L26,L36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "M39",
+          "formula": "=SUM(M15,M26,M36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "N39",
+          "formula": "=SUM(N15,N26,N36)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O39",
+          "formula": "=SUM(C39:N39)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "D40",
+          "formula": "=C41",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "E40",
+          "formula": "=D41",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "F40",
+          "formula": "=E41",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "G40",
+          "formula": "=F41",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "H40",
+          "formula": "=G41",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O40",
+          "formula": "=SUM(C40:N40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "C41",
+          "formula": "=SUM(C39:C40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "D41",
+          "formula": "=SUM(D39:D40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "E41",
+          "formula": "=SUM(E39:E40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "F41",
+          "formula": "=SUM(F39:F40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "G41",
+          "formula": "=SUM(G39:G40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "H41",
+          "formula": "=SUM(H39:H40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "I41",
+          "formula": "=SUM(I39:I40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "J41",
+          "formula": "=SUM(J39:J40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "K41",
+          "formula": "=SUM(K39:K40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "L41",
+          "formula": "=SUM(L39:L40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "M41",
+          "formula": "=SUM(M39:M40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "N41",
+          "formula": "=SUM(N39:N40)",
+          "type": "calculated_output"
+        },
+        {
+          "coordinate": "O41",
+          "formula": "=SUM(C41:N41)",
+          "type": "calculated_output"
+        }
+      ],
+      "formatting_patterns": []
+    }
+  },
+  "overall_structure": {
+    "total_sheets": 1,
+    "sheet_names": [
+      "Cash Flow"
+    ],
+    "has_charts": false,
+    "has_images": false,
+    "has_pivot_tables": false,
+    "complexity_score": 1
+  },
+  "i18n_elements": {
+    "headers": [
+      "=SUM(J19:J21)-SUM(J23:J25)",
+      "TOTAL",
+      "=SUM(F8:F10)-SUM(F12:F14)",
+      "INVESTMENTS",
+      "=SUM(C15:N15)",
+      "=SUM(F30:F32)-SUM(F34:F35)",
+      "=SUM(I19:I21)-SUM(I23:I25)",
+      "August",
+      "=SUM(H19:H21)-SUM(H23:H25)",
+      "BTT Corporation",
+      "=SUM(N8:N10)-SUM(N12:N14)",
+      "=SUM(L8:L10)-SUM(L12:L14)",
+      "FINANCES",
+      "=SUM(E19:E21)-SUM(E23:E25)",
+      "=SUM(G8:G10)-SUM(G12:G14)",
+      "=SUM(I8:I10)-SUM(I12:I14)",
+      "=SUM(D19:D21)-SUM(D23:D25)",
+      "=SUM(C26:N26)",
+      "=SUM(M39:M40)",
+      "March",
+      "=SUM(C36:N36)",
+      "=SUM(M19:M21)-SUM(M23:M25)",
+      "May",
+      "=SUM(F39:F40)",
+      "=SUM(C30:C32)-SUM(C34:C35)",
+      "=SUM(G39:G40)",
+      "July",
+      "=SUM(C19:C21)-SUM(C23:C25)",
+      "=SUM(N19:N21)-SUM(N23:N25)",
+      "=SUM(J39:J40)",
+      "=SUM(H39:H40)",
+      "February",
+      "December",
+      "=SUM(I39:I40)",
+      "=SUM(D30:D32)-SUM(D34:D35)",
+      "=SUM(J8:J10)-SUM(J12:J14)",
+      "June",
+      "=SUM(I30:I32)-SUM(I34:I35)",
+      "=SUM(E39:E40)",
+      "=SUM(C39:C40)",
+      "Closing Cash Balance",
+      "=SUM(M30:M32)-SUM(M34:M35)",
+      "=SUM(C8:C10)-SUM(C12:C14)",
+      "=SUM(F19:F21)-SUM(F23:F25)",
+      "=SUM(K30:K32)-SUM(K34:K35)",
+      "=SUM(N30:N32)-SUM(N34:N35)",
+      "ANNUAL ENDING",
+      "=SUM(K39:K40)",
+      "=SUM(M8:M10)-SUM(M12:M14)",
+      "November",
+      "=SUM(E30:E32)-SUM(E34:E35)",
+      "=SUM(G19:G21)-SUM(G23:G25)",
+      "=SUM(J30:J32)-SUM(J34:J35)",
+      "September",
+      "=SUM(C41:N41)",
+      "Net Cash Flow from Operations",
+      "=SUM(H8:H10)-SUM(H12:H14)",
+      "January",
+      "=SUM(K19:K21)-SUM(K23:K25)",
+      "=SUM(K8:K10)-SUM(K12:K14)",
+      "=SUM(G30:G32)-SUM(G34:G35)",
+      "=SUM(H30:H32)-SUM(H34:H35)",
+      "=SUM(D39:D40)",
+      "Net Cash Flow from Finances",
+      "=SUM(L30:L32)-SUM(L34:L35)",
+      "=SUM(L39:L40)",
+      "=SUM(N39:N40)",
+      "OPERATIONS",
+      "=SUM(D8:D10)-SUM(D12:D14)",
+      "=SUM(L19:L21)-SUM(L23:L25)",
+      "=SUM(E8:E10)-SUM(E12:E14)",
+      "October",
+      "April"
+    ],
+    "labels": [
+      "=SUM(C8:N8)",
+      "=SUM(C14:N14)",
+      "=SUM(C24:N24)",
+      "=SUM(C25:N25)",
+      "=SUM(C12:N12)",
+      "=SUM(C9:N9)",
+      "=SUM(C30:N30)",
+      "=SUM(C34:N34)",
+      "=SUM(C31:N31)",
+      "=SUM(C20:N20)",
+      "=SUM(C10:N10)",
+      "=SUM(C40:N40)",
+      "=SUM(C13:N13)",
+      "=SUM(C19:N19)",
+      "=SUM(C23:N23)",
+      "=SUM(C35:N35)",
+      "Prepared by: Ms. Kathy Lattey",
+      "=SUM(C32:N32)",
+      "=SUM(C21:N21)",
+      "=SUM(C39:N39)"
+    ],
+    "instructions": [],
+    "validation_messages": [],
+    "chart_titles": []
+  },
+  "formula_patterns": [
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O8",
+      "formula": "=SUM(C8:N8)",
+      "category": "aggregation",
+      "references": [
+        "C8",
+        "N8"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O9",
+      "formula": "=SUM(C9:N9)",
+      "category": "aggregation",
+      "references": [
+        "C9",
+        "N9"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O10",
+      "formula": "=SUM(C10:N10)",
+      "category": "aggregation",
+      "references": [
+        "C10",
+        "N10"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O12",
+      "formula": "=SUM(C12:N12)",
+      "category": "aggregation",
+      "references": [
+        "N12",
+        "C12"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O13",
+      "formula": "=SUM(C13:N13)",
+      "category": "aggregation",
+      "references": [
+        "N13",
+        "C13"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O14",
+      "formula": "=SUM(C14:N14)",
+      "category": "aggregation",
+      "references": [
+        "C14",
+        "N14"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "C15",
+      "formula": "=SUM(C8:C10)-SUM(C12:C14)",
+      "category": "aggregation",
+      "references": [
+        "C14",
+        "C8",
+        "C10",
+        "C12"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "D15",
+      "formula": "=SUM(D8:D10)-SUM(D12:D14)",
+      "category": "aggregation",
+      "references": [
+        "D12",
+        "D14",
+        "D10",
+        "D8"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "E15",
+      "formula": "=SUM(E8:E10)-SUM(E12:E14)",
+      "category": "aggregation",
+      "references": [
+        "E12",
+        "E14",
+        "E8",
+        "E10"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "F15",
+      "formula": "=SUM(F8:F10)-SUM(F12:F14)",
+      "category": "aggregation",
+      "references": [
+        "F8",
+        "F14",
+        "F10",
+        "F12"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "G15",
+      "formula": "=SUM(G8:G10)-SUM(G12:G14)",
+      "category": "aggregation",
+      "references": [
+        "G10",
+        "G8",
+        "G12",
+        "G14"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "H15",
+      "formula": "=SUM(H8:H10)-SUM(H12:H14)",
+      "category": "aggregation",
+      "references": [
+        "H12",
+        "H8",
+        "H10",
+        "H14"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "I15",
+      "formula": "=SUM(I8:I10)-SUM(I12:I14)",
+      "category": "aggregation",
+      "references": [
+        "I14",
+        "I12",
+        "I10",
+        "I8"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "J15",
+      "formula": "=SUM(J8:J10)-SUM(J12:J14)",
+      "category": "aggregation",
+      "references": [
+        "J14",
+        "J8",
+        "J12",
+        "J10"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "K15",
+      "formula": "=SUM(K8:K10)-SUM(K12:K14)",
+      "category": "aggregation",
+      "references": [
+        "K12",
+        "K10",
+        "K14",
+        "K8"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "L15",
+      "formula": "=SUM(L8:L10)-SUM(L12:L14)",
+      "category": "aggregation",
+      "references": [
+        "L10",
+        "L14",
+        "L8",
+        "L12"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "M15",
+      "formula": "=SUM(M8:M10)-SUM(M12:M14)",
+      "category": "aggregation",
+      "references": [
+        "M14",
+        "M8",
+        "M12",
+        "M10"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "N15",
+      "formula": "=SUM(N8:N10)-SUM(N12:N14)",
+      "category": "aggregation",
+      "references": [
+        "N12",
+        "N8",
+        "N10",
+        "N14"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O15",
+      "formula": "=SUM(C15:N15)",
+      "category": "aggregation",
+      "references": [
+        "N15",
+        "C15"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O19",
+      "formula": "=SUM(C19:N19)",
+      "category": "aggregation",
+      "references": [
+        "C19",
+        "N19"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O20",
+      "formula": "=SUM(C20:N20)",
+      "category": "aggregation",
+      "references": [
+        "C20",
+        "N20"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O21",
+      "formula": "=SUM(C21:N21)",
+      "category": "aggregation",
+      "references": [
+        "C21",
+        "N21"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O23",
+      "formula": "=SUM(C23:N23)",
+      "category": "aggregation",
+      "references": [
+        "C23",
+        "N23"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O24",
+      "formula": "=SUM(C24:N24)",
+      "category": "aggregation",
+      "references": [
+        "C24",
+        "N24"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O25",
+      "formula": "=SUM(C25:N25)",
+      "category": "aggregation",
+      "references": [
+        "N25",
+        "C25"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "C26",
+      "formula": "=SUM(C19:C21)-SUM(C23:C25)",
+      "category": "aggregation",
+      "references": [
+        "C19",
+        "C21",
+        "C23",
+        "C25"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "D26",
+      "formula": "=SUM(D19:D21)-SUM(D23:D25)",
+      "category": "aggregation",
+      "references": [
+        "D23",
+        "D19",
+        "D21",
+        "D25"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "E26",
+      "formula": "=SUM(E19:E21)-SUM(E23:E25)",
+      "category": "aggregation",
+      "references": [
+        "E25",
+        "E21",
+        "E23",
+        "E19"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "F26",
+      "formula": "=SUM(F19:F21)-SUM(F23:F25)",
+      "category": "aggregation",
+      "references": [
+        "F25",
+        "F19",
+        "F21",
+        "F23"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "G26",
+      "formula": "=SUM(G19:G21)-SUM(G23:G25)",
+      "category": "aggregation",
+      "references": [
+        "G23",
+        "G21",
+        "G19",
+        "G25"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "H26",
+      "formula": "=SUM(H19:H21)-SUM(H23:H25)",
+      "category": "aggregation",
+      "references": [
+        "H19",
+        "H21",
+        "H25",
+        "H23"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "I26",
+      "formula": "=SUM(I19:I21)-SUM(I23:I25)",
+      "category": "aggregation",
+      "references": [
+        "I25",
+        "I19",
+        "I21",
+        "I23"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "J26",
+      "formula": "=SUM(J19:J21)-SUM(J23:J25)",
+      "category": "aggregation",
+      "references": [
+        "J21",
+        "J19",
+        "J25",
+        "J23"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "K26",
+      "formula": "=SUM(K19:K21)-SUM(K23:K25)",
+      "category": "aggregation",
+      "references": [
+        "K19",
+        "K21",
+        "K23",
+        "K25"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "L26",
+      "formula": "=SUM(L19:L21)-SUM(L23:L25)",
+      "category": "aggregation",
+      "references": [
+        "L21",
+        "L25",
+        "L19",
+        "L23"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "M26",
+      "formula": "=SUM(M19:M21)-SUM(M23:M25)",
+      "category": "aggregation",
+      "references": [
+        "M25",
+        "M23",
+        "M19",
+        "M21"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "N26",
+      "formula": "=SUM(N19:N21)-SUM(N23:N25)",
+      "category": "aggregation",
+      "references": [
+        "N19",
+        "N23",
+        "N25",
+        "N21"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O26",
+      "formula": "=SUM(C26:N26)",
+      "category": "aggregation",
+      "references": [
+        "C26",
+        "N26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O30",
+      "formula": "=SUM(C30:N30)",
+      "category": "aggregation",
+      "references": [
+        "N30",
+        "C30"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O31",
+      "formula": "=SUM(C31:N31)",
+      "category": "aggregation",
+      "references": [
+        "N31",
+        "C31"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O32",
+      "formula": "=SUM(C32:N32)",
+      "category": "aggregation",
+      "references": [
+        "C32",
+        "N32"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O34",
+      "formula": "=SUM(C34:N34)",
+      "category": "aggregation",
+      "references": [
+        "N34",
+        "C34"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O35",
+      "formula": "=SUM(C35:N35)",
+      "category": "aggregation",
+      "references": [
+        "C35",
+        "N35"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "C36",
+      "formula": "=SUM(C30:C32)-SUM(C34:C35)",
+      "category": "aggregation",
+      "references": [
+        "C35",
+        "C32",
+        "C30",
+        "C34"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "D36",
+      "formula": "=SUM(D30:D32)-SUM(D34:D35)",
+      "category": "aggregation",
+      "references": [
+        "D35",
+        "D30",
+        "D34",
+        "D32"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "E36",
+      "formula": "=SUM(E30:E32)-SUM(E34:E35)",
+      "category": "aggregation",
+      "references": [
+        "E35",
+        "E34",
+        "E30",
+        "E32"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "F36",
+      "formula": "=SUM(F30:F32)-SUM(F34:F35)",
+      "category": "aggregation",
+      "references": [
+        "F30",
+        "F34",
+        "F35",
+        "F32"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "G36",
+      "formula": "=SUM(G30:G32)-SUM(G34:G35)",
+      "category": "aggregation",
+      "references": [
+        "G32",
+        "G30",
+        "G35",
+        "G34"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "H36",
+      "formula": "=SUM(H30:H32)-SUM(H34:H35)",
+      "category": "aggregation",
+      "references": [
+        "H35",
+        "H30",
+        "H34",
+        "H32"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "I36",
+      "formula": "=SUM(I30:I32)-SUM(I34:I35)",
+      "category": "aggregation",
+      "references": [
+        "I30",
+        "I34",
+        "I32",
+        "I35"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "J36",
+      "formula": "=SUM(J30:J32)-SUM(J34:J35)",
+      "category": "aggregation",
+      "references": [
+        "J35",
+        "J32",
+        "J34",
+        "J30"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "K36",
+      "formula": "=SUM(K30:K32)-SUM(K34:K35)",
+      "category": "aggregation",
+      "references": [
+        "K30",
+        "K35",
+        "K32",
+        "K34"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "L36",
+      "formula": "=SUM(L30:L32)-SUM(L34:L35)",
+      "category": "aggregation",
+      "references": [
+        "L34",
+        "L32",
+        "L30",
+        "L35"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "M36",
+      "formula": "=SUM(M30:M32)-SUM(M34:M35)",
+      "category": "aggregation",
+      "references": [
+        "M30",
+        "M34",
+        "M35",
+        "M32"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "N36",
+      "formula": "=SUM(N30:N32)-SUM(N34:N35)",
+      "category": "aggregation",
+      "references": [
+        "N30",
+        "N35",
+        "N32",
+        "N34"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O36",
+      "formula": "=SUM(C36:N36)",
+      "category": "aggregation",
+      "references": [
+        "N36",
+        "C36"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "C39",
+      "formula": "=SUM(C15,C26,C36)",
+      "category": "aggregation",
+      "references": [
+        "C15",
+        "C26",
+        "C36"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "D39",
+      "formula": "=SUM(D15,D26,D36)",
+      "category": "aggregation",
+      "references": [
+        "D26",
+        "D15",
+        "D36"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "E39",
+      "formula": "=SUM(E15,E26,E36)",
+      "category": "aggregation",
+      "references": [
+        "E15",
+        "E26",
+        "E36"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "F39",
+      "formula": "=SUM(F15,F26,F36)",
+      "category": "aggregation",
+      "references": [
+        "F36",
+        "F26",
+        "F15"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "G39",
+      "formula": "=SUM(G15,G26,G36)",
+      "category": "aggregation",
+      "references": [
+        "G36",
+        "G15",
+        "G26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "H39",
+      "formula": "=SUM(H15,H26,H36)",
+      "category": "aggregation",
+      "references": [
+        "H15",
+        "H36",
+        "H26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "I39",
+      "formula": "=SUM(I15,I26,I36)",
+      "category": "aggregation",
+      "references": [
+        "I36",
+        "I15",
+        "I26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "J39",
+      "formula": "=SUM(J15,J26,J36)",
+      "category": "aggregation",
+      "references": [
+        "J15",
+        "J36",
+        "J26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "K39",
+      "formula": "=SUM(K15,K26,K36)",
+      "category": "aggregation",
+      "references": [
+        "K36",
+        "K15",
+        "K26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "L39",
+      "formula": "=SUM(L15,L26,L36)",
+      "category": "aggregation",
+      "references": [
+        "L15",
+        "L36",
+        "L26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "M39",
+      "formula": "=SUM(M15,M26,M36)",
+      "category": "aggregation",
+      "references": [
+        "M26",
+        "M15",
+        "M36"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "N39",
+      "formula": "=SUM(N15,N26,N36)",
+      "category": "aggregation",
+      "references": [
+        "N36",
+        "N15",
+        "N26"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O39",
+      "formula": "=SUM(C39:N39)",
+      "category": "aggregation",
+      "references": [
+        "N39",
+        "C39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "D40",
+      "formula": "=C41",
+      "category": "other",
+      "references": [
+        "C41"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "E40",
+      "formula": "=D41",
+      "category": "other",
+      "references": [
+        "D41"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "F40",
+      "formula": "=E41",
+      "category": "other",
+      "references": [
+        "E41"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "G40",
+      "formula": "=F41",
+      "category": "other",
+      "references": [
+        "F41"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "H40",
+      "formula": "=G41",
+      "category": "other",
+      "references": [
+        "G41"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O40",
+      "formula": "=SUM(C40:N40)",
+      "category": "aggregation",
+      "references": [
+        "N40",
+        "C40"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "C41",
+      "formula": "=SUM(C39:C40)",
+      "category": "aggregation",
+      "references": [
+        "C39",
+        "C40"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "D41",
+      "formula": "=SUM(D39:D40)",
+      "category": "aggregation",
+      "references": [
+        "D40",
+        "D39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "E41",
+      "formula": "=SUM(E39:E40)",
+      "category": "aggregation",
+      "references": [
+        "E40",
+        "E39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "F41",
+      "formula": "=SUM(F39:F40)",
+      "category": "aggregation",
+      "references": [
+        "F40",
+        "F39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "G41",
+      "formula": "=SUM(G39:G40)",
+      "category": "aggregation",
+      "references": [
+        "G39",
+        "G40"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "H41",
+      "formula": "=SUM(H39:H40)",
+      "category": "aggregation",
+      "references": [
+        "H39",
+        "H40"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "I41",
+      "formula": "=SUM(I39:I40)",
+      "category": "aggregation",
+      "references": [
+        "I40",
+        "I39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "J41",
+      "formula": "=SUM(J39:J40)",
+      "category": "aggregation",
+      "references": [
+        "J40",
+        "J39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "K41",
+      "formula": "=SUM(K39:K40)",
+      "category": "aggregation",
+      "references": [
+        "K40",
+        "K39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "L41",
+      "formula": "=SUM(L39:L40)",
+      "category": "aggregation",
+      "references": [
+        "L40",
+        "L39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "M41",
+      "formula": "=SUM(M39:M40)",
+      "category": "aggregation",
+      "references": [
+        "M40",
+        "M39"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "N41",
+      "formula": "=SUM(N39:N40)",
+      "category": "aggregation",
+      "references": [
+        "N39",
+        "N40"
+      ]
+    },
+    {
+      "sheet": "Cash Flow",
+      "coordinate": "O41",
+      "formula": "=SUM(C41:N41)",
+      "category": "aggregation",
+      "references": [
+        "N41",
+        "C41"
+      ]
+    }
+  ],
+  "chart_definitions": [],
+  "conditional_formatting": [],
+  "data_validation": [],
+  "named_ranges": [],
+  "vba_macros": {
+    "has_macros": false
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "timestamp": "2025-07-26T13:28:30.171011",
+  "directory": "/Users/kevin/excel-unified/python-service/downloads/subcategory_collection/회계재무",
+  "total_files": 21,
+  "successful_repairs": 21,
+  "failed_repairs": 0,
+  "success_rate": 100.0,
+  "total_size_change": 26877,
+  "file_results": [
+    {
+      "filename": "template_374492.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13378,
+      "timestamp": "2025-07-26T13:28:08.448368"
+    },
+    {
+      "filename": "template_340071.xlsx",
+      "success": true,
+      "message": "수리 완료 - 18개 시트",
+      "size_change": 46338,
+      "timestamp": "2025-07-26T13:28:10.643050"
+    },
+    {
+      "filename": "template_374826.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13324,
+      "timestamp": "2025-07-26T13:28:10.869901"
+    },
+    {
+      "filename": "template_416498.xlsx",
+      "success": true,
+      "message": "수리 완료 - 14개 시트",
+      "size_change": 38493,
+      "timestamp": "2025-07-26T13:28:12.309963"
+    },
+    {
+      "filename": "template_331152.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13431,
+      "timestamp": "2025-07-26T13:28:12.516100"
+    },
+    {
+      "filename": "template_387120.xlsx",
+      "success": true,
+      "message": "수리 완료 - 3개 시트",
+      "size_change": -44094,
+      "timestamp": "2025-07-26T13:28:13.214467"
+    },
+    {
+      "filename": "template_340284.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "size_change": 48157,
+      "timestamp": "2025-07-26T13:28:15.487838"
+    },
+    {
+      "filename": "template_340070.xlsx",
+      "success": true,
+      "message": "수리 완료 - 17개 시트",
+      "size_change": 47503,
+      "timestamp": "2025-07-26T13:28:17.695493"
+    },
+    {
+      "filename": "template_378170.xlsx",
+      "success": true,
+      "message": "수리 완료 - 3개 시트",
+      "size_change": -47506,
+      "timestamp": "2025-07-26T13:28:18.358229"
+    },
+    {
+      "filename": "template_363131.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13200,
+      "timestamp": "2025-07-26T13:28:18.584358"
+    },
+    {
+      "filename": "template_340277.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "size_change": 0,
+      "timestamp": "2025-07-26T13:28:20.963860"
+    },
+    {
+      "filename": "template_377846.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13581,
+      "timestamp": "2025-07-26T13:28:21.167333"
+    },
+    {
+      "filename": "template_337002.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -12554,
+      "timestamp": "2025-07-26T13:28:21.360502"
+    },
+    {
+      "filename": "template_340257.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "size_change": 53366,
+      "timestamp": "2025-07-26T13:28:23.716073"
+    },
+    {
+      "filename": "template_382262.xlsx",
+      "success": true,
+      "message": "수리 완료 - 3개 시트",
+      "size_change": -33200,
+      "timestamp": "2025-07-26T13:28:24.454095"
+    },
+    {
+      "filename": "template_340274.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "size_change": 55353,
+      "timestamp": "2025-07-26T13:28:26.675523"
+    },
+    {
+      "filename": "template_382055.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13551,
+      "timestamp": "2025-07-26T13:28:26.886798"
+    },
+    {
+      "filename": "template_340280.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "size_change": -4,
+      "timestamp": "2025-07-26T13:28:29.217318"
+    },
+    {
+      "filename": "template_336955.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -12727,
+      "timestamp": "2025-07-26T13:28:29.420868"
+    },
+    {
+      "filename": "template_407906.xlsx",
+      "success": true,
+      "message": "수리 완료 - 3개 시트",
+      "size_change": -18232,
+      "timestamp": "2025-07-26T13:28:29.977601"
+    },
+    {
+      "filename": "template_336933.xlsx",
+      "success": true,
+      "message": "수리 완료 - 2개 시트",
+      "size_change": -13551,
+      "timestamp": "2025-07-26T13:28:30.170940"
+    }
+  ]
+}

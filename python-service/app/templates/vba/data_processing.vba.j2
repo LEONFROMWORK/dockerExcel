@@ -1,0 +1,129 @@
+Option Explicit
+
+'============================================
+' Data Processing Template
+' Generated on: {{ generated_at }}
+' Purpose: {{ purpose | default("Process and analyze data") }}
+'============================================
+
+Sub ProcessData()
+    {{ error_handling }}
+    
+    Dim wsSource As Worksheet
+    Dim wsOutput As Worksheet
+    Dim rngData As Range
+    Dim lastRow As Long
+    Dim lastCol As Long
+    
+    ' Set worksheets
+    Set wsSource = ThisWorkbook.Worksheets("{{ worksheet_name | default('Data') }}")
+    {% if output_worksheet %}
+    Set wsOutput = ThisWorkbook.Worksheets("{{ output_worksheet }}")
+    {% else %}
+    Set wsOutput = wsSource
+    {% endif %}
+    
+    ' Find data range
+    {% if data_range %}
+    Set rngData = wsSource.Range("{{ data_range }}")
+    {% else %}
+    lastRow = GetLastRow(wsSource, 1)
+    lastCol = GetLastColumn(wsSource, 1)
+    Set rngData = wsSource.Range(wsSource.Cells(1, 1), wsSource.Cells(lastRow, lastCol))
+    {% endif %}
+    
+    ' Process data
+    {% if operations %}
+    {% for operation in operations %}
+    {{ operation | indent(4) }}
+    {% endfor %}
+    {% else %}
+    ' Add your data processing logic here
+    Dim arrData As Variant
+    arrData = rngData.Value
+    
+    ' Example: Remove duplicates
+    RemoveDuplicatesFromArray arrData
+    
+    ' Example: Sort data
+    SortArray arrData, 1, xlAscending
+    
+    ' Write back to worksheet
+    {% if output_range %}
+    wsOutput.Range("{{ output_range }}").Resize(UBound(arrData, 1), UBound(arrData, 2)).Value = arrData
+    {% else %}
+    wsOutput.Range("A1").Resize(UBound(arrData, 1), UBound(arrData, 2)).Value = arrData
+    {% endif %}
+    {% endif %}
+    
+    MsgBox "Data processing completed successfully!", vbInformation
+    
+    Exit Sub
+ErrorHandler:
+    MsgBox "Error " & Err.Number & ": " & Err.Description, vbCritical
+End Sub
+
+' Helper Functions
+{{ common_functions }}
+
+Sub RemoveDuplicatesFromArray(ByRef arr As Variant)
+    ' Implementation for removing duplicates
+    Dim dict As Object
+    Set dict = CreateObject("Scripting.Dictionary")
+    
+    Dim i As Long, j As Long
+    Dim key As String
+    Dim newArr() As Variant
+    Dim newIndex As Long
+    
+    ' Build unique keys
+    For i = LBound(arr, 1) To UBound(arr, 1)
+        key = ""
+        For j = LBound(arr, 2) To UBound(arr, 2)
+            key = key & CStr(arr(i, j)) & "|"
+        Next j
+        
+        If Not dict.Exists(key) Then
+            dict.Add key, i
+        End If
+    Next i
+    
+    ' Rebuild array with unique values
+    ReDim newArr(1 To dict.Count, LBound(arr, 2) To UBound(arr, 2))
+    newIndex = 1
+    
+    Dim v As Variant
+    For Each v In dict.Items
+        For j = LBound(arr, 2) To UBound(arr, 2)
+            newArr(newIndex, j) = arr(v, j)
+        Next j
+        newIndex = newIndex + 1
+    Next v
+    
+    arr = newArr
+End Sub
+
+Sub SortArray(ByRef arr As Variant, sortColumn As Long, sortOrder As XlSortOrder)
+    ' Simple bubble sort implementation
+    Dim i As Long, j As Long, k As Long
+    Dim temp As Variant
+    Dim swap As Boolean
+    
+    For i = LBound(arr, 1) To UBound(arr, 1) - 1
+        swap = False
+        For j = LBound(arr, 1) To UBound(arr, 1) - i - 1
+            If (sortOrder = xlAscending And arr(j, sortColumn) > arr(j + 1, sortColumn)) Or _
+               (sortOrder = xlDescending And arr(j, sortColumn) < arr(j + 1, sortColumn)) Then
+                
+                ' Swap entire rows
+                For k = LBound(arr, 2) To UBound(arr, 2)
+                    temp = arr(j, k)
+                    arr(j, k) = arr(j + 1, k)
+                    arr(j + 1, k) = temp
+                Next k
+                swap = True
+            End If
+        Next j
+        If Not swap Then Exit For
+    Next i
+End Sub

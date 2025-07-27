@@ -1,0 +1,267 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg15
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-excel_unified}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-excel_unified_production}
+      # PostgreSQL performance tuning
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/postgres/postgresql.conf:/var/lib/postgresql/data/postgresql.conf:ro
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-excel_unified}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 768M
+          cpus: '1.0'
+        reservations:
+          memory: 384M
+          cpus: '0.5'
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+
+  redis:
+    image: redis:7-alpine
+    command: >
+      redis-server
+      --appendonly yes
+      --maxmemory 384mb
+      --maxmemory-policy allkeys-lru
+      --tcp-keepalive 60
+      --timeout 300
+      --maxclients 1000
+      --save 900 1 300 10 60 10000
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+          cpus: '0.5'
+        reservations:
+          memory: 192M
+          cpus: '0.25'
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  rails:
+    build:
+      context: ./rails-app
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 3.4.5
+        RAILS_ENV: production
+    command: ./bin/rails-server
+    volumes:
+      - ./rails-app/storage:/rails/storage
+      - ./rails-app/log:/rails/log
+    environment:
+      RAILS_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER:-excel_unified}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-excel_unified_production}
+      REDIS_URL: redis://redis:6379/0
+      PYTHON_SERVICE_URL: http://python:8000
+      RAILS_LOG_TO_STDOUT: "true"
+      RAILS_SERVE_STATIC_FILES: "true"
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      
+      # Performance settings
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY:-4}
+      RAILS_MAX_THREADS: ${RAILS_MAX_THREADS:-16}
+      RAILS_MIN_THREADS: ${RAILS_MIN_THREADS:-4}
+      
+      # OAuth settings
+      GOOGLE_OAUTH2_CLIENT_ID: ${GOOGLE_OAUTH2_CLIENT_ID}
+      GOOGLE_OAUTH2_CLIENT_SECRET: ${GOOGLE_OAUTH2_CLIENT_SECRET}
+      
+      # AI service settings
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      
+      # Production optimizations
+      RUBY_GC_HEAP_GROWTH_FACTOR: 1.1
+      RUBY_GC_HEAP_GROWTH_MAX_SLOTS: 10000
+      RUBY_GC_HEAP_INIT_SLOTS: 10000
+      RUBY_GC_MALLOC_LIMIT: 16000000
+      RUBY_GC_OLDMALLOC_LIMIT: 16000000
+      MALLOC_ARENA_MAX: 2
+      
+      # Rack/Puma optimizations
+      PUMA_WORKERS: ${PUMA_WORKERS:-4}
+      PUMA_MAX_THREADS: ${PUMA_MAX_THREADS:-16}
+      PUMA_MIN_THREADS: ${PUMA_MIN_THREADS:-4}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      python:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1.5G
+          cpus: '1.0'
+        reservations:
+          memory: 768M
+          cpus: '0.5'
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+  sidekiq:
+    build:
+      context: ./rails-app
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 3.4.5
+        RAILS_ENV: production
+    command: bundle exec sidekiq -c 5
+    volumes:
+      - ./rails-app/storage:/rails/storage
+      - ./rails-app/log:/rails/log
+    environment:
+      RAILS_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER:-excel_unified}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-excel_unified_production}
+      REDIS_URL: redis://redis:6379/0
+      PYTHON_SERVICE_URL: http://python:8000
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      
+      # AI service settings
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  python:
+    build:
+      context: ./python-service
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-excel_unified}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-excel_unified_production}
+      REDIS_URL: redis://redis:6379/0
+      PYTHONUNBUFFERED: 1
+      PYTHONPATH: /app
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      
+      # Python performance optimizations
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONHASHSEED: random
+      PYTHONIOENCODING: utf-8
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./rails-app/public:/rails/public:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+      - nginx_cache:/var/cache/nginx
+      - nginx_logs:/var/log/nginx
+    depends_on:
+      rails:
+        condition: service_healthy
+      python:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+    environment:
+      - NGINX_WORKER_PROCESSES=auto
+      - NGINX_WORKER_CONNECTIONS=4096
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  nginx_cache:
+    driver: local
+  nginx_logs:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

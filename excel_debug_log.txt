@@ -1,0 +1,110 @@
+
+📊 F7~F25 범위 특별 스캔:
+
+=== F7 셀 정보 ===
+  - _address: F7
+  - _value: {
+  "model": {
+    "address": "F7",
+    "value": "2/4분기",
+    "type": 3,
+    "style": {
+      "font": {
+        "bold": true,
+        "size": 10,
+        "color": {
+          "theme": 1
+        },
+        "name": "KoPub돋움체 Light",
+        "family": 1,
+        "charset": 129
+      },
+      "border": {
+        "left": {
+          "style": "thick",
+          "color": {
+            "argb": "FFFF0000"
+          }
+        },
+        "right": {
+          "style": "thick",
+          "color": {
+            "argb": "FFFF0000"
+          }
+        },
+        "top": {
+          "style": "thick",
+          "color": {
+            "argb": "FFFF0000"
+          }
+        },
+        "bottom": {
+          "style": "thin",
+          "color": {
+            "theme": 0,
+            "tint": -0.3499862666707358
+          }
+        }
+      },
+      "fill": {
+        "type": "pattern",
+        "pattern": "solid",
+        "fgColor": {
+          "theme": 2
+        },
+        "bgColor": {
+          "indexed": 64
+        }
+      },
+      "alignment": {
+        "horizontal": "center",
+        "vertical": "middle"
+      }
+    }
+  }
+}
+  - 셀 주소: F7
+
+⚠️ F7 셀 상세 분석 완료. 다른 셀들은 요약 정보만 표시됩니다.
+
+=== 🎨 셀 스타일 추출: F7 ===
+🔍 테두리 소스 검색 결과 (F7):
+✓ F7 top border applied: 4px solid #FF0000
+✓ F7 bottom border applied: 1px solid #A6A6A6
+✓ F7 left border applied: 4px solid #FF0000
+✓ F7 right border applied: 4px solid #FF0000
+
+📝 최종 스타일 (F7): background-color: #E7E6E6 !important; color: #000000 !important; font-weight: bold; font-size: 10pt; font-family: &quot;KoPub돋움체 Light&quot;, sans-serif; text-align: center; vertical-align: middle; border-top: 4px solid #FF0000 !important; border-bottom: 1px solid #A6A6A6 !important; border-left: 4px solid #FF0000 !important; border-right: 4px solid #FF0000 !important; padding: 8px
+✅ 테두리 적용됨: F7
+
+🏗️ HTML 생성 - F7:
+🔍 F7 실제 생성된 HTML:
+<td class="data-cell " 
+                 data-cell="F7" 
+                 data-row="7" 
+                 data-col="6"
+                 title="F7: 2/4분기"
+                 style="background-color: #E7E6E6 !important; color: #000000 !important; font-weight: bold; font-size: 10pt; font-family: &quot;KoPub돋움체 Light&quot;, sans-serif; text-align: center; vertical-align: middle; border-top: 4px solid #FF0000 !important; border-bottom: 1px solid #A6A6A6 !important; border-left: 4px solid #FF0000 !important; border-right: 4px solid #FF0000 !important; padding: 8px"
+                  rowspan="2">
+                 2/4분기
+               </td>
+🔍 테두리 소스 검색 결과 (F9):
+🔍 테두리 소스 검색 결과 (F10):
+🔍 테두리 소스 검색 결과 (F11):
+🔍 테두리 소스 검색 결과 (F12):
+🔍 테두리 소스 검색 결과 (F13):
+🔍 테두리 소스 검색 결과 (F14):
+🔍 테두리 소스 검색 결과 (F15):
+🔍 테두리 소스 검색 결과 (F16):
+🔍 테두리 소스 검색 결과 (F17):
+🔍 테두리 소스 검색 결과 (F18):
+🔍 테두리 소스 검색 결과 (F19):
+🔍 테두리 소스 검색 결과 (F20):
+🔍 테두리 소스 검색 결과 (F21):
+🔍 테두리 소스 검색 결과 (F22):
+🔍 테두리 소스 검색 결과 (F23):
+🔍 테두리 소스 검색 결과 (F24):
+🔍 테두리 소스 검색 결과 (F25):
+
+🔍 F7 DOM 검사:
+✅ F7: !important 테두리 스타일 감지됨

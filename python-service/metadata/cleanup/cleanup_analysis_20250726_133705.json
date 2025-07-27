@@ -1,0 +1,348 @@
+{
+  "timestamp": "2025-07-26T13:37:05.204248",
+  "folder_analysis": {
+    "downloads": {
+      "korean_templates": {
+        "file_count": 0,
+        "total_size": 6148,
+        "path": "/Users/kevin/excel-unified/python-service/downloads/korean_templates",
+        "last_modified": 1753497800.4287763
+      },
+      "simple_reliable_collection": {
+        "file_count": 115,
+        "total_size": 94190450,
+        "path": "/Users/kevin/excel-unified/python-service/downloads/simple_reliable_collection",
+        "last_modified": 1753466922.3651612
+      },
+      "subcategory_collection": {
+        "file_count": 178,
+        "total_size": 22421968,
+        "path": "/Users/kevin/excel-unified/python-service/downloads/subcategory_collection",
+        "last_modified": 1753498659.82386
+      },
+      "mass_korean_collection": {
+        "file_count": 0,
+        "total_size": 12296,
+        "path": "/Users/kevin/excel-unified/python-service/downloads/mass_korean_collection",
+        "last_modified": 1753497800.429871
+      },
+      "specialized_categories": {
+        "file_count": 8,
+        "total_size": 55401560,
+        "path": "/Users/kevin/excel-unified/python-service/downloads/specialized_categories",
+        "last_modified": 1753497800.4332738
+      },
+      "complete_korean_collection": {
+        "file_count": 2,
+        "total_size": 15013,
+        "path": "/Users/kevin/excel-unified/python-service/downloads/complete_korean_collection",
+        "last_modified": 1753497800.436694
+      }
+    },
+    "metadata": {
+      "file_analysis": {
+        "file_count": 2,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/file_analysis",
+        "last_modified": 1753503632.1827505
+      },
+      "korean_templates": {
+        "file_count": 10,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates",
+        "last_modified": 1753452948.5496833
+      },
+      "category_analysis": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/category_analysis",
+        "last_modified": 1753495374.2042143
+      },
+      "realtime_korean_collection": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/realtime_korean_collection",
+        "last_modified": 1753460552.7343495
+      },
+      "mass_korean_collection": {
+        "file_count": 9,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/mass_korean_collection",
+        "last_modified": 1753464350.810267
+      },
+      "file_descriptions": {
+        "file_count": 54,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions",
+        "last_modified": 1753470264.4511328
+      },
+      "alternative_korean_collection": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/alternative_korean_collection",
+        "last_modified": 1753460983.3427162
+      },
+      "cleanup": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/cleanup",
+        "last_modified": 1753497740.4026573
+      },
+      "advanced_repair": {
+        "file_count": 2,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/advanced_repair",
+        "last_modified": 1753504442.9314413
+      },
+      "korean_templates_comprehensive": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_comprehensive",
+        "last_modified": 1753460017.8350408
+      },
+      "complete_korean_collection": {
+        "file_count": 2,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/complete_korean_collection",
+        "last_modified": 1753465152.854733
+      },
+      "analysis_results": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/analysis_results",
+        "last_modified": 1753504049.9824042
+      },
+      "enhanced_stealth_collection": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/enhanced_stealth_collection",
+        "last_modified": 1753461527.746214
+      },
+      "full_iframe_collection": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/full_iframe_collection",
+        "last_modified": 1753461652.2710934
+      },
+      "subcategory_check": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/subcategory_check",
+        "last_modified": 1753498470.913227
+      },
+      "korean_templates_full": {
+        "file_count": 4,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_full",
+        "last_modified": 1753459846.2140396
+      },
+      "korean_templates_playwright": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_playwright",
+        "last_modified": 1753453451.5536115
+      },
+      "finance_check": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/finance_check",
+        "last_modified": 1753498254.4264798
+      },
+      "repair_results": {
+        "file_count": 2,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/repair_results",
+        "last_modified": 1753504110.1710587
+      },
+      "stealth_korean_collection": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/stealth_korean_collection",
+        "last_modified": 1753461356.2547424
+      },
+      "fundamental_solution_collection": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/fundamental_solution_collection",
+        "last_modified": 1753466787.1402054
+      },
+      "robust_korean_collection": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/robust_korean_collection",
+        "last_modified": 1753460477.8398035
+      },
+      "validation": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/metadata/validation",
+        "last_modified": 1753496990.338467
+      }
+    },
+    "reports": {
+      "korean_templates": {
+        "file_count": 10,
+        "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates",
+        "last_modified": 1753452948.5526283
+      },
+      "korean_templates_comprehensive": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_comprehensive",
+        "last_modified": 1753460017.8357186
+      },
+      "korean_templates_full": {
+        "file_count": 1,
+        "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_full",
+        "last_modified": 1753459846.214905
+      },
+      "korean_templates_playwright": {
+        "file_count": 0,
+        "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_playwright",
+        "last_modified": 1753453451.5538213
+      }
+    },
+    "temp_folders": [],
+    "recommendations": []
+  },
+  "recommendations": [
+    {
+      "type": "delete",
+      "folder": "korean_templates",
+      "path": "/Users/kevin/excel-unified/python-service/downloads/korean_templates",
+      "reason": "파일 수가 적음 (0개) - 최종 컬렉션 대비 0.0%",
+      "file_count": 0,
+      "size_mb": 0.005863189697265625
+    },
+    {
+      "type": "delete",
+      "folder": "mass_korean_collection",
+      "path": "/Users/kevin/excel-unified/python-service/downloads/mass_korean_collection",
+      "reason": "파일 수가 적음 (0개) - 최종 컬렉션 대비 0.0%",
+      "file_count": 0,
+      "size_mb": 0.01172637939453125
+    },
+    {
+      "type": "delete",
+      "folder": "specialized_categories",
+      "path": "/Users/kevin/excel-unified/python-service/downloads/specialized_categories",
+      "reason": "파일 수가 적음 (8개) - 최종 컬렉션 대비 4.5%",
+      "file_count": 8,
+      "size_mb": 52.835044860839844
+    },
+    {
+      "type": "delete",
+      "folder": "complete_korean_collection",
+      "path": "/Users/kevin/excel-unified/python-service/downloads/complete_korean_collection",
+      "reason": "파일 수가 적음 (2개) - 최종 컬렉션 대비 1.1%",
+      "file_count": 2,
+      "size_mb": 0.014317512512207031
+    },
+    {
+      "type": "delete",
+      "folder": "realtime_korean_collection",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/realtime_korean_collection",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "delete",
+      "folder": "alternative_korean_collection",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/alternative_korean_collection",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "delete",
+      "folder": "full_iframe_collection",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/full_iframe_collection",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "delete",
+      "folder": "korean_templates_playwright",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_playwright",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "delete",
+      "folder": "stealth_korean_collection",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/stealth_korean_collection",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "delete",
+      "folder": "fundamental_solution_collection",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/fundamental_solution_collection",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "delete",
+      "folder": "korean_templates_playwright",
+      "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_playwright",
+      "reason": "빈 폴더",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates",
+      "path": "/Users/kevin/excel-unified/python-service/downloads/korean_templates",
+      "reason": "임시/중간 결과 폴더 (korean_templates)",
+      "file_count": 0,
+      "size_mb": 0.005863189697265625
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates",
+      "reason": "임시/중간 결과 폴더 (korean_templates)",
+      "file_count": 10,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates_comprehensive",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_comprehensive",
+      "reason": "임시/중간 결과 폴더 (korean_templates_comprehensive)",
+      "file_count": 1,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates_full",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_full",
+      "reason": "임시/중간 결과 폴더 (korean_templates_full)",
+      "file_count": 4,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates_playwright",
+      "path": "/Users/kevin/excel-unified/python-service/metadata/korean_templates_playwright",
+      "reason": "임시/중간 결과 폴더 (korean_templates_playwright)",
+      "file_count": 0,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates",
+      "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates",
+      "reason": "임시/중간 결과 폴더 (korean_templates)",
+      "file_count": 10,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates_comprehensive",
+      "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_comprehensive",
+      "reason": "임시/중간 결과 폴더 (korean_templates_comprehensive)",
+      "file_count": 1,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates_full",
+      "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_full",
+      "reason": "임시/중간 결과 폴더 (korean_templates_full)",
+      "file_count": 1,
+      "size_mb": 0
+    },
+    {
+      "type": "archive",
+      "folder": "korean_templates_playwright",
+      "path": "/Users/kevin/excel-unified/python-service/reports/korean_templates_playwright",
+      "reason": "임시/중간 결과 폴더 (korean_templates_playwright)",
+      "file_count": 0,
+      "size_mb": 0
+    }
+  ],
+  "total_space_to_save_mb": 52.86695194244385,
+  "total_folders_to_clean": 20
+}

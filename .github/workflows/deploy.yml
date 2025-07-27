@@ -1,0 +1,201 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  KUBECTL_VERSION: '1.28.0'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'production' }}
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    
+    - name: Install kubectl
+      run: |
+        curl -LO "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin/
+    
+    - name: Update kubeconfig
+      run: |
+        aws eks update-kubeconfig --name excel-unified-cluster --region ${{ secrets.AWS_REGION }}
+    
+    - name: Install Helm
+      uses: azure/setup-helm@v3
+      with:
+        version: '3.12.0'
+    
+    - name: Log in to Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Create namespace
+      run: |
+        kubectl apply -f kubernetes/namespace.yaml
+    
+    - name: Create secrets
+      run: |
+        kubectl create secret generic excel-unified-secrets \
+          --from-literal=db-password=${{ secrets.DB_PASSWORD }} \
+          --from-literal=redis-password=${{ secrets.REDIS_PASSWORD }} \
+          --from-literal=openai-api-key=${{ secrets.OPENAI_API_KEY }} \
+          --from-literal=secret-key=${{ secrets.SECRET_KEY }} \
+          --from-literal=secret-key-base=${{ secrets.SECRET_KEY_BASE }} \
+          --from-literal=grafana-user=${{ secrets.GRAFANA_USER }} \
+          --from-literal=grafana-password=${{ secrets.GRAFANA_PASSWORD }} \
+          -n excel-unified \
+          --dry-run=client -o yaml | kubectl apply -f -
+    
+    - name: Apply ConfigMaps
+      run: |
+        kubectl apply -f kubernetes/configmap.yaml
+    
+    - name: Deploy database
+      run: |
+        kubectl apply -f kubernetes/postgres.yaml
+        kubectl wait --for=condition=ready pod -l app=postgres -n excel-unified --timeout=300s
+    
+    - name: Deploy Redis
+      run: |
+        kubectl apply -f kubernetes/redis.yaml
+        kubectl wait --for=condition=ready pod -l app=redis -n excel-unified --timeout=300s
+    
+    - name: Run database migrations
+      run: |
+        kubectl apply -f - <<EOF
+        apiVersion: batch/v1
+        kind: Job
+        metadata:
+          name: rails-migrate-$(date +%s)
+          namespace: excel-unified
+        spec:
+          template:
+            spec:
+              restartPolicy: Never
+              containers:
+              - name: migrate
+                image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-rails:${{ github.sha }}
+                command: ['bundle', 'exec', 'rails', 'db:migrate']
+                env:
+                - name: RAILS_ENV
+                  value: production
+                - name: DATABASE_URL
+                  value: postgresql://excel_user:\$(DB_PASSWORD)@postgres-service:5432/excel_unified
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: excel-unified-secrets
+                      key: db-password
+        EOF
+        kubectl wait --for=condition=complete job/rails-migrate-* -n excel-unified --timeout=300s
+    
+    - name: Deploy FastAPI
+      run: |
+        kubectl set image deployment/fastapi fastapi=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-fastapi:${{ github.sha }} -n excel-unified || \
+        kubectl apply -f kubernetes/fastapi.yaml
+        kubectl rollout status deployment/fastapi -n excel-unified
+    
+    - name: Deploy Rails
+      run: |
+        kubectl set image deployment/rails rails=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-rails:${{ github.sha }} -n excel-unified || \
+        kubectl apply -f kubernetes/rails.yaml
+        kubectl rollout status deployment/rails -n excel-unified
+    
+    - name: Deploy Sidekiq
+      run: |
+        kubectl set image deployment/sidekiq sidekiq=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-rails:${{ github.sha }} -n excel-unified || \
+        kubectl apply -f kubernetes/sidekiq.yaml
+        kubectl rollout status deployment/sidekiq -n excel-unified
+    
+    - name: Deploy Nginx
+      run: |
+        kubectl apply -f kubernetes/nginx.yaml
+        kubectl rollout status deployment/nginx -n excel-unified
+    
+    - name: Deploy monitoring
+      run: |
+        kubectl apply -f kubernetes/monitoring.yaml
+    
+    - name: Apply network policies
+      run: |
+        kubectl apply -f kubernetes/network-policies.yaml
+    
+    - name: Apply ingress
+      run: |
+        kubectl apply -f kubernetes/ingress.yaml
+    
+    - name: Run smoke tests
+      run: |
+        kubectl run smoke-test --image=curlimages/curl:latest --rm -it --restart=Never -- \
+          sh -c "curl -f http://nginx-service/health && curl -f http://fastapi-service:8000/health"
+    
+    - name: Notify deployment status
+      if: always()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        text: |
+          Deployment to ${{ github.event.inputs.environment || 'production' }} ${{ job.status }}
+          Commit: ${{ github.sha }}
+          Author: ${{ github.actor }}
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+
+  rollback:
+    needs: deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    
+    - name: Update kubeconfig
+      run: |
+        aws eks update-kubeconfig --name excel-unified-cluster --region ${{ secrets.AWS_REGION }}
+    
+    - name: Rollback deployments
+      run: |
+        kubectl rollout undo deployment/fastapi -n excel-unified
+        kubectl rollout undo deployment/rails -n excel-unified
+        kubectl rollout undo deployment/sidekiq -n excel-unified
+    
+    - name: Notify rollback
+      uses: 8398a7/action-slack@v3
+      with:
+        status: custom
+        custom_payload: |
+          {
+            text: "Deployment rollback initiated for ${{ github.event.inputs.environment || 'production' }}"
+          }
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}

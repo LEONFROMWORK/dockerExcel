@@ -1,0 +1,315 @@
+{
+  "timestamp": "2025-07-26T13:53:04.729179",
+  "promotional_files_found": 41,
+  "files_to_delete": [],
+  "files_to_clean": [],
+  "promotional_content_details": [
+    {
+      "file": "/Users/kevin/excel-unified/python-service/analyze_problematic_file.py",
+      "type": "python",
+      "promotional_lines": [
+        [
+          219,
+          "print(f\"   다운로드 URL: https://excel.yesform.com/z_n/forms/dw_form.php?mtbl=form&rowid=340277&type=xlsm\")"
+        ]
+      ]
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/delete_yesform_promotional_content.py",
+      "type": "python",
+      "promotional_lines": [
+        [
+          24,
+          "'무료 서식',"
+        ],
+        [
+          25,
+          "'엑셀 서식',"
+        ],
+        [
+          26,
+          "'업무용 서식'"
+        ]
+      ]
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/missing_category_collector.py",
+      "type": "python",
+      "promotional_lines": [
+        [
+          26,
+          "{'main': '업무템플릿', 'sub': '회계재무', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D02'},"
+        ],
+        [
+          27,
+          "{'main': '업무템플릿', 'sub': '영업마케팅', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D03'},"
+        ],
+        [
+          28,
+          "{'main': '업무템플릿', 'sub': '인사총무', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D04'},"
+        ],
+        [
+          29,
+          "{'main': '업무템플릿', 'sub': '생산품질', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D05'},"
+        ],
+        [
+          30,
+          "{'main': '업무템플릿', 'sub': '구매자재', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D06'},"
+        ],
+        [
+          31,
+          "{'main': '업무템플릿', 'sub': '기획관리', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D07'},"
+        ]
+      ]
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/specialized_category_collector.py",
+      "type": "python",
+      "promotional_lines": [
+        [
+          26,
+          "{'main': '업무템플릿', 'sub': '회계재무', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D02'},"
+        ],
+        [
+          27,
+          "{'main': '업무템플릿', 'sub': '영업마케팅', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D03'},"
+        ],
+        [
+          28,
+          "{'main': '업무템플릿', 'sub': '인사총무', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D04'},"
+        ],
+        [
+          29,
+          "{'main': '업무템플릿', 'sub': '생산품질', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D05'},"
+        ],
+        [
+          30,
+          "{'main': '업무템플릿', 'sub': '구매자재', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D06'},"
+        ],
+        [
+          31,
+          "{'main': '업무템플릿', 'sub': '기획관리', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D07'},"
+        ]
+      ]
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/complete_download_collector.py",
+      "type": "python",
+      "promotional_lines": [
+        [
+          111,
+          "{'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11', 'category': '업무템플릿'},"
+        ],
+        [
+          134,
+          "{'url': f'https://excel.yesform.com/docs/formList.php?division=A12B11&sort={sort}', 'category': '업무템플릿'},"
+        ]
+      ]
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/analyze_empty_categories.py",
+      "type": "python",
+      "promotional_lines": [
+        [
+          21,
+          "{'name': '업무템플릿/회계재무', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D02'},"
+        ],
+        [
+          22,
+          "{'name': '업무템플릿/영업마케팅', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D03'},"
+        ],
+        [
+          23,
+          "{'name': '업무템플릿/인사총무', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D04'},"
+        ],
+        [
+          24,
+          "{'name': '업무템플릿/생산품질', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D05'},"
+        ],
+        [
+          25,
+          "{'name': '업무템플릿/구매자재', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D06'},"
+        ],
+        [
+          26,
+          "{'name': '업무템플릿/기획관리', 'url': 'https://excel.yesform.com/docs/formList.php?division=A12B11D07'},"
+        ]
+      ]
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/FINAL_COLLECTION_REPORT.md",
+      "type": "markdown",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/korean_templates/crawling_results_20250725_223527.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/korean_templates/crawling_results_20250725_224148.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/korean_templates/crawling_results_20250725_223827.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/korean_templates/crawling_results_20250725_231548.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_020645.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/mass_collection_results_20250726_022550.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_022537.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_022405.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_022451.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_020323.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_021231.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/archived/mass_korean_collection/intermediate_results_20250726_021959.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/category_analysis/empty_category_analysis_20250726_110254.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_110_20250726_040233.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_40_20250726_035420.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_30_20250726_035317.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_50_20250726_035520.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_final_20250726_040424.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_100_20250726_040134.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_80_20250726_035933.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_10_20250726_034517.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_90_20250726_040031.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_30_20250726_034717.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_20_20250726_034617.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_40_20250726_034818.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_70_20250726_035806.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_50_20250726_034919.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_20_20250726_035215.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_60_20250726_035643.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_10_20250726_035115.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/file_descriptions/file_descriptions_intermediate_120_20250726_040331.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/complete_korean_collection/intermediate_results_20250726_022852.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/complete_korean_collection/intermediate_results_20250726_023912.json",
+      "type": "json",
+      "has_yesform_content": true
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/metadata/subcategory_check/missing_subcategories.json",
+      "type": "json",
+      "has_yesform_content": true
+    }
+  ]
+}

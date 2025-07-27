@@ -1,0 +1,46 @@
+# Railway configuration for multi-service deployment
+
+[build]
+builder = "nixpacks"
+
+[deploy]
+numReplicas = 1
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on-failure"
+restartPolicyMaxRetries = 10
+
+# Service definitions
+[[services]]
+name = "rails-app"
+root = "rails-app"
+startCommand = "bundle exec rails server -b 0.0.0.0 -p $PORT"
+healthcheckPath = "/up"
+healthcheckTimeout = 30
+
+[[services.envs]]
+name = "RAILS_ENV"
+value = "production"
+
+[[services.envs]]
+name = "RAILS_SERVE_STATIC_FILES"
+value = "true"
+
+[[services.envs]]
+name = "RAILS_LOG_TO_STDOUT"
+value = "true"
+
+[[services]]
+name = "python-service"
+root = "python-service"
+startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+
+[[services.envs]]
+name = "ENVIRONMENT"
+value = "production"
+
+[[services.envs]]
+name = "LOG_LEVEL"
+value = "INFO"

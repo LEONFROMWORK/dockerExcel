@@ -1,0 +1,418 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-01-25",
+  "categories": {
+    "financial_statements": {
+      "name": "재무제표",
+      "description": "손익계산서, 대차대조표, 현금흐름표 등 재무제표 템플릿",
+      "icon": "📊",
+      "priority": 10
+    },
+    "analytics_dashboard": {
+      "name": "분석 대시보드", 
+      "description": "데이터 분석 및 시각화를 위한 대시보드 템플릿",
+      "icon": "📈",
+      "priority": 9
+    },
+    "project_management": {
+      "name": "프로젝트 관리",
+      "description": "프로젝트 계획, 진행률 추적, 리소스 관리 템플릿",
+      "icon": "📋",
+      "priority": 8
+    },
+    "hr_management": {
+      "name": "인사관리",
+      "description": "직원 관리, 급여, 성과 평가 등 인사 관련 템플릿",
+      "icon": "👥",
+      "priority": 7
+    },
+    "marketing_reports": {
+      "name": "마케팅 보고서",
+      "description": "캠페인 성과, 고객 분석, ROI 측정 등 마케팅 템플릿",
+      "icon": "📢",
+      "priority": 6
+    },
+    "inventory_management": {
+      "name": "재고관리",
+      "description": "재고 추적, 입출고 관리, 발주 계획 템플릿",
+      "icon": "📦",
+      "priority": 5
+    },
+    "budget_planning": {
+      "name": "예산계획",
+      "description": "예산 수립, 비용 추적, 예산 대비 실적 분석 템플릿",
+      "icon": "💰",
+      "priority": 4
+    },
+    "academic_research": {
+      "name": "학술연구",
+      "description": "연구 데이터 분석, 통계 처리, 논문 자료 정리 템플릿",
+      "icon": "🎓",
+      "priority": 3
+    }
+  },
+  "templates": {
+    "quarterly_financial_report": {
+      "id": "quarterly_financial_report",
+      "name": "분기별 재무보고서",
+      "description": "분기별 손익, 매출, 비용 분석을 위한 종합 재무보고서 템플릿",
+      "category": "financial_statements",
+      "complexity_score": 9,
+      "recommended_tier": "pro",
+      "triggers": [
+        "분기", "재무", "손익", "매출", "수익", "비용", "이익", "영업이익", 
+        "당기순이익", "quarterly", "financial", "revenue", "profit", "income"
+      ],
+      "industry_tags": ["finance", "accounting", "business", "corporate"],
+      "data_requirements": {
+        "numeric_columns": {
+          "min": 4,
+          "preferred": 8,
+          "description": "매출, 비용, 이익 등 숫자 데이터 컬럼"
+        },
+        "date_column": {
+          "required": true,
+          "description": "날짜 또는 기간 정보"
+        },
+        "min_rows": 10,
+        "preferred_rows": 50,
+        "category_column": {
+          "required": true,
+          "description": "계정과목, 비용항목 등 카테고리 정보"
+        }
+      },
+      "template_file": "quarterly_financial_report.xlsx",
+      "preview_image": "quarterly_financial_preview.png",
+      "features": [
+        "자동 합계 계산",
+        "전기 대비 증감률",
+        "시각적 차트 포함",
+        "피벗테이블 분석",
+        "예산 대비 실적"
+      ],
+      "output_format": {
+        "charts": ["line", "column", "pie"],
+        "pivot_tables": 2,
+        "summary_sheets": 1,
+        "detail_sheets": 3
+      }
+    },
+    "sales_performance_dashboard": {
+      "id": "sales_performance_dashboard",
+      "name": "영업 성과 대시보드",
+      "description": "영업팀 성과 추적 및 분석을 위한 종합 대시보드",
+      "category": "analytics_dashboard", 
+      "complexity_score": 8,
+      "recommended_tier": "basic",
+      "triggers": [
+        "영업", "판매", "성과", "실적", "목표", "달성률", "sales", "performance", 
+        "target", "achievement", "dashboard", "kpi", "지표"
+      ],
+      "industry_tags": ["sales", "retail", "business", "marketing"],
+      "data_requirements": {
+        "numeric_columns": {
+          "min": 3,
+          "preferred": 6,
+          "description": "판매량, 매출, 목표 등 숫자 데이터"
+        },
+        "date_column": {
+          "required": true,
+          "description": "판매 날짜 또는 기간"
+        },
+        "min_rows": 20,
+        "preferred_rows": 100,
+        "salesperson_column": {
+          "required": false,
+          "description": "영업사원 또는 지역 정보"
+        }
+      },
+      "template_file": "sales_performance_dashboard.xlsx",
+      "preview_image": "sales_dashboard_preview.png",
+      "features": [
+        "실시간 성과 추적",
+        "목표 대비 실적",
+        "순위 및 랭킹",
+        "트렌드 분석",
+        "지역별 성과"
+      ],
+      "output_format": {
+        "charts": ["line", "column", "scatter"],
+        "pivot_tables": 1,
+        "summary_sheets": 1,
+        "detail_sheets": 2
+      }
+    },
+    "project_timeline_tracker": {
+      "id": "project_timeline_tracker", 
+      "name": "프로젝트 일정 추적",
+      "description": "프로젝트 마일스톤, 작업 진행률, 리소스 배분 관리 템플릿",
+      "category": "project_management",
+      "complexity_score": 7,
+      "recommended_tier": "basic",
+      "triggers": [
+        "프로젝트", "일정", "계획", "진행률", "마일스톤", "작업", "project", 
+        "timeline", "schedule", "milestone", "task", "gantt", "progress"
+      ],
+      "industry_tags": ["project", "management", "planning", "construction"],
+      "data_requirements": {
+        "date_columns": {
+          "min": 2,
+          "description": "시작일, 종료일"
+        },
+        "text_columns": {
+          "min": 2,
+          "description": "작업명, 담당자"
+        },
+        "min_rows": 5,
+        "preferred_rows": 30,
+        "progress_column": {
+          "required": false,
+          "description": "진행률 정보"
+        }
+      },
+      "template_file": "project_timeline_tracker.xlsx",
+      "preview_image": "project_timeline_preview.png",
+      "features": [
+        "간트 차트 시각화",
+        "진행률 추적",
+        "마일스톤 관리",
+        "리소스 배분",
+        "지연 작업 알림"
+      ],
+      "output_format": {
+        "charts": ["gantt", "column"],
+        "conditional_formatting": true,
+        "summary_sheets": 1,
+        "detail_sheets": 1
+      }
+    },
+    "employee_performance_review": {
+      "id": "employee_performance_review",
+      "name": "직원 성과 평가",
+      "description": "직원 성과 평가, 목표 설정, 피드백 관리 템플릿",
+      "category": "hr_management",
+      "complexity_score": 6,
+      "recommended_tier": "pro",
+      "triggers": [
+        "성과", "평가", "직원", "인사", "목표", "피드백", "performance", 
+        "review", "employee", "hr", "evaluation", "appraisal"
+      ],
+      "industry_tags": ["hr", "human_resources", "management", "evaluation"],
+      "data_requirements": {
+        "text_columns": {
+          "min": 3,
+          "description": "직원명, 부서, 직급"
+        },
+        "numeric_columns": {
+          "min": 2,
+          "description": "평가 점수, 목표 달성률"
+        },
+        "min_rows": 5,
+        "preferred_rows": 50
+      },
+      "template_file": "employee_performance_review.xlsx",
+      "preview_image": "hr_performance_preview.png",
+      "features": [
+        "다면 평가 시스템",
+        "목표 vs 실적",
+        "역량 평가",
+        "성장 계획",
+        "보상 연계"
+      ],
+      "output_format": {
+        "charts": ["radar", "column"],
+        "pivot_tables": 1,
+        "summary_sheets": 1,
+        "detail_sheets": 2
+      }
+    },
+    "marketing_campaign_analysis": {
+      "id": "marketing_campaign_analysis",
+      "name": "마케팅 캠페인 분석",
+      "description": "캠페인 성과, ROI, 고객 반응 분석 템플릿",
+      "category": "marketing_reports",
+      "complexity_score": 7,
+      "recommended_tier": "basic",
+      "triggers": [
+        "마케팅", "캠페인", "광고", "roi", "클릭", "전환", "marketing", 
+        "campaign", "advertising", "conversion", "ctr", "roas"
+      ],
+      "industry_tags": ["marketing", "advertising", "digital", "analytics"],
+      "data_requirements": {
+        "numeric_columns": {
+          "min": 4,
+          "description": "노출수, 클릭수, 전환수, 비용"
+        },
+        "date_column": {
+          "required": true,
+          "description": "캠페인 기간"
+        },
+        "min_rows": 10,
+        "preferred_rows": 100,
+        "campaign_column": {
+          "required": true,
+          "description": "캠페인명 또는 채널"
+        }
+      },
+      "template_file": "marketing_campaign_analysis.xlsx",
+      "preview_image": "marketing_analysis_preview.png",
+      "features": [
+        "ROI 자동 계산",
+        "채널별 성과 비교",
+        "퍼널 분석",
+        "비용 효율성",
+        "트렌드 예측"
+      ],
+      "output_format": {
+        "charts": ["line", "funnel", "pie"],
+        "pivot_tables": 2,
+        "summary_sheets": 1,
+        "detail_sheets": 2
+      }
+    },
+    "inventory_stock_management": {
+      "id": "inventory_stock_management",
+      "name": "재고 관리",
+      "description": "재고 수준, 입출고, 발주점 관리 템플릿",
+      "category": "inventory_management",
+      "complexity_score": 6,
+      "recommended_tier": "basic",
+      "triggers": [
+        "재고", "입고", "출고", "발주", "재고량", "inventory", "stock", 
+        "warehouse", "supply", "order", "reorder"
+      ],
+      "industry_tags": ["retail", "manufacturing", "logistics", "supply_chain"],
+      "data_requirements": {
+        "text_columns": {
+          "min": 2,
+          "description": "제품명, 카테고리"
+        },
+        "numeric_columns": {
+          "min": 3,
+          "description": "현재고, 입고량, 출고량"
+        },
+        "min_rows": 10,
+        "preferred_rows": 200
+      },
+      "template_file": "inventory_management.xlsx",
+      "preview_image": "inventory_preview.png",
+      "features": [
+        "재고 부족 알림",
+        "회전율 계산",
+        "발주점 관리",
+        "ABC 분석",
+        "재고 가치 평가"
+      ],
+      "output_format": {
+        "charts": ["column", "area"],
+        "conditional_formatting": true,
+        "summary_sheets": 1,
+        "detail_sheets": 1
+      }
+    },
+    "annual_budget_planning": {
+      "id": "annual_budget_planning",
+      "name": "연간 예산 계획",
+      "description": "부서별 예산 수립, 배정, 집행 추적 템플릿",
+      "category": "budget_planning",
+      "complexity_score": 8,
+      "recommended_tier": "pro",
+      "triggers": [
+        "예산", "계획", "배정", "집행", "부서", "budget", "planning", 
+        "allocation", "department", "annual", "yearly"
+      ],
+      "industry_tags": ["finance", "planning", "corporate", "government"],
+      "data_requirements": {
+        "text_columns": {
+          "min": 2,
+          "description": "부서명, 예산항목"
+        },
+        "numeric_columns": {
+          "min": 3,
+          "description": "예산액, 집행액, 잔액"
+        },
+        "date_column": {
+          "required": false,
+          "description": "집행 시기"
+        },
+        "min_rows": 10,
+        "preferred_rows": 100
+      },
+      "template_file": "budget_planning.xlsx",
+      "preview_image": "budget_planning_preview.png",
+      "features": [
+        "예산 vs 실적",
+        "부서별 분석",
+        "집행률 추적",
+        "예산 초과 알림",
+        "분기별 리뷰"
+      ],
+      "output_format": {
+        "charts": ["column", "line", "waterfall"],
+        "pivot_tables": 2,
+        "summary_sheets": 1,
+        "detail_sheets": 3
+      }
+    },
+    "research_data_analysis": {
+      "id": "research_data_analysis",
+      "name": "연구 데이터 분석",
+      "description": "실험 데이터, 설문조사, 통계 분석 템플릿",
+      "category": "academic_research",
+      "complexity_score": 9,
+      "recommended_tier": "enterprise",
+      "triggers": [
+        "연구", "실험", "설문", "통계", "분석", "research", "experiment", 
+        "survey", "statistics", "analysis", "academic", "논문"
+      ],
+      "industry_tags": ["research", "academic", "statistics", "science"],
+      "data_requirements": {
+        "numeric_columns": {
+          "min": 2,
+          "description": "측정값, 관찰값"
+        },
+        "text_columns": {
+          "min": 1,
+          "description": "실험군, 조건"
+        },
+        "min_rows": 30,
+        "preferred_rows": 1000
+      },
+      "template_file": "research_analysis.xlsx",
+      "preview_image": "research_preview.png",
+      "features": [
+        "기술통계 자동계산",
+        "가설검정",
+        "상관분석",
+        "회귀분석",
+        "시각화 차트"
+      ],
+      "output_format": {
+        "charts": ["scatter", "histogram", "box_plot"],
+        "statistics": true,
+        "summary_sheets": 1,
+        "detail_sheets": 2
+      }
+    }
+  },
+  "matching_weights": {
+    "text_similarity": 0.4,
+    "data_structure": 0.3,
+    "user_history": 0.2,
+    "complexity_match": 0.1
+  },
+  "tier_restrictions": {
+    "basic": {
+      "max_complexity": 7,
+      "allowed_categories": ["analytics_dashboard", "project_management", "marketing_reports", "inventory_management"]
+    },
+    "pro": {
+      "max_complexity": 9,
+      "allowed_categories": ["all"]
+    },
+    "enterprise": {
+      "max_complexity": 10,
+      "allowed_categories": ["all"]
+    }
+  }
+}

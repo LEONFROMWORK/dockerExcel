@@ -1,0 +1,200 @@
+Option Explicit
+
+'============================================
+' Report Generation Template
+' Generated on: {{ generated_at }}
+' Report: {{ report_name | default("Custom Report") }}
+' Format: {{ report_format | default("Excel") }}
+'============================================
+
+Sub GenerateReport()
+    {{ error_handling }}
+    
+    Dim wsReport As Worksheet
+    Dim wsData As Worksheet
+    Dim rngData As Range
+    Dim pivotTable As PivotTable
+    Dim chartObj As ChartObject
+    
+    Application.ScreenUpdating = False
+    
+    ' Create or clear report worksheet
+    If WorksheetExists("{{ report_name | default('Report') }}") Then
+        Set wsReport = ThisWorkbook.Worksheets("{{ report_name | default('Report') }}")
+        wsReport.Cells.Clear
+    Else
+        Set wsReport = ThisWorkbook.Worksheets.Add
+        wsReport.Name = "{{ report_name | default('Report') }}"
+    End If
+    
+    ' Add report header
+    With wsReport
+        .Range("A1").Value = "{{ report_title | default(report_name) }}"
+        .Range("A1").Font.Size = 18
+        .Range("A1").Font.Bold = True
+        
+        .Range("A2").Value = "Generated: " & Format(Now, "yyyy-mm-dd hh:mm:ss")
+        .Range("A2").Font.Size = 10
+        .Range("A2").Font.Color = RGB(128, 128, 128)
+    End With
+    
+    {% if data_sources %}
+    ' Collect data from sources
+    Dim allData As Collection
+    Set allData = New Collection
+    
+    {% for source in data_sources %}
+    ' Source: {{ source.name }}
+    Set wsData = ThisWorkbook.Worksheets("{{ source.worksheet }}")
+    Set rngData = wsData.Range("{{ source.range | default('A1').CurrentRegion }}")
+    allData.Add rngData, "{{ source.name }}"
+    {% endfor %}
+    {% endif %}
+    
+    ' Generate report sections
+    Dim currentRow As Long
+    currentRow = 4
+    
+    {% for section in report_sections %}
+    ' Section: {{ section.title }}
+    currentRow = AddReportSection(wsReport, currentRow, "{{ section.title }}", {{ section.type | default("'table'") }})
+    
+    {% if section.type == "summary" %}
+    currentRow = AddSummaryStats(wsReport, currentRow, rngData)
+    {% elif section.type == "pivot" %}
+    currentRow = AddPivotTable(wsReport, currentRow, rngData, "{{ section.pivot_config }}")
+    {% elif section.type == "chart" %}
+    currentRow = AddChart(wsReport, currentRow, rngData, "{{ section.chart_type | default('xlColumnClustered') }}")
+    {% else %}
+    currentRow = AddDataTable(wsReport, currentRow, rngData)
+    {% endif %}
+    
+    currentRow = currentRow + 2
+    {% endfor %}
+    
+    ' Format report
+    FormatReport wsReport
+    
+    {% if export_format %}
+    ' Export report
+    ExportReport wsReport, "{{ export_format }}", "{{ export_path | default(report_name) }}"
+    {% endif %}
+    
+    Application.ScreenUpdating = True
+    MsgBox "Report generated successfully!", vbInformation
+    
+    Exit Sub
+ErrorHandler:
+    Application.ScreenUpdating = True
+    MsgBox "Error " & Err.Number & ": " & Err.Description, vbCritical
+End Sub
+
+Function AddReportSection(ws As Worksheet, startRow As Long, title As String, sectionType As String) As Long
+    With ws
+        .Cells(startRow, 1).Value = title
+        .Cells(startRow, 1).Font.Size = 14
+        .Cells(startRow, 1).Font.Bold = True
+        .Cells(startRow, 1).Font.Color = RGB(0, 0, 128)
+        
+        .Range(.Cells(startRow + 1, 1), .Cells(startRow + 1, 10)).Borders(xlEdgeBottom).LineStyle = xlContinuous
+    End With
+    
+    AddReportSection = startRow + 2
+End Function
+
+Function AddSummaryStats(ws As Worksheet, startRow As Long, rngData As Range) As Long
+    Dim stats As Collection
+    Set stats = CalculateStats(rngData)
+    
+    With ws
+        .Cells(startRow, 1).Value = "Metric"
+        .Cells(startRow, 2).Value = "Value"
+        .Range(.Cells(startRow, 1), .Cells(startRow, 2)).Font.Bold = True
+        
+        .Cells(startRow + 1, 1).Value = "Total Records"
+        .Cells(startRow + 1, 2).Value = rngData.Rows.Count - 1
+        
+        .Cells(startRow + 2, 1).Value = "Date Range"
+        .Cells(startRow + 2, 2).Value = Format(Application.Min(rngData.Columns(1)), "yyyy-mm-dd") & " to " & _
+                                       Format(Application.Max(rngData.Columns(1)), "yyyy-mm-dd")
+        
+        ' Add more statistics as needed
+        {% for stat in summary_stats %}
+        .Cells(startRow + {{ loop.index + 2 }}, 1).Value = "{{ stat.name }}"
+        .Cells(startRow + {{ loop.index + 2 }}, 2).Value = {{ stat.formula }}
+        {% endfor %}
+    End With
+    
+    AddSummaryStats = startRow + 5 + {{ summary_stats | length | default(0) }}
+End Function
+
+Function AddDataTable(ws As Worksheet, startRow As Long, rngData As Range) As Long
+    ' Copy data to report
+    rngData.Copy
+    ws.Cells(startRow, 1).PasteSpecial xlPasteValues
+    ws.Cells(startRow, 1).PasteSpecial xlPasteFormats
+    
+    ' Apply table formatting
+    Dim tbl As ListObject
+    Set tbl = ws.ListObjects.Add(xlSrcRange, ws.Cells(startRow, 1).CurrentRegion, , xlYes)
+    tbl.TableStyle = "TableStyleMedium2"
+    
+    AddDataTable = startRow + rngData.Rows.Count + 1
+End Function
+
+Function AddChart(ws As Worksheet, startRow As Long, rngData As Range, chartType As String) As Long
+    Dim cht As ChartObject
+    
+    Set cht = ws.ChartObjects.Add(ws.Cells(startRow, 1).Left, ws.Cells(startRow, 1).Top, 500, 300)
+    
+    With cht.Chart
+        .ChartType = {{ chart_type | default("xlColumnClustered") }}
+        .SetSourceData rngData
+        .HasTitle = True
+        .ChartTitle.Text = "{{ chart_title | default('Data Analysis') }}"
+        .ApplyLayout (1)
+    End With
+    
+    AddChart = startRow + 20  ' Approximate height in rows
+End Function
+
+Sub FormatReport(ws As Worksheet)
+    With ws
+        ' Set column widths
+        .Columns("A:A").ColumnWidth = 20
+        .Columns("B:J").AutoFit
+        
+        ' Add page setup
+        With .PageSetup
+            .Orientation = xlPortrait
+            .FitToPagesWide = 1
+            .FitToPagesTall = False
+            .CenterHeader = "{{ report_name | default('Report') }}"
+            .RightFooter = "Page &P of &N"
+            .LeftFooter = "&D &T"
+        End With
+    End With
+End Sub
+
+Sub ExportReport(ws As Worksheet, format As String, filename As String)
+    Dim exportPath As String
+    exportPath = ThisWorkbook.Path & "\" & filename
+    
+    Select Case LCase(format)
+        Case "pdf"
+            ws.ExportAsFixedFormat Type:=xlTypePDF, filename:=exportPath & ".pdf", Quality:=xlQualityStandard
+        Case "html"
+            ws.SaveAs filename:=exportPath & ".html", FileFormat:=xlHtml
+        Case "csv"
+            ws.SaveAs filename:=exportPath & ".csv", FileFormat:=xlCSV
+    End Select
+End Sub
+
+Function CalculateStats(rngData As Range) As Collection
+    Dim stats As New Collection
+    ' Add statistical calculations here
+    Set CalculateStats = stats
+End Function
+
+' Helper Functions
+{{ common_functions }}

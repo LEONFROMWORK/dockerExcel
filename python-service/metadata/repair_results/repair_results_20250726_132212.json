@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-07-26T13:22:12.291254",
+  "total_files": 2,
+  "successful_repairs": 2,
+  "success_rate": 100.0,
+  "results": [
+    {
+      "file": "/Users/kevin/excel-unified/python-service/downloads/subcategory_collection/회계재무/template_340277.xlsx",
+      "filename": "template_340277.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "timestamp": "2025-07-26T13:22:09.963059"
+    },
+    {
+      "file": "/Users/kevin/excel-unified/python-service/downloads/subcategory_collection/회계재무/template_340280.xlsx",
+      "filename": "template_340280.xlsx",
+      "success": true,
+      "message": "수리 완료 - 19개 시트",
+      "timestamp": "2025-07-26T13:22:12.290995"
+    }
+  ]
+}

@@ -1,0 +1,624 @@
+{
+  "start_time": "20250726_012032",
+  "successful_downloads": [],
+  "failed_downloads": [
+    {
+      "file_id": "100382490",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410454",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420361",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412322",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420362",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420356",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100381231",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100391058",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410397",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408479",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100340290",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420334",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100382697",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100331000",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410452",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416239",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408337",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419920",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414674",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420358",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100336935",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100331248",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415273",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420269",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100385865",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100337162",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100379424",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414951",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100337130",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408333",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420259",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420252",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410812",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419912",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412384",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415933",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412328",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410828",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416472",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412471",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100337123",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100417864",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420091",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412319",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415710",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416510",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410453",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410449",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100363553",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100331215",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408336",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100391822",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420205",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420273",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100361879",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100331276",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100388895",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100390234",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416513",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420072",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100336993",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100391049",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420360",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420354",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100413313",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100406398",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414948",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415010",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100389814",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100417826",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100387122",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415709",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420090",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415152",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410448",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415381",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412486",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419949",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100417764",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420031",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412323",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100369972",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412321",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419913",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100406456",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100340254",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416641",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416026",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408575",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415713",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414794",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100409070",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100404675",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100378181",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420092",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100418018",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416549",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100381599",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100385103",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416639",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100411791",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410451",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410456",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412320",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415044",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419939",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420355",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416640",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100406436",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100372485",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420138",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100396063",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100402778",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420335",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415711",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100384262",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100406455",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100392103",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420271",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100543059",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100402781",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100340281",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100413358",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415712",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414669",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100417759",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100379180",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414949",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100331249",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410455",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100414950",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408165",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410901",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412164",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419942",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100382600",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100389895",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100340256",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100410447",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100337192",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100412487",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100408075",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100413553",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100420071",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100377443",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100419914",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100411165",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100381479",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100417763",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100337122",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100416508",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415995",
+      "error": "HTML response"
+    },
+    {
+      "file_id": "100415963",
+      "error": "HTML response"
+    }
+  ],
+  "total_discovered": 153,
+  "end_time": "20250726_012117",
+  "total_processed": 153,
+  "total_successful": 0,
+  "total_failed": 153,
+  "success_rate": 0.0
+}

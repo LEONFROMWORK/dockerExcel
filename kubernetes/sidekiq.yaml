@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidekiq
+  namespace: excel-unified
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sidekiq
+  template:
+    metadata:
+      labels:
+        app: sidekiq
+    spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z postgres-service 5432; do echo waiting for postgres; sleep 2; done']
+      - name: wait-for-redis
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z redis-service 6379; do echo waiting for redis; sleep 2; done']
+      containers:
+      - name: sidekiq
+        image: excel-unified/rails:latest
+        imagePullPolicy: Always
+        command: ['bundle', 'exec', 'sidekiq']
+        env:
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: excel-unified-config
+              key: RAILS_ENV
+        - name: DATABASE_URL
+          value: postgresql://excel_user:$(DB_PASSWORD)@postgres-service:5432/excel_unified
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: db-password
+        - name: REDIS_URL
+          value: redis://:$(REDIS_PASSWORD)@redis-service:6379/0
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: redis-password
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: secret-key-base
+        - name: PYTHON_SERVICE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: excel-unified-config
+              key: PYTHON_SERVICE_URL
+        volumeMounts:
+        - name: storage
+          mountPath: /rails/storage
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+      volumes:
+      - name: storage
+        emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - sidekiq
+              topologyKey: kubernetes.io/hostname
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: sidekiq-hpa
+  namespace: excel-unified
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sidekiq
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80

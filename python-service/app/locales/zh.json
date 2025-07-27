@@ -1,0 +1,162 @@
+{
+  "common": {
+    "success": "成功",
+    "error": "错误",
+    "warning": "警告",
+    "info": "信息",
+    "loading": "加载中...",
+    "processing": "处理中...",
+    "completed": "已完成",
+    "failed": "失败",
+    "pending": "待处理",
+    "cancel": "取消",
+    "confirm": "确认",
+    "retry": "重试",
+    "download": "下载",
+    "upload": "上传",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创建",
+    "update": "更新",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "export": "导出",
+    "import": "导入"
+  },
+  "file": {
+    "invalid_type": "无效的文件类型。允许的类型：{extensions}",
+    "too_large": "文件过大。最大大小：{max_size}字节",
+    "not_found": "文件未找到",
+    "upload_failed": "文件上传失败",
+    "processing": "文件处理中...",
+    "analysis_complete": "文件分析完成",
+    "excel_only": "只能上传Excel文件"
+  },
+  "excel": {
+    "analysis": {
+      "title": "Excel分析",
+      "sheets_found": "找到{count}个工作表",
+      "formulas_found": "找到{count}个公式",
+      "errors_found": "发现{count}个错误",
+      "no_errors": "未发现错误",
+      "data_quality": "数据质量",
+      "structure_analysis": "结构分析",
+      "formula_validation": "公式验证"
+    },
+    "errors": {
+      "circular_reference": "循环引用",
+      "invalid_formula": "无效公式",
+      "missing_reference": "缺少引用",
+      "type_mismatch": "类型不匹配",
+      "division_by_zero": "除零错误",
+      "name_error": "名称错误",
+      "value_error": "值错误",
+      "ref_error": "引用错误"
+    },
+    "charts": {
+      "title": "图表分析",
+      "suggestions": "图表建议",
+      "line_chart": "折线图",
+      "bar_chart": "柱状图",
+      "pie_chart": "饼图",
+      "scatter_plot": "散点图",
+      "area_chart": "面积图",
+      "histogram": "直方图",
+      "box_plot": "箱线图",
+      "heatmap": "热力图"
+    },
+    "pivot": {
+      "title": "数据透视表",
+      "suggestions": "数据透视表建议",
+      "rows": "行",
+      "columns": "列",
+      "values": "值",
+      "filters": "筛选器",
+      "aggregation": "聚合",
+      "sum": "求和",
+      "average": "平均",
+      "count": "计数",
+      "max": "最大值",
+      "min": "最小值"
+    }
+  },
+  "templates": {
+    "title": "模板",
+    "categories": "类别",
+    "recommendation": "推荐",
+    "generation": "生成",
+    "not_found": "未找到模板：{template_id}",
+    "generation_failed": "模板生成失败",
+    "no_suitable_template": "未找到合适的模板",
+    "feedback_submitted": "反馈提交成功",
+    "search_results": "搜索结果",
+    "categories_list": {
+      "financial_statements": "财务报表",
+      "analytics_dashboard": "分析仪表板",
+      "project_management": "项目管理",
+      "hr_management": "人事管理",
+      "marketing_reports": "营销报告",
+      "academic_research": "学术研究",
+      "inventory_management": "库存管理",
+      "budget_planning": "预算规划"
+    },
+    "complexity": {
+      "basic": "基础",
+      "intermediate": "中级",
+      "advanced": "高级",
+      "expert": "专家"
+    },
+    "tier": {
+      "basic": "基础版",
+      "pro": "专业版",
+      "enterprise": "企业版"
+    }
+  },
+  "ai": {
+    "analysis": "AI分析",
+    "insights": "AI洞察",
+    "suggestions": "AI建议",
+    "processing": "AI处理中...",
+    "error": "AI分析过程中发生错误",
+    "no_response": "无法接收AI响应"
+  },
+  "progress": {
+    "stages": {
+      "uploaded": "已上传",
+      "analyzing": "分析中",
+      "detecting_errors": "检测错误中",
+      "fixing_formulas": "修复公式中",
+      "generating_charts": "生成图表中",
+      "creating_pivots": "创建数据透视表中",
+      "applying_templates": "应用模板中",
+      "finalizing": "完成中",
+      "completed": "已完成",
+      "failed": "失败"
+    },
+    "percentage": "{percent}% 完成",
+    "estimated_time": "预计时间：{time}",
+    "real_time_updates": "实时更新"
+  },
+  "api": {
+    "success": "请求处理成功",
+    "error": "请求处理过程中发生错误",
+    "invalid_request": "无效请求",
+    "unauthorized": "未授权请求",
+    "forbidden": "访问被禁止",
+    "not_found": "未找到请求的资源",
+    "internal_error": "发生内部服务器错误",
+    "service_unavailable": "服务暂时不可用"
+  },
+  "validation": {
+    "required": "此字段为必填项",
+    "min_length": "请输入至少{min}个字符",
+    "max_length": "请输入不超过{max}个字符",
+    "invalid_format": "格式无效",
+    "invalid_email": "无效的电子邮件地址",
+    "invalid_phone": "无效的电话号码",
+    "invalid_date": "无效的日期",
+    "out_of_range": "超出允许范围：{min}-{max}"
+  }
+}

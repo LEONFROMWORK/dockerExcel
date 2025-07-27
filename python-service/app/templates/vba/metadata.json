@@ -1,0 +1,126 @@
+{
+  "data_processing": {
+    "id": "data_processing",
+    "name": "데이터 처리",
+    "description": "데이터 정리, 분석 및 변환을 위한 템플릿",
+    "category": "data",
+    "parameters": {
+      "required": ["worksheet_name"],
+      "optional": ["data_range", "output_worksheet", "output_range", "operations"],
+      "defaults": {
+        "worksheet_name": "Data",
+        "purpose": "Process and analyze data"
+      }
+    },
+    "examples": [
+      {
+        "name": "중복 제거",
+        "parameters": {
+          "worksheet_name": "판매데이터",
+          "operations": ["RemoveDuplicates"]
+        }
+      },
+      {
+        "name": "데이터 정렬",
+        "parameters": {
+          "worksheet_name": "고객목록",
+          "data_range": "A1:E100",
+          "operations": ["SortByColumn 2 Ascending"]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "id": "automation",
+    "name": "작업 자동화",
+    "description": "반복 작업 자동화를 위한 템플릿",
+    "category": "automation",
+    "parameters": {
+      "required": ["task_name", "automation_steps"],
+      "optional": ["frequency", "schedule_time", "pre_conditions", "post_actions", "email_notification"],
+      "defaults": {
+        "frequency": "on_demand",
+        "task_name": "Automated Task"
+      }
+    },
+    "examples": [
+      {
+        "name": "일일 보고서 생성",
+        "parameters": {
+          "task_name": "Daily Report",
+          "frequency": "scheduled",
+          "schedule_time": "09:00:00",
+          "automation_steps": [
+            {
+              "description": "데이터 새로고침",
+              "code": "RefreshAllData"
+            },
+            {
+              "description": "보고서 생성",
+              "code": "GenerateDailyReport"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "reports": {
+    "id": "reports",
+    "name": "보고서 생성",
+    "description": "다양한 형식의 보고서 생성 템플릿",
+    "category": "reporting",
+    "parameters": {
+      "required": ["report_name", "report_sections"],
+      "optional": ["data_sources", "export_format", "export_path", "report_format"],
+      "defaults": {
+        "report_name": "Custom Report",
+        "report_format": "Excel"
+      }
+    },
+    "examples": [
+      {
+        "name": "월간 판매 보고서",
+        "parameters": {
+          "report_name": "Monthly Sales Report",
+          "data_sources": [
+            {
+              "name": "sales_data",
+              "worksheet": "Sales",
+              "range": "A1:G1000"
+            }
+          ],
+          "report_sections": [
+            {
+              "title": "요약 통계",
+              "type": "summary"
+            },
+            {
+              "title": "판매 추이",
+              "type": "chart",
+              "chart_type": "xlLineMarkers"
+            }
+          ],
+          "export_format": "pdf"
+        }
+      }
+    ]
+  },
+  "utilities": {
+    "id": "utilities",
+    "name": "유틸리티 함수",
+    "description": "자주 사용하는 유틸리티 함수 모음",
+    "category": "utilities",
+    "parameters": {
+      "required": [],
+      "optional": ["functions"],
+      "defaults": {}
+    },
+    "functions": [
+      "WorksheetExists",
+      "GetLastRow",
+      "GetLastColumn",
+      "CreateBackup",
+      "LogActivity"
+    ]
+  }
+}

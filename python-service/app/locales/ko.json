@@ -1,0 +1,162 @@
+{
+  "common": {
+    "success": "성공",
+    "error": "오류",
+    "warning": "경고",
+    "info": "정보",
+    "loading": "로딩 중...",
+    "processing": "처리 중...",
+    "completed": "완료됨",
+    "failed": "실패",
+    "pending": "대기 중",
+    "cancel": "취소",
+    "confirm": "확인",
+    "retry": "재시도",
+    "download": "다운로드",
+    "upload": "업로드",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "create": "생성",
+    "update": "업데이트",
+    "search": "검색",
+    "filter": "필터",
+    "sort": "정렬",
+    "export": "내보내기",
+    "import": "가져오기"
+  },
+  "file": {
+    "invalid_type": "유효하지 않은 파일 형식입니다. 허용된 형식: {extensions}",
+    "too_large": "파일이 너무 큽니다. 최대 크기: {max_size}바이트",
+    "not_found": "파일을 찾을 수 없습니다",
+    "upload_failed": "파일 업로드에 실패했습니다",
+    "processing": "파일 처리 중...",
+    "analysis_complete": "파일 분석이 완료되었습니다",
+    "excel_only": "Excel 파일만 업로드 가능합니다"
+  },
+  "excel": {
+    "analysis": {
+      "title": "Excel 분석",
+      "sheets_found": "{count}개의 시트를 찾았습니다",
+      "formulas_found": "{count}개의 수식을 찾았습니다",
+      "errors_found": "{count}개의 오류를 발견했습니다",
+      "no_errors": "오류가 발견되지 않았습니다",
+      "data_quality": "데이터 품질",
+      "structure_analysis": "구조 분석",
+      "formula_validation": "수식 검증"
+    },
+    "errors": {
+      "circular_reference": "순환 참조",
+      "invalid_formula": "유효하지 않은 수식",
+      "missing_reference": "누락된 참조",
+      "type_mismatch": "타입 불일치",
+      "division_by_zero": "0으로 나누기",
+      "name_error": "이름 오류",
+      "value_error": "값 오류",
+      "ref_error": "참조 오류"
+    },
+    "charts": {
+      "title": "차트 분석",
+      "suggestions": "차트 제안",
+      "line_chart": "선형 차트",
+      "bar_chart": "막대 차트",
+      "pie_chart": "원형 차트",
+      "scatter_plot": "산점도",
+      "area_chart": "영역 차트",
+      "histogram": "히스토그램",
+      "box_plot": "박스 플롯",
+      "heatmap": "히트맵"
+    },
+    "pivot": {
+      "title": "피벗테이블",
+      "suggestions": "피벗테이블 제안",
+      "rows": "행",
+      "columns": "열",
+      "values": "값",
+      "filters": "필터",
+      "aggregation": "집계",
+      "sum": "합계",
+      "average": "평균",
+      "count": "개수",
+      "max": "최대값",
+      "min": "최소값"
+    }
+  },
+  "templates": {
+    "title": "템플릿",
+    "categories": "카테고리",
+    "recommendation": "추천",
+    "generation": "생성",
+    "not_found": "템플릿을 찾을 수 없습니다: {template_id}",
+    "generation_failed": "템플릿 생성에 실패했습니다",
+    "no_suitable_template": "적합한 템플릿을 찾을 수 없습니다",
+    "feedback_submitted": "피드백이 성공적으로 제출되었습니다",
+    "search_results": "검색 결과",
+    "categories_list": {
+      "financial_statements": "재무제표",
+      "analytics_dashboard": "분석 대시보드", 
+      "project_management": "프로젝트 관리",
+      "hr_management": "인사 관리",
+      "marketing_reports": "마케팅 보고서",
+      "academic_research": "학술 연구",
+      "inventory_management": "재고 관리",
+      "budget_planning": "예산 계획"
+    },
+    "complexity": {
+      "basic": "기본",
+      "intermediate": "중급",
+      "advanced": "고급",
+      "expert": "전문가"
+    },
+    "tier": {
+      "basic": "기본",
+      "pro": "프로",
+      "enterprise": "엔터프라이즈"
+    }
+  },
+  "ai": {
+    "analysis": "AI 분석",
+    "insights": "AI 인사이트",
+    "suggestions": "AI 제안",
+    "processing": "AI 처리 중...",
+    "error": "AI 분석 중 오류가 발생했습니다",
+    "no_response": "AI 응답을 받을 수 없습니다"
+  },
+  "progress": {
+    "stages": {
+      "uploaded": "업로드됨",
+      "analyzing": "분석 중",
+      "detecting_errors": "오류 탐지 중",
+      "fixing_formulas": "수식 수정 중",
+      "generating_charts": "차트 생성 중",
+      "creating_pivots": "피벗테이블 생성 중",
+      "applying_templates": "템플릿 적용 중",
+      "finalizing": "마무리 중",
+      "completed": "완료",
+      "failed": "실패"
+    },
+    "percentage": "{percent}% 완료",
+    "estimated_time": "예상 시간: {time}",
+    "real_time_updates": "실시간 업데이트"
+  },
+  "api": {
+    "success": "요청이 성공적으로 처리되었습니다",
+    "error": "요청 처리 중 오류가 발생했습니다",
+    "invalid_request": "유효하지 않은 요청입니다",
+    "unauthorized": "인증되지 않은 요청입니다",
+    "forbidden": "접근이 금지되었습니다",
+    "not_found": "요청한 리소스를 찾을 수 없습니다",
+    "internal_error": "내부 서버 오류가 발생했습니다",
+    "service_unavailable": "서비스를 일시적으로 사용할 수 없습니다"
+  },
+  "validation": {
+    "required": "필수 입력 항목입니다",
+    "min_length": "최소 {min}자 이상 입력해주세요",
+    "max_length": "최대 {max}자 이하로 입력해주세요",
+    "invalid_format": "형식이 올바르지 않습니다",
+    "invalid_email": "유효하지 않은 이메일 주소입니다",
+    "invalid_phone": "유효하지 않은 전화번호입니다",
+    "invalid_date": "유효하지 않은 날짜입니다",
+    "out_of_range": "허용 범위를 벗어났습니다: {min}-{max}"
+  }
+}

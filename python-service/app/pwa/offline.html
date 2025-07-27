@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오프라인 - Excel Unified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+        
+        .offline-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+        
+        .offline-message {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .offline-features {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .offline-features h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+        
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+        
+        .retry-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .connection-status {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .status-offline {
+            background: #fed7d7;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+        
+        .status-online {
+            background: #c6f6d5;
+            color: #2f855a;
+            border: 1px solid #9ae6b4;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .language-switcher select {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .offline-container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            
+            .offline-title {
+                font-size: 24px;
+            }
+            
+            .language-switcher {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+    
+    <div class="offline-container">
+        <div class="offline-icon">
+            📱
+        </div>
+        
+        <h1 class="offline-title" id="title">오프라인 모드</h1>
+        
+        <p class="offline-message" id="message">
+            인터넷 연결이 없어도 일부 기능을 사용할 수 있습니다.
+        </p>
+        
+        <div class="offline-features">
+            <h3 id="featuresTitle">사용 가능한 기능</h3>
+            <ul class="feature-list">
+                <li id="feature1">이전에 분석한 Excel 파일 조회</li>
+                <li id="feature2">저장된 템플릿 목록 확인</li>
+                <li id="feature3">사용자 설정 및 기본 설정</li>
+                <li id="feature4">도움말 및 가이드 문서</li>
+            </ul>
+        </div>
+        
+        <button class="retry-button" onclick="checkConnection()" id="retryButton">
+            연결 다시 시도
+        </button>
+        
+        <div class="connection-status status-offline" id="connectionStatus">
+            오프라인 상태
+        </div>
+    </div>
+
+    <script>
+        // 다국어 지원
+        const translations = {
+            ko: {
+                title: '오프라인 모드',
+                message: '인터넷 연결이 없어도 일부 기능을 사용할 수 있습니다.',
+                featuresTitle: '사용 가능한 기능',
+                feature1: '이전에 분석한 Excel 파일 조회',
+                feature2: '저장된 템플릿 목록 확인', 
+                feature3: '사용자 설정 및 기본 설정',
+                feature4: '도움말 및 가이드 문서',
+                retryButton: '연결 다시 시도',
+                statusOffline: '오프라인 상태',
+                statusOnline: '온라인 연결됨'
+            },
+            en: {
+                title: 'Offline Mode',
+                message: 'Some features are available even without internet connection.',
+                featuresTitle: 'Available Features',
+                feature1: 'View previously analyzed Excel files',
+                feature2: 'Check saved template list',
+                feature3: 'User settings and preferences',
+                feature4: 'Help and guide documents',
+                retryButton: 'Retry Connection',
+                statusOffline: 'Offline',
+                statusOnline: 'Online'
+            },
+            ja: {
+                title: 'オフラインモード',
+                message: 'インターネット接続がなくても一部の機能をご利用いただけます。',
+                featuresTitle: '利用可能な機能',
+                feature1: '以前に分析したExcelファイルの表示',
+                feature2: '保存されたテンプレート一覧の確認',
+                feature3: 'ユーザー設定と基本設定',
+                feature4: 'ヘルプとガイド文書',
+                retryButton: '接続を再試行',
+                statusOffline: 'オフライン',
+                statusOnline: 'オンライン'
+            },
+            zh: {
+                title: '离线模式',
+                message: '即使没有互联网连接，也可以使用部分功能。',
+                featuresTitle: '可用功能',
+                feature1: '查看之前分析的Excel文件',
+                feature2: '检查保存的模板列表',
+                feature3: '用户设置和偏好',
+                feature4: '帮助和指南文档',
+                retryButton: '重试连接',
+                statusOffline: '离线',
+                statusOnline: '在线'
+            }
+        };
+        
+        // 언어 감지 및 설정
+        function detectLanguage() {
+            const saved = localStorage.getItem('offline-language');
+            if (saved && translations[saved]) {
+                return saved;
+            }
+            
+            const browserLang = navigator.language.split('-')[0];
+            return translations[browserLang] ? browserLang : 'ko';
+        }
+        
+        // 언어 변경
+        function changeLanguage() {
+            const selectedLang = document.getElementById('languageSelect').value;
+            localStorage.setItem('offline-language', selectedLang);
+            updateContent(selectedLang);
+        }
+        
+        // 콘텐츠 업데이트
+        function updateContent(lang) {
+            const t = translations[lang];
+            
+            document.getElementById('title').textContent = t.title;
+            document.getElementById('message').textContent = t.message;
+            document.getElementById('featuresTitle').textContent = t.featuresTitle;
+            document.getElementById('feature1').textContent = t.feature1;
+            document.getElementById('feature2').textContent = t.feature2;
+            document.getElementById('feature3').textContent = t.feature3;
+            document.getElementById('feature4').textContent = t.feature4;
+            document.getElementById('retryButton').textContent = t.retryButton;
+            
+            const status = document.getElementById('connectionStatus');
+            const isOnline = navigator.onLine;
+            status.textContent = isOnline ? t.statusOnline : t.statusOffline;
+            status.className = isOnline ? 'connection-status status-online' : 'connection-status status-offline';
+        }
+        
+        // 연결 상태 확인
+        function checkConnection() {
+            const button = document.getElementById('retryButton');
+            const originalText = button.textContent;
+            
+            button.textContent = '확인 중...';
+            button.disabled = true;
+            
+            // 연결 테스트
+            fetch('/api/v1/health', { 
+                method: 'GET',
+                cache: 'no-cache'
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 온라인 상태 - 메인 페이지로 리다이렉트
+                    window.location.href = '/';
+                } else {
+                    throw new Error('서버 응답 오류');
+                }
+            })
+            .catch(() => {
+                // 여전히 오프라인
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 1000);
+            });
+        }
+        
+        // 온라인/오프라인 이벤트 리스너
+        window.addEventListener('online', () => {
+            const lang = document.getElementById('languageSelect').value;
+            updateContent(lang);
+            
+            // 자동으로 메인 페이지로 리다이렉트
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000);
+        });
+        
+        window.addEventListener('offline', () => {
+            const lang = document.getElementById('languageSelect').value;
+            updateContent(lang);
+        });
+        
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = detectLanguage();
+            document.getElementById('languageSelect').value = currentLang;
+            updateContent(currentLang);
+            
+            // 주기적으로 연결 상태 확인
+            setInterval(() => {
+                const lang = document.getElementById('languageSelect').value;
+                updateContent(lang);
+            }, 5000);
+        });
+        
+        // 캐시된 데이터 로드 시도
+        function loadCachedData() {
+            try {
+                // IndexedDB나 localStorage에서 캐시된 데이터 로드
+                const cachedAnalysis = localStorage.getItem('cached-analysis');
+                const cachedTemplates = localStorage.getItem('cached-templates');
+                
+                if (cachedAnalysis || cachedTemplates) {
+                    console.log('캐시된 데이터 사용 가능');
+                    // 사용 가능한 캐시된 기능들을 표시
+                }
+            } catch (error) {
+                console.log('캐시된 데이터 로드 실패:', error);
+            }
+        }
+        
+        // 페이지 로드 시 캐시된 데이터 확인
+        loadCachedData();
+    </script>
+</body>
+</html>

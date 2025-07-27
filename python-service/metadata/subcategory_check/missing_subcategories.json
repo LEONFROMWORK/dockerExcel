@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-07-26T11:54:30.913021",
+  "downloaded_files": 124,
+  "total_missing_files": 1187,
+  "categories": [
+    {
+      "category": "일반",
+      "code": "A12B12C01",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C01",
+      "total_found": 8,
+      "already_downloaded": 4,
+      "need_download": 4
+    },
+    {
+      "category": "회계/재무",
+      "code": "A12B12C13",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C13",
+      "total_found": 305,
+      "already_downloaded": 23,
+      "need_download": 282
+    },
+    {
+      "category": "영업/마케팅",
+      "code": "A12B12C15",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C15",
+      "total_found": 305,
+      "already_downloaded": 4,
+      "need_download": 301
+    },
+    {
+      "category": "인사/총무",
+      "code": "A12B12C14",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C14",
+      "total_found": 305,
+      "already_downloaded": 4,
+      "need_download": 301
+    },
+    {
+      "category": "생산/품질",
+      "code": "A12B12C16",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C16",
+      "total_found": 305,
+      "already_downloaded": 12,
+      "need_download": 293
+    },
+    {
+      "category": "구매/자재",
+      "code": "A12B12C17",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C17",
+      "total_found": 5,
+      "already_downloaded": 2,
+      "need_download": 3
+    },
+    {
+      "category": "기획/관리",
+      "code": "A12B12C18",
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12&aDiv=A12B12C18",
+      "total_found": 5,
+      "already_downloaded": 2,
+      "need_download": 3
+    }
+  ]
+}

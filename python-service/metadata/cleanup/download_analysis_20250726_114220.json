@@ -1,0 +1,1593 @@
+{
+  "timestamp": "2025-07-26T11:42:20.402360",
+  "total_files": 343,
+  "unique_files": 124,
+  "duplicate_groups": 105,
+  "total_size": 359264486,
+  "wasted_space": 209657628,
+  "folder_info": {
+    "downloads/simple_reliable_collection": {
+      "exists": true,
+      "file_count": 117,
+      "total_size": 94299247,
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_331276.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_420362.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_382600.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_379424.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_331000.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_420354.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_336993.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_384262.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_385865.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_420355.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_392103.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_381231.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_388895.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_340256.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_361879.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_337130.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_337192.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_389895.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_389814.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_340254.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_391049.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_340281.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_331248.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_402781.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_385103.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_402778.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_381479.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_382490.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_331249.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_378181.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_379180.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_420360.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_337123.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_377443.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_363553.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_337162.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_331215.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_411165.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_390234.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_420356.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_387122.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_391058.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_340290.xlsx",
+        "downloads/simple_reliable_collection/업무프로그램/template_337122.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_418018.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_406456.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_416513.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_419920.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408075.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_417764.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_416508.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_420334.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_415152.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_417826.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_415381.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_415010.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408337.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408336.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_417763.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408479.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_417759.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_416472.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_419912.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_414674.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_336935.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_409070.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_372485.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_413313.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_415044.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_369972.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_417864.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_404675.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_419913.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_391822.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_413553.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408165.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408333.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_381599.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_419914.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_420205.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_406398.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_419939.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_413358.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_420072.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_406455.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_382697.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_414794.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_420361.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_414669.xlsx",
+        "downloads/simple_reliable_collection/업무템플릿/template_408575.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420358.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410453.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410812.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420092.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420093.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410901.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410452.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420359.xlsx",
+        "downloads/simple_reliable_collection/차트/template_416512.xlsx",
+        "downloads/simple_reliable_collection/차트/template_412389.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420094.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410459.xlsx",
+        "downloads/simple_reliable_collection/차트/template_415933.xlsx",
+        "downloads/simple_reliable_collection/차트/template_415712.xlsx",
+        "downloads/simple_reliable_collection/차트/template_412487.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410454.xlsx",
+        "downloads/simple_reliable_collection/차트/template_412384.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410458.xlsx",
+        "downloads/simple_reliable_collection/차트/template_412388.xlsx",
+        "downloads/simple_reliable_collection/차트/template_415710.xlsx",
+        "downloads/simple_reliable_collection/차트/template_415711.xlsx",
+        "downloads/simple_reliable_collection/차트/template_410397.xlsx",
+        "downloads/simple_reliable_collection/차트/template_416511.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420090.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420357.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420091.xlsx",
+        "downloads/simple_reliable_collection/차트/template_416510.xlsx"
+      ]
+    },
+    "downloads/specialized_categories": {
+      "exists": true,
+      "file_count": 12,
+      "total_size": 56654661,
+      "files": [
+        "downloads/specialized_categories/검색결과/회계/template_408075.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420374.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_415627.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_403672.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420372.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420373.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_336935.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420034.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420008.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_408333.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420361.xlsx",
+        "downloads/specialized_categories/검색결과/품질/template_420282.xlsx"
+      ]
+    },
+    "downloads/complete_korean_collection": {
+      "exists": true,
+      "file_count": 99,
+      "total_size": 52134179,
+      "files": [
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331276.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420362.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_382600.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_408075.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_379424.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331000.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420354.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_336993.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_384262.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_385865.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420355.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_392103.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_381231.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_388895.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340256.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_396063.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_408337.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_361879.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337130.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337192.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_389895.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_389814.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340254.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_391049.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340281.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331248.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_336935.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_402781.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_385103.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_402778.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_381479.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_382490.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331249.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_378181.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_379180.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420360.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337123.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_377443.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_408333.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_363553.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337162.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331215.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_411165.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_390234.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420356.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_387122.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_391058.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340290.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337122.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420361.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_418018.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_406456.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_416513.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419920.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408075.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417764.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_416508.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420334.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415152.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417826.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_396063.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415381.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415010.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408337.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408336.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417763.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408479.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417759.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_416472.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419912.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_414674.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_336935.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_409070.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_372485.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_413313.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415044.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_369972.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417864.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_404675.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419913.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_391822.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_413553.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408165.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408333.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_381599.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419914.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420205.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_406398.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419939.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_413358.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420072.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_406455.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_382697.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_414794.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420361.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_414669.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408575.xlsx",
+        "downloads/complete_korean_collection/차트/일반/template_410452.xlsx",
+        "downloads/complete_korean_collection/차트/일반/template_415712.xlsx"
+      ]
+    },
+    "downloads/mass_korean_collection": {
+      "exists": true,
+      "file_count": 74,
+      "total_size": 43147022,
+      "files": [
+        "downloads/mass_korean_collection/업무프로그램/template_331276.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331000.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_420354.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_336993.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_384262.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_385865.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_392103.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_381231.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_388895.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_408337.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_337192.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_340254.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_391049.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_340281.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331248.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_402781.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_385103.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_402778.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_382490.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_378181.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_379180.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_337123.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_363553.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331215.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_411165.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_420356.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_391058.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_340290.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_337122.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_418018.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_406456.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_416513.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408075.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417764.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_416508.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420334.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415152.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417826.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_396063.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415381.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415010.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408337.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408336.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417763.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408479.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417759.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_416472.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419912.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_414674.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_409070.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_372485.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_413313.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415044.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_369972.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417864.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_404675.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419913.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_391822.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_413553.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408165.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408333.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_381599.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419914.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420205.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_406398.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419939.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_413358.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420072.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_406455.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_382697.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_414794.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420361.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_414669.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408575.xlsx"
+      ]
+    },
+    "downloads/complete_collection_final": {
+      "exists": true,
+      "file_count": 0,
+      "total_size": 0,
+      "files": []
+    },
+    "downloads/direct_iframe_collection": {
+      "exists": true,
+      "file_count": 22,
+      "total_size": 10574380,
+      "files": [
+        "downloads/direct_iframe_collection/업무프로그램/template_381231.xlsx",
+        "downloads/direct_iframe_collection/업무프로그램/template_391058.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_416513.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419920.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_420334.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_415381.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_417763.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_408479.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419912.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_372485.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_415044.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_404675.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419913.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_391822.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_413553.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_408165.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_408333.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_381599.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419914.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_413358.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_414794.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_414669.xlsx"
+      ]
+    },
+    "downloads/enhanced_stealth_collection": {
+      "exists": true,
+      "file_count": 3,
+      "total_size": 1782086,
+      "files": [
+        "downloads/enhanced_stealth_collection/iframe_bypass_404675.xlsx",
+        "downloads/enhanced_stealth_collection/iframe_bypass_420334.xlsx",
+        "downloads/enhanced_stealth_collection/iframe_bypass_419920.xlsx"
+      ]
+    },
+    "downloads/test_collection": {
+      "exists": true,
+      "file_count": 5,
+      "total_size": 1912320,
+      "files": [
+        "downloads/test_collection/test_template_404675.xlsx",
+        "downloads/test_collection/test_template_391058.xlsx",
+        "downloads/test_collection/test_template_420091.xlsx",
+        "downloads/test_collection/test_template_419920.xlsx",
+        "downloads/test_collection/test_template_420334.xlsx"
+      ]
+    },
+    "downloads/backup_corrupted": {
+      "exists": true,
+      "file_count": 11,
+      "total_size": 98760591,
+      "files": [
+        "downloads/backup_corrupted/template_420374.xlsx",
+        "downloads/backup_corrupted/template_420093.xlsx",
+        "downloads/backup_corrupted/template_412389.xlsx",
+        "downloads/backup_corrupted/template_420094.xlsx",
+        "downloads/backup_corrupted/template_396063.xlsx",
+        "downloads/backup_corrupted/template_410459.xlsx",
+        "downloads/backup_corrupted/template_403672.xlsx",
+        "downloads/backup_corrupted/template_420372.xlsx",
+        "downloads/backup_corrupted/template_420373.xlsx",
+        "downloads/backup_corrupted/template_410458.xlsx",
+        "downloads/backup_corrupted/template_420282.xlsx"
+      ]
+    }
+  },
+  "duplicates": [
+    {
+      "hash": "8d055de79339a23c9ae8c510b926223a",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_331276.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331276.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331276.xlsx"
+      ],
+      "count": 3,
+      "size_each": 138177,
+      "wasted_space": 276354
+    },
+    {
+      "hash": "4b44e6a2ba0ead61f924df3317db27b8",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_420362.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420362.xlsx"
+      ],
+      "count": 2,
+      "size_each": 533377,
+      "wasted_space": 533377
+    },
+    {
+      "hash": "8ba88c2c25731cd9ba4e2c4614ac0e4b",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_382600.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_382600.xlsx"
+      ],
+      "count": 2,
+      "size_each": 276405,
+      "wasted_space": 276405
+    },
+    {
+      "hash": "8a8c503c9f3373f59134e5472b2086e3",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_379424.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_379424.xlsx"
+      ],
+      "count": 2,
+      "size_each": 276168,
+      "wasted_space": 276168
+    },
+    {
+      "hash": "d1f958b2ed34ab1414698b7bb79bb14f",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_331000.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331000.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331000.xlsx"
+      ],
+      "count": 3,
+      "size_each": 138442,
+      "wasted_space": 276884
+    },
+    {
+      "hash": "243b21663153dea2729263251e30d39b",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_420354.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420354.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_420354.xlsx"
+      ],
+      "count": 3,
+      "size_each": 7634500,
+      "wasted_space": 15269000
+    },
+    {
+      "hash": "9d4ee092f232b49cfd934e6dfd224e8a",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_336993.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_336993.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_336993.xlsx"
+      ],
+      "count": 3,
+      "size_each": 135852,
+      "wasted_space": 271704
+    },
+    {
+      "hash": "96fbc318695b07d62bea21f6b8f11d54",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_384262.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_384262.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_384262.xlsx"
+      ],
+      "count": 3,
+      "size_each": 387536,
+      "wasted_space": 775072
+    },
+    {
+      "hash": "9a6df3d123ac29fd628038a083b1cea1",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_385865.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_385865.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_385865.xlsx"
+      ],
+      "count": 3,
+      "size_each": 285129,
+      "wasted_space": 570258
+    },
+    {
+      "hash": "9936d7af3a07e95c970558f383089332",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_420355.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420355.xlsx"
+      ],
+      "count": 2,
+      "size_each": 2609463,
+      "wasted_space": 2609463
+    },
+    {
+      "hash": "1037bf3f36b146361a5af32cc4185a4e",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_392103.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_392103.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_392103.xlsx"
+      ],
+      "count": 3,
+      "size_each": 270937,
+      "wasted_space": 541874
+    },
+    {
+      "hash": "fb0e3230f3d934115b372d227497e200",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_381231.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_381231.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_381231.xlsx",
+        "downloads/direct_iframe_collection/업무프로그램/template_381231.xlsx"
+      ],
+      "count": 4,
+      "size_each": 399713,
+      "wasted_space": 1199139
+    },
+    {
+      "hash": "beb5de5f2023a98f55fd5131b4462c55",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_388895.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_388895.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_388895.xlsx"
+      ],
+      "count": 3,
+      "size_each": 137800,
+      "wasted_space": 275600
+    },
+    {
+      "hash": "d9d185dcb920c471158c18aab11c1626",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_340256.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340256.xlsx"
+      ],
+      "count": 2,
+      "size_each": 251324,
+      "wasted_space": 251324
+    },
+    {
+      "hash": "2ad6afedc3bbf8b99b9d0a65da683da1",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_361879.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_361879.xlsx"
+      ],
+      "count": 2,
+      "size_each": 96358,
+      "wasted_space": 96358
+    },
+    {
+      "hash": "9c7d9b4a237704e599b74bc07d452db9",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_337130.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337130.xlsx"
+      ],
+      "count": 2,
+      "size_each": 295177,
+      "wasted_space": 295177
+    },
+    {
+      "hash": "065c53af7df00aceb56522f794859a46",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_337192.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337192.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_337192.xlsx"
+      ],
+      "count": 3,
+      "size_each": 270984,
+      "wasted_space": 541968
+    },
+    {
+      "hash": "d2aa638dc5589a1128ca51beba1d1a2d",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_389895.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_389895.xlsx"
+      ],
+      "count": 2,
+      "size_each": 270266,
+      "wasted_space": 270266
+    },
+    {
+      "hash": "323dc9943952dbed9e04e2ae8c941a24",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_389814.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_389814.xlsx"
+      ],
+      "count": 2,
+      "size_each": 387679,
+      "wasted_space": 387679
+    },
+    {
+      "hash": "6db2f719078cf29aec2c18fa349ad45d",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_340254.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340254.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_340254.xlsx"
+      ],
+      "count": 3,
+      "size_each": 259125,
+      "wasted_space": 518250
+    },
+    {
+      "hash": "3e1851f544f26af5a72c69f8b4022a40",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_391049.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_391049.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_391049.xlsx"
+      ],
+      "count": 3,
+      "size_each": 276269,
+      "wasted_space": 552538
+    },
+    {
+      "hash": "3e1eb3ac49459a890b25158a848e3cc6",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_340281.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340281.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_340281.xlsx"
+      ],
+      "count": 3,
+      "size_each": 253197,
+      "wasted_space": 506394
+    },
+    {
+      "hash": "a9145ca8cd35723ee014b00301d6e307",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_331248.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331248.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331248.xlsx"
+      ],
+      "count": 3,
+      "size_each": 90309,
+      "wasted_space": 180618
+    },
+    {
+      "hash": "77320afb35fd850d10ad1ebb4e5b13a9",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_402781.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_402781.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_402781.xlsx"
+      ],
+      "count": 3,
+      "size_each": 268756,
+      "wasted_space": 537512
+    },
+    {
+      "hash": "2320b319475d1596bd5bbf72c3cf56f0",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_385103.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_385103.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_385103.xlsx"
+      ],
+      "count": 3,
+      "size_each": 285291,
+      "wasted_space": 570582
+    },
+    {
+      "hash": "aeac89feb6be5c6a4c56feb4fb6a2cbb",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_402778.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_402778.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_402778.xlsx"
+      ],
+      "count": 3,
+      "size_each": 286923,
+      "wasted_space": 573846
+    },
+    {
+      "hash": "e2e179d2d74ba4075c6f31d5f90beea2",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_381479.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_381479.xlsx"
+      ],
+      "count": 2,
+      "size_each": 278514,
+      "wasted_space": 278514
+    },
+    {
+      "hash": "56a04151670e8032d88b64980a97d7c7",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_382490.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_382490.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_382490.xlsx"
+      ],
+      "count": 3,
+      "size_each": 323855,
+      "wasted_space": 647710
+    },
+    {
+      "hash": "d05438fbd954bfca459a839356d839b8",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_331249.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331249.xlsx"
+      ],
+      "count": 2,
+      "size_each": 91398,
+      "wasted_space": 91398
+    },
+    {
+      "hash": "0c87567c5d7df9bf75843eb3fbc60cf6",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_378181.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_378181.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_378181.xlsx"
+      ],
+      "count": 3,
+      "size_each": 270738,
+      "wasted_space": 541476
+    },
+    {
+      "hash": "2a95730aa89448748f5fdace3207bfcb",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_379180.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_379180.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_379180.xlsx"
+      ],
+      "count": 3,
+      "size_each": 270398,
+      "wasted_space": 540796
+    },
+    {
+      "hash": "d1f51086fc38f9ae35a2258aca78b01c",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_420360.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420360.xlsx"
+      ],
+      "count": 2,
+      "size_each": 39603,
+      "wasted_space": 39603
+    },
+    {
+      "hash": "63094a4ac3e03e76aef10d9e5feaa3d7",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_337123.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337123.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_337123.xlsx"
+      ],
+      "count": 3,
+      "size_each": 279953,
+      "wasted_space": 559906
+    },
+    {
+      "hash": "d8a04ae0b6316b494839e34310ab40b7",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_377443.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_377443.xlsx"
+      ],
+      "count": 2,
+      "size_each": 137462,
+      "wasted_space": 137462
+    },
+    {
+      "hash": "d55363c7a49adbebff1e911bdec4724a",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_363553.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_363553.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_363553.xlsx"
+      ],
+      "count": 3,
+      "size_each": 89694,
+      "wasted_space": 179388
+    },
+    {
+      "hash": "c394fca76996f5678f59ecdaa92928c8",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_337162.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337162.xlsx"
+      ],
+      "count": 2,
+      "size_each": 317892,
+      "wasted_space": 317892
+    },
+    {
+      "hash": "2e9270d073619e9ac58506a914a02e3a",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_331215.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_331215.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_331215.xlsx"
+      ],
+      "count": 3,
+      "size_each": 92790,
+      "wasted_space": 185580
+    },
+    {
+      "hash": "57aceadb4d97c4c0874d934f2cec9dcd",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_411165.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_411165.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_411165.xlsx"
+      ],
+      "count": 3,
+      "size_each": 137080,
+      "wasted_space": 274160
+    },
+    {
+      "hash": "febfa5b0c9528d148fe385fd3bfd999f",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_390234.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_390234.xlsx"
+      ],
+      "count": 2,
+      "size_each": 317738,
+      "wasted_space": 317738
+    },
+    {
+      "hash": "eed3953e6011a05a082f81b7f6c9163b",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_420356.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420356.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_420356.xlsx"
+      ],
+      "count": 3,
+      "size_each": 42067,
+      "wasted_space": 84134
+    },
+    {
+      "hash": "6922087a11143458c57b3adda4c61a91",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_387122.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_387122.xlsx"
+      ],
+      "count": 2,
+      "size_each": 303134,
+      "wasted_space": 303134
+    },
+    {
+      "hash": "337f3d9d82f639990f3f2f754e73ce91",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_391058.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_391058.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_391058.xlsx",
+        "downloads/direct_iframe_collection/업무프로그램/template_391058.xlsx",
+        "downloads/test_collection/test_template_391058.xlsx"
+      ],
+      "count": 5,
+      "size_each": 101165,
+      "wasted_space": 404660
+    },
+    {
+      "hash": "6b31f32f8a5a0074cc24ed148685a9b3",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_340290.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_340290.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_340290.xlsx"
+      ],
+      "count": 3,
+      "size_each": 243917,
+      "wasted_space": 487834
+    },
+    {
+      "hash": "bedc7f012641903c6bf619409cf96a9d",
+      "files": [
+        "downloads/simple_reliable_collection/업무프로그램/template_337122.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_337122.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_337122.xlsx"
+      ],
+      "count": 3,
+      "size_each": 330552,
+      "wasted_space": 661104
+    },
+    {
+      "hash": "aa2e6babf4a6e778bd9bd513307fec8a",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_418018.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_418018.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_418018.xlsx"
+      ],
+      "count": 3,
+      "size_each": 984104,
+      "wasted_space": 1968208
+    },
+    {
+      "hash": "47d9717a983715d59da652a7bda8e006",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_406456.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_406456.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_406456.xlsx"
+      ],
+      "count": 3,
+      "size_each": 87543,
+      "wasted_space": 175086
+    },
+    {
+      "hash": "1a90f3c9a60473a5810366000dcc38fd",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_416513.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_416513.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_416513.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_416513.xlsx"
+      ],
+      "count": 4,
+      "size_each": 41068,
+      "wasted_space": 123204
+    },
+    {
+      "hash": "3bb076e54f75c6abce1a3826c0cd50ec",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_419920.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419920.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419920.xlsx",
+        "downloads/enhanced_stealth_collection/iframe_bypass_419920.xlsx",
+        "downloads/test_collection/test_template_419920.xlsx"
+      ],
+      "count": 5,
+      "size_each": 995765,
+      "wasted_space": 3983060
+    },
+    {
+      "hash": "b1f912721b1a0ea7ba33243a2e80f599",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408075.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_408075.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_408075.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408075.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408075.xlsx"
+      ],
+      "count": 5,
+      "size_each": 58509,
+      "wasted_space": 234036
+    },
+    {
+      "hash": "b13dedbc7f19ccd7bd8a0aa7f3ec3ec9",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_417764.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417764.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417764.xlsx"
+      ],
+      "count": 3,
+      "size_each": 1128506,
+      "wasted_space": 2257012
+    },
+    {
+      "hash": "d641af8291dbace81dcae8e04fe31dd6",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_416508.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_416508.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_416508.xlsx"
+      ],
+      "count": 3,
+      "size_each": 31481,
+      "wasted_space": 62962
+    },
+    {
+      "hash": "8202f9998072c254b2b65cf962497910",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_420334.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420334.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420334.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_420334.xlsx",
+        "downloads/enhanced_stealth_collection/iframe_bypass_420334.xlsx",
+        "downloads/test_collection/test_template_420334.xlsx"
+      ],
+      "count": 6,
+      "size_each": 706221,
+      "wasted_space": 3531105
+    },
+    {
+      "hash": "552d953391d4ceab6c0b4718fee9e0a7",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_415152.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415152.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415152.xlsx"
+      ],
+      "count": 3,
+      "size_each": 2046163,
+      "wasted_space": 4092326
+    },
+    {
+      "hash": "c8c51879d2b5f327c2fd7b91cbe621d4",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_417826.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417826.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417826.xlsx"
+      ],
+      "count": 3,
+      "size_each": 548076,
+      "wasted_space": 1096152
+    },
+    {
+      "hash": "518f7aa004e396b210380d889cda265b",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_415381.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415381.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415381.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_415381.xlsx"
+      ],
+      "count": 4,
+      "size_each": 939369,
+      "wasted_space": 2818107
+    },
+    {
+      "hash": "966b77d25c0326119b6d512901e075d4",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_415010.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415010.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415010.xlsx"
+      ],
+      "count": 3,
+      "size_each": 269436,
+      "wasted_space": 538872
+    },
+    {
+      "hash": "c7ae6fb0730c4cf9538917bd49aa4656",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408337.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_408337.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408337.xlsx",
+        "downloads/mass_korean_collection/업무프로그램/template_408337.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408337.xlsx"
+      ],
+      "count": 5,
+      "size_each": 1097605,
+      "wasted_space": 4390420
+    },
+    {
+      "hash": "9777e56ad81a7b6c19642c1bff6e20ed",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408336.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408336.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408336.xlsx"
+      ],
+      "count": 3,
+      "size_each": 1259579,
+      "wasted_space": 2519158
+    },
+    {
+      "hash": "2fd7e56fb14bfdbbc6b720cb9dc05a2a",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_417763.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417763.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417763.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_417763.xlsx"
+      ],
+      "count": 4,
+      "size_each": 359296,
+      "wasted_space": 1077888
+    },
+    {
+      "hash": "efb68d35d41800315e5d92078a6da355",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408479.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408479.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408479.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_408479.xlsx"
+      ],
+      "count": 4,
+      "size_each": 255780,
+      "wasted_space": 767340
+    },
+    {
+      "hash": "a3f67f1611b98050a41742d017ad9460",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_417759.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417759.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417759.xlsx"
+      ],
+      "count": 3,
+      "size_each": 30594,
+      "wasted_space": 61188
+    },
+    {
+      "hash": "2b8b5f1480012aeb86f02b2fc15dbf2e",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_416472.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_416472.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_416472.xlsx"
+      ],
+      "count": 3,
+      "size_each": 124867,
+      "wasted_space": 249734
+    },
+    {
+      "hash": "8eacc41190381d905cfca785143170d4",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_419912.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419912.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419912.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419912.xlsx"
+      ],
+      "count": 4,
+      "size_each": 916816,
+      "wasted_space": 2750448
+    },
+    {
+      "hash": "687a0c48e42b5e99fdddedd065c3cbae",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_414674.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_414674.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_414674.xlsx"
+      ],
+      "count": 3,
+      "size_each": 843949,
+      "wasted_space": 1687898
+    },
+    {
+      "hash": "7790b78e6815c90957fb396ecefc4dce",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_336935.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_336935.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_336935.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_336935.xlsx"
+      ],
+      "count": 4,
+      "size_each": 93770,
+      "wasted_space": 281310
+    },
+    {
+      "hash": "64ed554e6dfe0fc72be363a87a454612",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_409070.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_409070.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_409070.xlsx"
+      ],
+      "count": 3,
+      "size_each": 804816,
+      "wasted_space": 1609632
+    },
+    {
+      "hash": "d876779442d8ac4d902ebd089445468f",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_372485.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_372485.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_372485.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_372485.xlsx"
+      ],
+      "count": 4,
+      "size_each": 482447,
+      "wasted_space": 1447341
+    },
+    {
+      "hash": "09a4eefc82c120e98dda87cc60c2aa90",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_413313.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_413313.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_413313.xlsx"
+      ],
+      "count": 3,
+      "size_each": 780140,
+      "wasted_space": 1560280
+    },
+    {
+      "hash": "79e5224b76491beb4d7b3edacc8a9050",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_415044.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_415044.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_415044.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_415044.xlsx"
+      ],
+      "count": 4,
+      "size_each": 89386,
+      "wasted_space": 268158
+    },
+    {
+      "hash": "7d3ad22f38252a174c6998c800ba088e",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_369972.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_369972.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_369972.xlsx"
+      ],
+      "count": 3,
+      "size_each": 359468,
+      "wasted_space": 718936
+    },
+    {
+      "hash": "bf9853a7a029d5c3077712ec0bd7dbd9",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_417864.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_417864.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_417864.xlsx"
+      ],
+      "count": 3,
+      "size_each": 23672,
+      "wasted_space": 47344
+    },
+    {
+      "hash": "fd7913fbaef6ef42d3b281fc0f52f3c5",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_404675.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_404675.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_404675.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_404675.xlsx",
+        "downloads/enhanced_stealth_collection/iframe_bypass_404675.xlsx",
+        "downloads/test_collection/test_template_404675.xlsx"
+      ],
+      "count": 6,
+      "size_each": 80100,
+      "wasted_space": 400500
+    },
+    {
+      "hash": "a2c2844a22877cda507c6123fd57199a",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_419913.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419913.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419913.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419913.xlsx"
+      ],
+      "count": 4,
+      "size_each": 478272,
+      "wasted_space": 1434816
+    },
+    {
+      "hash": "649acd26bef9e38f58c1f20faafe506f",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_391822.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_391822.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_391822.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_391822.xlsx"
+      ],
+      "count": 4,
+      "size_each": 441698,
+      "wasted_space": 1325094
+    },
+    {
+      "hash": "e1533760ddeb1f93c0b86eb2c8a9264f",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_413553.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_413553.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_413553.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_413553.xlsx"
+      ],
+      "count": 4,
+      "size_each": 515857,
+      "wasted_space": 1547571
+    },
+    {
+      "hash": "31d304f738baacc93471678e2a383021",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408165.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408165.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408165.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_408165.xlsx"
+      ],
+      "count": 4,
+      "size_each": 99312,
+      "wasted_space": 297936
+    },
+    {
+      "hash": "701f7fca5a8de62f00a804af8b1cc322",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408333.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_408333.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_408333.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408333.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408333.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_408333.xlsx"
+      ],
+      "count": 6,
+      "size_each": 1044327,
+      "wasted_space": 5221635
+    },
+    {
+      "hash": "be8222d5c6789a46e356aae421fcc42b",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_381599.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_381599.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_381599.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_381599.xlsx"
+      ],
+      "count": 4,
+      "size_each": 102766,
+      "wasted_space": 308298
+    },
+    {
+      "hash": "983b2f03e0970ff7ee2bc2f59be19195",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_419914.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419914.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419914.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_419914.xlsx"
+      ],
+      "count": 4,
+      "size_each": 438350,
+      "wasted_space": 1315050
+    },
+    {
+      "hash": "33f3baadf30082b8e3f2776a590be9fd",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_420205.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420205.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420205.xlsx"
+      ],
+      "count": 3,
+      "size_each": 1410726,
+      "wasted_space": 2821452
+    },
+    {
+      "hash": "ad6464d51e2cd55c71c82af697baba98",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_406398.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_406398.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_406398.xlsx"
+      ],
+      "count": 3,
+      "size_each": 5950664,
+      "wasted_space": 11901328
+    },
+    {
+      "hash": "14742d957bbfc3bd91473207a8868968",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_419939.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_419939.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_419939.xlsx"
+      ],
+      "count": 3,
+      "size_each": 105190,
+      "wasted_space": 210380
+    },
+    {
+      "hash": "83c35631a6d058bba6f97c8cc3d74a6b",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_413358.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_413358.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_413358.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_413358.xlsx"
+      ],
+      "count": 4,
+      "size_each": 920845,
+      "wasted_space": 2762535
+    },
+    {
+      "hash": "3a73d1fdfd889a460b4f5d1bbf1b0f51",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_420072.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420072.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420072.xlsx"
+      ],
+      "count": 3,
+      "size_each": 512267,
+      "wasted_space": 1024534
+    },
+    {
+      "hash": "d07b8cc44f57e05077abde24f7e0ab0b",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_406455.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_406455.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_406455.xlsx"
+      ],
+      "count": 3,
+      "size_each": 88219,
+      "wasted_space": 176438
+    },
+    {
+      "hash": "f36c7fd4a2e00a73ec57caef394ea8e4",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_382697.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_382697.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_382697.xlsx"
+      ],
+      "count": 3,
+      "size_each": 516080,
+      "wasted_space": 1032160
+    },
+    {
+      "hash": "5a2bfc19feb9a74036d38b816244b3bc",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_414794.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_414794.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_414794.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_414794.xlsx"
+      ],
+      "count": 4,
+      "size_each": 467512,
+      "wasted_space": 1402536
+    },
+    {
+      "hash": "43a0a2cd702e72c2c02c749b9fd62a98",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_420361.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420359.xlsx",
+        "downloads/specialized_categories/검색결과/회계/template_420361.xlsx",
+        "downloads/complete_korean_collection/업무프로그램/일반/template_420361.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_420361.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_420361.xlsx"
+      ],
+      "count": 6,
+      "size_each": 56495,
+      "wasted_space": 282475
+    },
+    {
+      "hash": "31dcd2c3f5351f5ae00cd06514783d43",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_414669.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_414669.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_414669.xlsx",
+        "downloads/direct_iframe_collection/업무템플릿/template_414669.xlsx"
+      ],
+      "count": 4,
+      "size_each": 698315,
+      "wasted_space": 2094945
+    },
+    {
+      "hash": "6c81afd504cbd1e328bbbe94adc6cbcf",
+      "files": [
+        "downloads/simple_reliable_collection/업무템플릿/template_408575.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_408575.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_408575.xlsx"
+      ],
+      "count": 3,
+      "size_each": 137534,
+      "wasted_space": 275068
+    },
+    {
+      "hash": "8de4d89047e453fb2aef957aebf41ec6",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_420358.xlsx",
+        "downloads/simple_reliable_collection/차트/template_420357.xlsx"
+      ],
+      "count": 2,
+      "size_each": 52302,
+      "wasted_space": 52302
+    },
+    {
+      "hash": "0cb05e87602b0ca5bd58f59b6d622fcf",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_420093.xlsx",
+        "downloads/backup_corrupted/template_420093.xlsx"
+      ],
+      "count": 2,
+      "size_each": 1441726,
+      "wasted_space": 1441726
+    },
+    {
+      "hash": "dfc1f201e9621bdeea606187d3ef0589",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_410452.xlsx",
+        "downloads/complete_korean_collection/차트/일반/template_410452.xlsx"
+      ],
+      "count": 2,
+      "size_each": 105415,
+      "wasted_space": 105415
+    },
+    {
+      "hash": "9a2db5f9e6cdb452cd269ed037cbe75f",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_412389.xlsx",
+        "downloads/backup_corrupted/template_412389.xlsx"
+      ],
+      "count": 2,
+      "size_each": 2919130,
+      "wasted_space": 2919130
+    },
+    {
+      "hash": "ac2d465ac6b991b7f836aa85ec47d82d",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_420094.xlsx",
+        "downloads/backup_corrupted/template_420094.xlsx"
+      ],
+      "count": 2,
+      "size_each": 6404171,
+      "wasted_space": 6404171
+    },
+    {
+      "hash": "77f94849057369797753462647c64827",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_410459.xlsx",
+        "downloads/backup_corrupted/template_410459.xlsx"
+      ],
+      "count": 2,
+      "size_each": 20463456,
+      "wasted_space": 20463456
+    },
+    {
+      "hash": "36384039dbf89ab1b14221f55d528085",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_415712.xlsx",
+        "downloads/complete_korean_collection/차트/일반/template_415712.xlsx"
+      ],
+      "count": 2,
+      "size_each": 42300,
+      "wasted_space": 42300
+    },
+    {
+      "hash": "ccbf2fa3ffffb64bc423e09bebef3b6a",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_410458.xlsx",
+        "downloads/backup_corrupted/template_410458.xlsx"
+      ],
+      "count": 2,
+      "size_each": 12204087,
+      "wasted_space": 12204087
+    },
+    {
+      "hash": "c8b2d645b7d616b72ea8cb490eab544f",
+      "files": [
+        "downloads/simple_reliable_collection/차트/template_420091.xlsx",
+        "downloads/test_collection/test_template_420091.xlsx"
+      ],
+      "count": 2,
+      "size_each": 29069,
+      "wasted_space": 29069
+    },
+    {
+      "hash": "35c4ab9d60514fe4072010210b9762db",
+      "files": [
+        "downloads/specialized_categories/검색결과/회계/template_420374.xlsx",
+        "downloads/backup_corrupted/template_420374.xlsx"
+      ],
+      "count": 2,
+      "size_each": 3998680,
+      "wasted_space": 3998680
+    },
+    {
+      "hash": "a870c47287ae21145a6fe2df14dd763e",
+      "files": [
+        "downloads/specialized_categories/검색결과/회계/template_403672.xlsx",
+        "downloads/backup_corrupted/template_403672.xlsx"
+      ],
+      "count": 2,
+      "size_each": 42146582,
+      "wasted_space": 42146582
+    },
+    {
+      "hash": "1f6adad4b3210b77fcf46b1e1bcf8ba5",
+      "files": [
+        "downloads/specialized_categories/검색결과/회계/template_420372.xlsx",
+        "downloads/backup_corrupted/template_420372.xlsx"
+      ],
+      "count": 2,
+      "size_each": 3849956,
+      "wasted_space": 3849956
+    },
+    {
+      "hash": "13b335823d9fbb1f4d7cfe6371b1928e",
+      "files": [
+        "downloads/specialized_categories/검색결과/회계/template_420373.xlsx",
+        "downloads/backup_corrupted/template_420373.xlsx"
+      ],
+      "count": 2,
+      "size_each": 1797299,
+      "wasted_space": 1797299
+    },
+    {
+      "hash": "ead015dcff67aa3b155d572892f5c374",
+      "files": [
+        "downloads/specialized_categories/검색결과/품질/template_420282.xlsx",
+        "downloads/backup_corrupted/template_420282.xlsx"
+      ],
+      "count": 2,
+      "size_each": 3520656,
+      "wasted_space": 3520656
+    },
+    {
+      "hash": "5e341545903e643f1302b85cf64feb2d",
+      "files": [
+        "downloads/complete_korean_collection/업무프로그램/일반/template_396063.xlsx",
+        "downloads/complete_korean_collection/업무템플릿/일반/template_396063.xlsx",
+        "downloads/mass_korean_collection/업무템플릿/template_396063.xlsx",
+        "downloads/backup_corrupted/template_396063.xlsx"
+      ],
+      "count": 4,
+      "size_each": 14848,
+      "wasted_space": 44544
+    }
+  ],
+  "cleanup_candidates": [
+    {
+      "path": "downloads/complete_collection_final",
+      "reason": "빈 폴더",
+      "action": "delete"
+    },
+    {
+      "path": "downloads/test_collection",
+      "reason": "테스트 폴더",
+      "action": "review"
+    }
+  ]
+}

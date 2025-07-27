@@ -1,0 +1,75 @@
+{
+  "timestamp": "20250726_112950",
+  "total_files_checked": 329,
+  "problem_files": 15,
+  "corrupted_files": 2,
+  "redownload_needed": 11,
+  "files": [
+    {
+      "file_id": "420093",
+      "original_path": "downloads/simple_reliable_collection/차트/template_420093.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "412389",
+      "original_path": "downloads/simple_reliable_collection/차트/template_412389.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "420094",
+      "original_path": "downloads/simple_reliable_collection/차트/template_420094.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "410459",
+      "original_path": "downloads/simple_reliable_collection/차트/template_410459.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "410458",
+      "original_path": "downloads/simple_reliable_collection/차트/template_410458.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "420374",
+      "original_path": "downloads/specialized_categories/검색결과/회계/template_420374.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "403672",
+      "original_path": "downloads/specialized_categories/검색결과/회계/template_403672.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "420372",
+      "original_path": "downloads/specialized_categories/검색결과/회계/template_420372.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "420373",
+      "original_path": "downloads/specialized_categories/검색결과/회계/template_420373.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "420282",
+      "original_path": "downloads/specialized_categories/검색결과/품질/template_420282.xlsx",
+      "reason": "unreadable",
+      "error": "openpyxl error: File contains no valid workbook part | pandas error: \"No such keys(s): 'io.excel.zip.reader'\""
+    },
+    {
+      "file_id": "396063",
+      "original_path": "downloads/mass_korean_collection/업무템플릿/template_396063.xlsx",
+      "reason": "unreadable",
+      "error": "xlrd error: Can't find workbook in OLE2 compound document | pandas error: Can't find workbook in OLE2 compound document"
+    }
+  ]
+}

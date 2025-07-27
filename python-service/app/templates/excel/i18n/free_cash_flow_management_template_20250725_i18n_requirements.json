@@ -1,0 +1,4132 @@
+{
+  "template_id": "free_cash_flow_management_template_20250725",
+  "elements": [
+    {
+      "original_text": "BTT Corporation",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "A1:F11",
+        "template_domain": "general"
+      },
+      "coordinate": "A1",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "OPERATIONS",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "A6:F16",
+        "template_domain": "general"
+      },
+      "coordinate": "A6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "January",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "C6:H16",
+        "template_domain": "general"
+      },
+      "coordinate": "C6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "February",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "D6:I16",
+        "template_domain": "general"
+      },
+      "coordinate": "D6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "March",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "E6:J16",
+        "template_domain": "general"
+      },
+      "coordinate": "E6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "April",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "F6:K16",
+        "template_domain": "general"
+      },
+      "coordinate": "F6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "May",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "G6:L16",
+        "template_domain": "general"
+      },
+      "coordinate": "G6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "June",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "H6:M16",
+        "template_domain": "general"
+      },
+      "coordinate": "H6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "July",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "I6:N16",
+        "template_domain": "general"
+      },
+      "coordinate": "I6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "August",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "J6:O16",
+        "template_domain": "general"
+      },
+      "coordinate": "J6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "September",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "K6:P16",
+        "template_domain": "general"
+      },
+      "coordinate": "K6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "October",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "L6:Q16",
+        "template_domain": "general"
+      },
+      "coordinate": "L6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "November",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "M6:R16",
+        "template_domain": "general"
+      },
+      "coordinate": "M6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "December",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "N6:S16",
+        "template_domain": "general"
+      },
+      "coordinate": "N6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "TOTAL",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O6:T16",
+        "template_domain": "general"
+      },
+      "coordinate": "O6",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Net Cash Flow from Operations",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "B15:G25",
+        "template_domain": "general"
+      },
+      "coordinate": "B15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "=SUM(C8:C10)-SUM(C12:C14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "C15:H25",
+        "template_domain": "general"
+      },
+      "coordinate": "C15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(D8:D10)-SUM(D12:D14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "D15:I25",
+        "template_domain": "general"
+      },
+      "coordinate": "D15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(E8:E10)-SUM(E12:E14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "E15:J25",
+        "template_domain": "general"
+      },
+      "coordinate": "E15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(F8:F10)-SUM(F12:F14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "F15:K25",
+        "template_domain": "general"
+      },
+      "coordinate": "F15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(G8:G10)-SUM(G12:G14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "G15:L25",
+        "template_domain": "general"
+      },
+      "coordinate": "G15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(H8:H10)-SUM(H12:H14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "H15:M25",
+        "template_domain": "general"
+      },
+      "coordinate": "H15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(I8:I10)-SUM(I12:I14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "I15:N25",
+        "template_domain": "general"
+      },
+      "coordinate": "I15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(J8:J10)-SUM(J12:J14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "J15:O25",
+        "template_domain": "general"
+      },
+      "coordinate": "J15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(K8:K10)-SUM(K12:K14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "K15:P25",
+        "template_domain": "general"
+      },
+      "coordinate": "K15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(L8:L10)-SUM(L12:L14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "L15:Q25",
+        "template_domain": "general"
+      },
+      "coordinate": "L15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(M8:M10)-SUM(M12:M14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "M15:R25",
+        "template_domain": "general"
+      },
+      "coordinate": "M15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(N8:N10)-SUM(N12:N14)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "N15:S25",
+        "template_domain": "general"
+      },
+      "coordinate": "N15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(C15:N15)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O15:T25",
+        "template_domain": "general"
+      },
+      "coordinate": "O15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "FINANCES",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "A17:F27",
+        "template_domain": "general"
+      },
+      "coordinate": "A17",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "TOTAL",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O17:T27",
+        "template_domain": "general"
+      },
+      "coordinate": "O17",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Net Cash Flow from Finances",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "B26:G36",
+        "template_domain": "general"
+      },
+      "coordinate": "B26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "=SUM(C19:C21)-SUM(C23:C25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "C26:H36",
+        "template_domain": "general"
+      },
+      "coordinate": "C26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(D19:D21)-SUM(D23:D25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "D26:I36",
+        "template_domain": "general"
+      },
+      "coordinate": "D26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(E19:E21)-SUM(E23:E25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "E26:J36",
+        "template_domain": "general"
+      },
+      "coordinate": "E26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(F19:F21)-SUM(F23:F25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "F26:K36",
+        "template_domain": "general"
+      },
+      "coordinate": "F26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(G19:G21)-SUM(G23:G25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "G26:L36",
+        "template_domain": "general"
+      },
+      "coordinate": "G26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(H19:H21)-SUM(H23:H25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "H26:M36",
+        "template_domain": "general"
+      },
+      "coordinate": "H26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(I19:I21)-SUM(I23:I25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "I26:N36",
+        "template_domain": "general"
+      },
+      "coordinate": "I26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(J19:J21)-SUM(J23:J25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "J26:O36",
+        "template_domain": "general"
+      },
+      "coordinate": "J26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(K19:K21)-SUM(K23:K25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "K26:P36",
+        "template_domain": "general"
+      },
+      "coordinate": "K26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(L19:L21)-SUM(L23:L25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "L26:Q36",
+        "template_domain": "general"
+      },
+      "coordinate": "L26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(M19:M21)-SUM(M23:M25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "M26:R36",
+        "template_domain": "general"
+      },
+      "coordinate": "M26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(N19:N21)-SUM(N23:N25)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "N26:S36",
+        "template_domain": "general"
+      },
+      "coordinate": "N26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(C26:N26)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O26:T36",
+        "template_domain": "general"
+      },
+      "coordinate": "O26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "INVESTMENTS",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "A28:F38",
+        "template_domain": "general"
+      },
+      "coordinate": "A28",
+      "sheet_name": "Cash Flow",
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "TOTAL",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O28:T38",
+        "template_domain": "general"
+      },
+      "coordinate": "O28",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Net Cash Flow from Finances",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "B36:G46",
+        "template_domain": "general"
+      },
+      "coordinate": "B36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "=SUM(C30:C32)-SUM(C34:C35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "C36:H46",
+        "template_domain": "general"
+      },
+      "coordinate": "C36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(D30:D32)-SUM(D34:D35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "D36:I46",
+        "template_domain": "general"
+      },
+      "coordinate": "D36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(E30:E32)-SUM(E34:E35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "E36:J46",
+        "template_domain": "general"
+      },
+      "coordinate": "E36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(F30:F32)-SUM(F34:F35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "F36:K46",
+        "template_domain": "general"
+      },
+      "coordinate": "F36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(G30:G32)-SUM(G34:G35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "G36:L46",
+        "template_domain": "general"
+      },
+      "coordinate": "G36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(H30:H32)-SUM(H34:H35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "H36:M46",
+        "template_domain": "general"
+      },
+      "coordinate": "H36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(I30:I32)-SUM(I34:I35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "I36:N46",
+        "template_domain": "general"
+      },
+      "coordinate": "I36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(J30:J32)-SUM(J34:J35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "J36:O46",
+        "template_domain": "general"
+      },
+      "coordinate": "J36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(K30:K32)-SUM(K34:K35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "K36:P46",
+        "template_domain": "general"
+      },
+      "coordinate": "K36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(L30:L32)-SUM(L34:L35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "L36:Q46",
+        "template_domain": "general"
+      },
+      "coordinate": "L36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(M30:M32)-SUM(M34:M35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "M36:R46",
+        "template_domain": "general"
+      },
+      "coordinate": "M36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(N30:N32)-SUM(N34:N35)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "N36:S46",
+        "template_domain": "general"
+      },
+      "coordinate": "N36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(C36:N36)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O36:T46",
+        "template_domain": "general"
+      },
+      "coordinate": "O36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "ANNUAL ENDING",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "A38:F48",
+        "template_domain": "general"
+      },
+      "coordinate": "A38",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "TOTAL",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O38:T48",
+        "template_domain": "general"
+      },
+      "coordinate": "O38",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Closing Cash Balance",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "B41:G51",
+        "template_domain": "general"
+      },
+      "coordinate": "B41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "=SUM(C39:C40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "C41:H51",
+        "template_domain": "general"
+      },
+      "coordinate": "C41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(D39:D40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "D41:I51",
+        "template_domain": "general"
+      },
+      "coordinate": "D41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(E39:E40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "E41:J51",
+        "template_domain": "general"
+      },
+      "coordinate": "E41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(F39:F40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "F41:K51",
+        "template_domain": "general"
+      },
+      "coordinate": "F41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(G39:G40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "G41:L51",
+        "template_domain": "general"
+      },
+      "coordinate": "G41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(H39:H40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "H41:M51",
+        "template_domain": "general"
+      },
+      "coordinate": "H41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(I39:I40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "I41:N51",
+        "template_domain": "general"
+      },
+      "coordinate": "I41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(J39:J40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "J41:O51",
+        "template_domain": "general"
+      },
+      "coordinate": "J41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(K39:K40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "K41:P51",
+        "template_domain": "general"
+      },
+      "coordinate": "K41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(L39:L40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "L41:Q51",
+        "template_domain": "general"
+      },
+      "coordinate": "L41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(M39:M40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "M41:R51",
+        "template_domain": "general"
+      },
+      "coordinate": "M41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(N39:N40)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "N41:S51",
+        "template_domain": "general"
+      },
+      "coordinate": "N41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "=SUM(C41:N41)",
+      "element_type": "header",
+      "context": {
+        "section_type": "section",
+        "sheet_name": "Cash Flow",
+        "estimated_range": "O41:T51",
+        "template_domain": "general"
+      },
+      "coordinate": "O41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at A2",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "A2",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at A3",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "A3",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at A4",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "A4",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B7",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B7",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B8",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I8",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B9",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I9",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B10",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I10",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B11",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B11",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B12",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I12",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B13",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I13",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B14",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I14",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B18",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B18",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B19",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I19",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B20",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I20",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B21",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I21",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B22",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B22",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B23",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I23",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B24",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I24",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B25",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I25",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B29",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B29",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B30",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I30",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B31",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I31",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B32",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I32",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B33",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B33",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B34",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C34",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D34",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E34",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F34",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G34",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H34",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I34",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B35",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at D35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at E35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at F35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at G35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at H35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I35",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B39",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at B40",
+      "element_type": "label",
+      "context": {
+        "data_type": "text",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "B40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at C40",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Input field at I40",
+      "element_type": "label",
+      "context": {
+        "data_type": "number",
+        "input_purpose": "user_entry",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C8:N8)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O8",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C9:N9)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O9",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C10:N10)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O10",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C12:N12)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O12",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C13:N13)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O13",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C14:N14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O14",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C8:C10)-SUM(C12:C14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(D8:D10)-SUM(D12:D14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(E8:E10)-SUM(E12:E14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(F8:F10)-SUM(F12:F14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(G8:G10)-SUM(G12:G14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(H8:H10)-SUM(H12:H14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(I8:I10)-SUM(I12:I14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(J8:J10)-SUM(J12:J14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "J15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(K8:K10)-SUM(K12:K14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "K15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(L8:L10)-SUM(L12:L14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "L15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(M8:M10)-SUM(M12:M14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "M15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(N8:N10)-SUM(N12:N14)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "N15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C15:N15)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O15",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C19:N19)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O19",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C20:N20)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O20",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C21:N21)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O21",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C23:N23)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O23",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C24:N24)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O24",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C25:N25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O25",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C19:C21)-SUM(C23:C25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(D19:D21)-SUM(D23:D25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(E19:E21)-SUM(E23:E25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(F19:F21)-SUM(F23:F25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(G19:G21)-SUM(G23:G25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(H19:H21)-SUM(H23:H25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(I19:I21)-SUM(I23:I25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(J19:J21)-SUM(J23:J25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "J26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(K19:K21)-SUM(K23:K25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "K26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(L19:L21)-SUM(L23:L25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "L26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(M19:M21)-SUM(M23:M25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "M26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(N19:N21)-SUM(N23:N25)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "N26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C26:N26)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O26",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C30:N30)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O30",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C31:N31)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O31",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C32:N32)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O32",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C34:N34)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O34",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C35:N35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O35",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C30:C32)-SUM(C34:C35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(D30:D32)-SUM(D34:D35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(E30:E32)-SUM(E34:E35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(F30:F32)-SUM(F34:F35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(G30:G32)-SUM(G34:G35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(H30:H32)-SUM(H34:H35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(I30:I32)-SUM(I34:I35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(J30:J32)-SUM(J34:J35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "J36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(K30:K32)-SUM(K34:K35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "K36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(L30:L32)-SUM(L34:L35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "L36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(M30:M32)-SUM(M34:M35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "M36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(N30:N32)-SUM(N34:N35)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "N36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C36:N36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O36",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C15,C26,C36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(D15,D26,D36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(E15,E26,E36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(F15,F26,F36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(G15,G26,G36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(H15,H26,H36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(I15,I26,I36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(J15,J26,J36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "J39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(K15,K26,K36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "K39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(L15,L26,L36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "L39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(M15,M26,M36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "M39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(N15,N26,N36)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "N39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C39:N39)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O39",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Calculated value",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=C41",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Calculated value",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=D41",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Calculated value",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=E41",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Calculated value",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=F41",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Calculated value",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=G41",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C40:N40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O40",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C39:C40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "C41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(D39:D40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "D41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(E39:E40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "E41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(F39:F40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "F41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(G39:G40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "G41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(H39:H40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "H41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(I39:I40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "I41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(J39:J40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "J41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(K39:K40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "K41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(L39:L40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "L41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(M39:M40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "M41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(N39:N40)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "N41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Sum of values",
+      "element_type": "formula_description",
+      "context": {
+        "formula": "=SUM(C41:N41)",
+        "calculation_type": "automatic",
+        "sheet_name": "Cash Flow"
+      },
+      "coordinate": "O41",
+      "sheet_name": "Cash Flow",
+      "business_domain": "general"
+    },
+    {
+      "original_text": "TOTAL",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "INVESTMENTS",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "August",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "BTT Corporation",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "FINANCES",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "March",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "May",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "July",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "February",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "December",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "June",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Closing Cash Balance",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "ANNUAL ENDING",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "November",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "September",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Net Cash Flow from Operations",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "January",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Net Cash Flow from Finances",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "finance"
+    },
+    {
+      "original_text": "OPERATIONS",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "October",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "April",
+      "element_type": "header",
+      "context": {
+        "category": "headers",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    },
+    {
+      "original_text": "Prepared by: Ms. Kathy Lattey",
+      "element_type": "label",
+      "context": {
+        "category": "labels",
+        "template_context": "Free Cash Flow Management Template",
+        "business_domain": "general"
+      },
+      "coordinate": null,
+      "sheet_name": null,
+      "business_domain": "general"
+    }
+  ],
+  "translation_complexity": "medium",
+  "estimated_effort": 50.4,
+  "business_domains": [
+    "finance",
+    "general"
+  ],
+  "content_types": [
+    "label",
+    "formula_description",
+    "header"
+  ],
+  "suggested_languages": [
+    "ko",
+    "en",
+    "ja",
+    "zh",
+    "es"
+  ]
+}

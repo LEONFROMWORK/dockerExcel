@@ -1,0 +1,2306 @@
+{
+  "start_time": "20250726_021728",
+  "categories": {
+    "업무템플릿": {
+      "total_discovered": 104,
+      "templates": [
+        {
+          "file_id": "420205",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419949",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420071",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419920",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100413553",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "413553",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420334",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100369972",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "417864",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415273",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "406398",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100417864",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100418018",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "336935",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408075",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "396063",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408575",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408336",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "417763",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419914",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415010",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "417826",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419912",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419914",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414794",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415273",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408337",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419942",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414674",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "404675",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "406455",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415152",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414674",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408333",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100417764",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420138",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408479",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420072",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416472",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416513",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100381599",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420334",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419920",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100406455",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420031",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419913",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416472",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415381",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420072",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "382697",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100417759",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419949",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "369972",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415044",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "417759",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420138",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415152",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420031",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "391822",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100406398",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100417763",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100417826",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414669",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419942",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415010",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "413313",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100404675",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408333",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "409070",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "543059",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420071",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408336",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "372485",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100413358",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100413313",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419912",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408075",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "406456",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416508",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416513",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408479",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415381",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100406456",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419913",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100382697",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420205",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408165",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "381599",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100409070",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "413358",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408337",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414794",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420361",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100391822",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414669",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100372485",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408165",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415044",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "419939",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100419939",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "417764",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408575",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416508",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "418018",
+          "main_category": "업무템플릿",
+          "sub_category": "일반"
+        }
+      ]
+    },
+    "업무프로그램": {
+      "total_discovered": 110,
+      "templates": [
+        {
+          "file_id": "100420355",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100381479",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100391058",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100379424",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "392103",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420259",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420356",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "336935",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408075",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "396063",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "331248",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "377443",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "385103",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420356",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100391049",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "384262",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100387122",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100382600",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "390234",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "337162",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100337123",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "361879",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "340281",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420360",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100388895",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100340256",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408337",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420335",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "337130",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420271",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "402781",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "391058",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100337162",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100389895",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "378181",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "337123",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100337122",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408333",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "385865",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420360",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100331248",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420362",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "331276",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "337192",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100361879",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420269",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100331000",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "363553",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420252",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100340290",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "340254",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "331000",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420355",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420335",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "340290",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100331215",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420362",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "389895",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100337130",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "387122",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "381231",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420273",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100390234",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "411165",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420259",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100379180",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100363553",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100389814",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "402778",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100340254",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100384262",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100392103",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "379180",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "389814",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408333",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100336993",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "331249",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100331276",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "336993",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "543059",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100385103",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420354",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420354",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420271",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100402781",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420273",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100411165",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100377443",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "379424",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408075",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "331215",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "391049",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "382600",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100382490",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100337192",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100340281",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "382490",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "337122",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "340256",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "381479",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100378181",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408337",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100331249",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100385865",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420361",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420252",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100381231",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "388895",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100402778",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420269",
+          "main_category": "업무프로그램",
+          "sub_category": "일반"
+        }
+      ]
+    },
+    "차트": {
+      "total_discovered": 108,
+      "templates": [
+        {
+          "file_id": "410452",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412164",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416640",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415995",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415712",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416026",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416641",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414948",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414950",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "336935",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412487",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408075",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "396063",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416640",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "406436",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415709",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410828",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410451",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420091",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412486",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "411791",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410901",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412384",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415709",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410456",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415963",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415710",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416549",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416549",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410448",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410454",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100408337",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410452",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410449",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415710",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410812",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410451",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420358",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412486",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414949",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416639",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412323",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410901",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410455",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412471",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416239",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416510",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415713",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410447",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412487",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420090",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412164",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410454",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415711",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420361",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412319",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412321",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415995",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412320",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100406436",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410397",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412322",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415933",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410449",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410448",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412322",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415713",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100411791",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414948",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415711",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414950",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420092",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416641",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412328",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420358",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416510",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "415933",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412323",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412321",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410828",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "412471",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416239",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "414951",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415963",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408333",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "543059",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410812",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414951",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412384",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410453",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "410455",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410453",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410456",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408075",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420091",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100414949",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420090",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412320",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100415712",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410447",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100420092",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "408337",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "420361",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412328",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100410397",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100416639",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "100412319",
+          "main_category": "차트",
+          "sub_category": "일반"
+        },
+        {
+          "file_id": "416026",
+          "main_category": "차트",
+          "sub_category": "일반"
+        }
+      ]
+    }
+  },
+  "successful_downloads": [
+    {
+      "file_id": "420205",
+      "filename": "template_420205.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 1410726,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_420205.xlsx"
+    },
+    {
+      "file_id": "413553",
+      "filename": "template_413553.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 515857,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_413553.xlsx"
+    },
+    {
+      "file_id": "417864",
+      "filename": "template_417864.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 23672,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_417864.xlsx"
+    },
+    {
+      "file_id": "406398",
+      "filename": "template_406398.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 5950664,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_406398.xlsx"
+    },
+    {
+      "file_id": "336935",
+      "filename": "template_336935.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 93770,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_336935.xlsx"
+    },
+    {
+      "file_id": "396063",
+      "filename": "template_396063.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 14848,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_396063.xlsx"
+    },
+    {
+      "file_id": "408575",
+      "filename": "template_408575.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 137534,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_408575.xlsx"
+    },
+    {
+      "file_id": "408336",
+      "filename": "template_408336.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 1259579,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_408336.xlsx"
+    },
+    {
+      "file_id": "417763",
+      "filename": "template_417763.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 359296,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_417763.xlsx"
+    },
+    {
+      "file_id": "415010",
+      "filename": "template_415010.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 269436,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_415010.xlsx"
+    },
+    {
+      "file_id": "417826",
+      "filename": "template_417826.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 548076,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_417826.xlsx"
+    },
+    {
+      "file_id": "419914",
+      "filename": "template_419914.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 438350,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_419914.xlsx"
+    },
+    {
+      "file_id": "414674",
+      "filename": "template_414674.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 843949,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_414674.xlsx"
+    },
+    {
+      "file_id": "404675",
+      "filename": "template_404675.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 80100,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_404675.xlsx"
+    },
+    {
+      "file_id": "406455",
+      "filename": "template_406455.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 88219,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_406455.xlsx"
+    },
+    {
+      "file_id": "415152",
+      "filename": "template_415152.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 2046163,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_415152.xlsx"
+    },
+    {
+      "file_id": "408479",
+      "filename": "template_408479.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 255780,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_408479.xlsx"
+    },
+    {
+      "file_id": "416472",
+      "filename": "template_416472.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 124867,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_416472.xlsx"
+    },
+    {
+      "file_id": "420334",
+      "filename": "template_420334.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 706221,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_420334.xlsx"
+    },
+    {
+      "file_id": "419920",
+      "filename": "template_419920.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 995765,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_419920.xlsx"
+    },
+    {
+      "file_id": "415381",
+      "filename": "template_415381.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 939369,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_415381.xlsx"
+    },
+    {
+      "file_id": "420072",
+      "filename": "template_420072.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 512267,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_420072.xlsx"
+    },
+    {
+      "file_id": "382697",
+      "filename": "template_382697.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 516080,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_382697.xlsx"
+    },
+    {
+      "file_id": "369972",
+      "filename": "template_369972.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 359468,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_369972.xlsx"
+    },
+    {
+      "file_id": "415044",
+      "filename": "template_415044.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 89386,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_415044.xlsx"
+    },
+    {
+      "file_id": "417759",
+      "filename": "template_417759.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 30594,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_417759.xlsx"
+    },
+    {
+      "file_id": "391822",
+      "filename": "template_391822.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 441698,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_391822.xlsx"
+    },
+    {
+      "file_id": "414669",
+      "filename": "template_414669.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 698315,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_414669.xlsx"
+    },
+    {
+      "file_id": "413313",
+      "filename": "template_413313.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 780140,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_413313.xlsx"
+    },
+    {
+      "file_id": "408333",
+      "filename": "template_408333.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 1044327,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_408333.xlsx"
+    },
+    {
+      "file_id": "409070",
+      "filename": "template_409070.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 804816,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_409070.xlsx"
+    },
+    {
+      "file_id": "372485",
+      "filename": "template_372485.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 482447,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_372485.xlsx"
+    },
+    {
+      "file_id": "419912",
+      "filename": "template_419912.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 916816,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_419912.xlsx"
+    },
+    {
+      "file_id": "408075",
+      "filename": "template_408075.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 58509,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_408075.xlsx"
+    },
+    {
+      "file_id": "406456",
+      "filename": "template_406456.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 87543,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_406456.xlsx"
+    },
+    {
+      "file_id": "416508",
+      "filename": "template_416508.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 31481,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_416508.xlsx"
+    },
+    {
+      "file_id": "416513",
+      "filename": "template_416513.xlsx",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "size": 41068,
+      "path": "downloads/complete_korean_collection/업무템플릿/일반/template_416513.xlsx"
+    }
+  ],
+  "failed_downloads": [
+    {
+      "file_id": "100419949",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100420071",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100419920",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100413553",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100420334",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100369972",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "415273",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100417864",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100418018",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100408075",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100419914",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100419912",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100414794",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100415273",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100408337",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100419942",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100414674",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100408333",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100417764",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "420138",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100420072",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100416513",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100381599",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100406455",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "420031",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100419913",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100416472",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100417759",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "419949",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100420138",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100415152",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100420031",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100406398",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100417763",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100417826",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "419942",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100415010",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100404675",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "543059",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "420071",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100408336",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100413358",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "file_id": "100413313",
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "error": "Timeout 12000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    }
+  ],
+  "discovery_log": [
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "일반",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D01"
+    },
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "회계재무",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D02"
+    },
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "영업마케팅",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D03"
+    },
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "인사총무",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D04"
+    },
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "생산품질",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D05"
+    },
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "구매자재",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D06"
+    },
+    {
+      "main_category": "업무템플릿",
+      "sub_category": "기획관리",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B11D07"
+    },
+    {
+      "main_category": "업무프로그램",
+      "sub_category": "일반",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12D01"
+    },
+    {
+      "main_category": "업무프로그램",
+      "sub_category": "회계재무",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12D02"
+    },
+    {
+      "main_category": "업무프로그램",
+      "sub_category": "영업마케팅",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12D03"
+    },
+    {
+      "main_category": "업무프로그램",
+      "sub_category": "인사총무",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12D04"
+    },
+    {
+      "main_category": "업무프로그램",
+      "sub_category": "생산품질",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12D05"
+    },
+    {
+      "main_category": "업무프로그램",
+      "sub_category": "구매자재",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B12D06"
+    },
+    {
+      "main_category": "차트",
+      "sub_category": "일반",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B13D01"
+    },
+    {
+      "main_category": "차트",
+      "sub_category": "대시보드",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B13D02"
+    },
+    {
+      "main_category": "차트",
+      "sub_category": "통계분석",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B13D03"
+    },
+    {
+      "main_category": "차트",
+      "sub_category": "재무분석",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B13D04"
+    },
+    {
+      "main_category": "차트",
+      "sub_category": "영업분석",
+      "discovered_count": 1,
+      "url": "https://excel.yesform.com/docs/formList.php?division=A12B13D05"
+    }
+  ],
+  "total_discovered": 322,
+  "intermediate_stats": {
+    "timestamp": "20250726_022852",
+    "total_processed": 80,
+    "total_successful": 37,
+    "total_failed": 43,
+    "success_rate": 46.25
+  }
+}

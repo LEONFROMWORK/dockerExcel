@@ -1,0 +1,140 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg15
+    environment:
+      POSTGRES_USER: excel_unified
+      POSTGRES_PASSWORD: excel_unified_password
+      POSTGRES_DB: excel_unified_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U excel_unified"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rails:
+    build:
+      context: ./rails-app
+      dockerfile: Dockerfile
+      args:
+        RUBY_VERSION: 3.4.5
+    command: bash -c "bin/vite dev & ./bin/rails-server"
+    volumes:
+      - ./rails-app:/rails
+      - bundle_cache:/usr/local/bundle
+      - node_modules:/rails/node_modules
+      - tmp_storage:/rails/tmp
+      - log_storage:/rails/log
+    ports:
+      - "3000:3000"
+      - "3037:3037"
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: postgresql://excel_unified:excel_unified_password@postgres:5432/excel_unified_development
+      REDIS_URL: redis://redis:6379/0
+      PYTHON_SERVICE_URL: http://python:8000
+      RAILS_LOG_TO_STDOUT: "true"
+      RAILS_SERVE_STATIC_FILES: "true"
+      DOCKERIZED: "true"
+      VITE_RUBY_HOST: 0.0.0.0
+      VITE_RUBY_MODE: development
+      NODE_ENV: development
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      python:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+
+  sidekiq:
+    build:
+      context: ./rails-app
+      dockerfile: Dockerfile
+    command: bundle exec sidekiq
+    volumes:
+      - ./rails-app:/rails
+      - bundle_cache:/usr/local/bundle
+      - tmp_storage:/rails/tmp
+      - log_storage:/rails/log
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: postgresql://excel_unified:excel_unified_password@postgres:5432/excel_unified_development
+      REDIS_URL: redis://redis:6379/0
+      PYTHON_SERVICE_URL: http://python:8000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  python:
+    build:
+      context: ./python-service
+      dockerfile: Dockerfile
+    volumes:
+      - ./python-service:/app
+      - python_cache:/root/.cache
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://excel_unified:excel_unified_password@postgres:5432/excel_unified_development
+      REDIS_URL: redis://redis:6379/0
+      PYTHONUNBUFFERED: 1
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Optional: Nginx for production-like setup
+  # nginx:
+  #   image: nginx:alpine
+  #   volumes:
+  #     - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./rails-app/public:/rails/public:ro
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - rails
+
+volumes:
+  postgres_data:
+  redis_data:
+  bundle_cache:
+  node_modules:
+  python_cache:
+  tmp_storage:
+  log_storage:
+
+networks:
+  default:
+    name: excel_unified_network

@@ -1,0 +1,167 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: excel-unified-config
+  namespace: excel-unified
+data:
+  # Rails Configuration
+  RAILS_ENV: "production"
+  RAILS_LOG_TO_STDOUT: "true"
+  PYTHON_SERVICE_URL: "http://fastapi-service:8000"
+  
+  # FastAPI Configuration
+  ENVIRONMENT: "production"
+  PYTHONUNBUFFERED: "1"
+  
+  # Redis Configuration
+  REDIS_URL: "redis://redis-service:6379/0"
+  
+  # Service URLs
+  PROMETHEUS_URL: "http://prometheus-service:9090"
+  GRAFANA_URL: "http://grafana-service:3000"
+  
+  # Application Settings
+  MAX_UPLOAD_SIZE: "100M"
+  WORKER_PROCESSES: "4"
+  WORKER_TIMEOUT: "120"
+  
+  # Cache Settings
+  CACHE_TTL_SHORT: "300"
+  CACHE_TTL_MEDIUM: "3600"
+  CACHE_TTL_LONG: "86400"
+  
+  # WebSocket Settings
+  WS_RECONNECT_ATTEMPTS: "5"
+  WS_RECONNECT_DELAY: "1000"
+  WS_MAX_RECONNECT_DELAY: "30000"
+  
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: excel-unified
+data:
+  nginx.conf: |
+    user nginx;
+    worker_processes auto;
+    error_log /var/log/nginx/error.log warn;
+    pid /var/run/nginx.pid;
+
+    events {
+        worker_connections 2048;
+        use epoll;
+    }
+
+    http {
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                        '$status $body_bytes_sent "$http_referer" '
+                        '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log /var/log/nginx/access.log main;
+
+        # Performance optimizations
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        keepalive_timeout 65;
+        types_hash_max_size 2048;
+        client_max_body_size 100M;
+
+        # Gzip compression
+        gzip on;
+        gzip_vary on;
+        gzip_proxied any;
+        gzip_comp_level 6;
+        gzip_types text/plain text/css text/xml text/javascript application/json application/javascript application/xml+rss application/rss+xml application/atom+xml image/svg+xml;
+
+        # Rate limiting
+        limit_req_zone $binary_remote_addr zone=api_limit:10m rate=10r/s;
+        limit_req_zone $binary_remote_addr zone=upload_limit:10m rate=2r/s;
+
+        # Upstream servers
+        upstream rails_backend {
+            server rails-service:3000 max_fails=3 fail_timeout=30s;
+        }
+
+        upstream fastapi_backend {
+            server fastapi-service:8000 max_fails=3 fail_timeout=30s;
+        }
+
+        server {
+            listen 80;
+            server_name _;
+
+            # Security headers
+            add_header X-Frame-Options "SAMEORIGIN" always;
+            add_header X-Content-Type-Options "nosniff" always;
+            add_header X-XSS-Protection "1; mode=block" always;
+            add_header Referrer-Policy "no-referrer-when-downgrade" always;
+
+            # Rails application
+            location / {
+                proxy_pass http://rails_backend;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_redirect off;
+            }
+
+            # FastAPI endpoints
+            location /api/v1/ {
+                limit_req zone=api_limit burst=20 nodelay;
+                
+                proxy_pass http://fastapi_backend;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_redirect off;
+                
+                # Timeouts for long-running operations
+                proxy_read_timeout 300s;
+                proxy_connect_timeout 75s;
+            }
+
+            # File upload endpoints with special limits
+            location ~ ^/api/v1/(image-excel-integration|excel-error-analysis)/.*upload {
+                limit_req zone=upload_limit burst=5 nodelay;
+                client_max_body_size 100M;
+                
+                proxy_pass http://fastapi_backend;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_redirect off;
+            }
+
+            # WebSocket support
+            location /ws/ {
+                proxy_pass http://fastapi_backend;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "upgrade";
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_read_timeout 86400;
+            }
+
+            # Health check endpoints
+            location /health {
+                access_log off;
+                proxy_pass http://rails_backend/health;
+            }
+
+            location /api/health {
+                access_log off;
+                proxy_pass http://fastapi_backend/health;
+            }
+        }
+    }

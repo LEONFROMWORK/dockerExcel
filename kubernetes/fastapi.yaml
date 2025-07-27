@@ -1,0 +1,157 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-service
+  namespace: excel-unified
+spec:
+  selector:
+    app: fastapi
+  ports:
+    - port: 8000
+      targetPort: 8000
+  type: ClusterIP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi
+  namespace: excel-unified
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fastapi
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z postgres-service 5432; do echo waiting for postgres; sleep 2; done']
+      - name: wait-for-redis
+        image: busybox:1.35
+        command: ['sh', '-c', 'until nc -z redis-service 6379; do echo waiting for redis; sleep 2; done']
+      containers:
+      - name: fastapi
+        image: excel-unified/fastapi:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: excel-unified-config
+              key: ENVIRONMENT
+        - name: DATABASE_URL
+          value: postgresql://excel_user:$(DB_PASSWORD)@postgres-service:5432/excel_unified
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: db-password
+        - name: REDIS_URL
+          value: redis://:$(REDIS_PASSWORD)@redis-service:6379/0
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: redis-password
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: openai-api-key
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: excel-unified-secrets
+              key: secret-key
+        - name: PYTHONUNBUFFERED
+          valueFrom:
+            configMapKeyRef:
+              name: excel-unified-config
+              key: PYTHONUNBUFFERED
+        - name: WORKER_PROCESSES
+          valueFrom:
+            configMapKeyRef:
+              name: excel-unified-config
+              key: WORKER_PROCESSES
+        - name: WORKER_TIMEOUT
+          valueFrom:
+            configMapKeyRef:
+              name: excel-unified-config
+              key: WORKER_TIMEOUT
+        volumeMounts:
+        - name: uploads
+          mountPath: /app/uploads
+        - name: logs
+          mountPath: /app/logs
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "2000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 40
+          periodSeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          timeoutSeconds: 3
+      volumes:
+      - name: uploads
+        emptyDir: {}
+      - name: logs
+        emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - fastapi
+              topologyKey: kubernetes.io/hostname
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: fastapi-hpa
+  namespace: excel-unified
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: fastapi
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80

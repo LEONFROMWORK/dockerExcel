@@ -1,0 +1,147 @@
+Option Explicit
+
+'============================================
+' Task Automation Template
+' Generated on: {{ generated_at }}
+' Task: {{ task_name | default("Automated Task") }}
+' Frequency: {{ frequency | default("On Demand") }}
+'============================================
+
+{% if frequency == "scheduled" %}
+Sub Auto_Open()
+    ' Schedule the task to run automatically
+    Application.OnTime TimeValue("{{ schedule_time | default('09:00:00') }}"), "RunAutomatedTask"
+End Sub
+{% endif %}
+
+Sub RunAutomatedTask()
+    {{ error_handling }}
+    
+    Dim startTime As Double
+    startTime = Timer
+    
+    Application.ScreenUpdating = False
+    Application.EnableEvents = False
+    Application.Calculation = xlCalculationManual
+    
+    ' Log task start
+    LogTaskExecution "Started", "{{ task_name }}"
+    
+    {% if pre_conditions %}
+    ' Check pre-conditions
+    If Not CheckPreConditions() Then
+        MsgBox "Pre-conditions not met. Task cancelled.", vbExclamation
+        GoTo Cleanup
+    End If
+    {% endif %}
+    
+    ' Main automation logic
+    {% for step in automation_steps %}
+    ' Step {{ loop.index }}: {{ step.description }}
+    {{ step.code | indent(4) }}
+    
+    {% endfor %}
+    
+    ' Log task completion
+    LogTaskExecution "Completed", "{{ task_name }}", Timer - startTime
+    
+    {% if post_actions %}
+    ' Post-processing actions
+    {{ post_actions | indent(4) }}
+    {% endif %}
+    
+    MsgBox "Task completed successfully in " & Format(Timer - startTime, "0.00") & " seconds!", vbInformation
+    
+Cleanup:
+    Application.ScreenUpdating = True
+    Application.EnableEvents = True
+    Application.Calculation = xlCalculationAutomatic
+    
+    Exit Sub
+ErrorHandler:
+    LogTaskExecution "Error", "{{ task_name }}", Timer - startTime, Err.Description
+    MsgBox "Error " & Err.Number & ": " & Err.Description, vbCritical
+    Resume Cleanup
+End Sub
+
+{% if pre_conditions %}
+Function CheckPreConditions() As Boolean
+    On Error Resume Next
+    
+    CheckPreConditions = True
+    
+    {% for condition in pre_conditions %}
+    ' Check: {{ condition.description }}
+    If Not ({{ condition.check }}) Then
+        CheckPreConditions = False
+        Exit Function
+    End If
+    {% endfor %}
+    
+    On Error GoTo 0
+End Function
+{% endif %}
+
+Sub LogTaskExecution(status As String, taskName As String, Optional duration As Double = 0, Optional errorMsg As String = "")
+    Dim wsLog As Worksheet
+    Dim nextRow As Long
+    
+    ' Create log worksheet if it doesn't exist
+    If Not WorksheetExists("TaskLog") Then
+        Set wsLog = ThisWorkbook.Worksheets.Add
+        wsLog.Name = "TaskLog"
+        wsLog.Range("A1:E1").Value = Array("Timestamp", "Task", "Status", "Duration", "Details")
+        wsLog.Range("A1:E1").Font.Bold = True
+    Else
+        Set wsLog = ThisWorkbook.Worksheets("TaskLog")
+    End If
+    
+    ' Find next empty row
+    nextRow = wsLog.Cells(wsLog.Rows.Count, 1).End(xlUp).Row + 1
+    
+    ' Log the execution
+    With wsLog
+        .Cells(nextRow, 1).Value = Now
+        .Cells(nextRow, 2).Value = taskName
+        .Cells(nextRow, 3).Value = status
+        .Cells(nextRow, 4).Value = IIf(duration > 0, Format(duration, "0.00") & "s", "")
+        .Cells(nextRow, 5).Value = errorMsg
+        
+        ' Format status cell
+        Select Case status
+            Case "Completed"
+                .Cells(nextRow, 3).Interior.Color = RGB(200, 255, 200)
+            Case "Error"
+                .Cells(nextRow, 3).Interior.Color = RGB(255, 200, 200)
+            Case "Started"
+                .Cells(nextRow, 3).Interior.Color = RGB(255, 255, 200)
+        End Select
+    End With
+End Sub
+
+{% if email_notification %}
+Sub SendEmailNotification(subject As String, body As String)
+    On Error Resume Next
+    
+    Dim OutlookApp As Object
+    Dim OutlookMail As Object
+    
+    Set OutlookApp = CreateObject("Outlook.Application")
+    Set OutlookMail = OutlookApp.CreateItem(0)
+    
+    With OutlookMail
+        .To = "{{ email_recipient }}"
+        .Subject = subject
+        .Body = body
+        .Send
+    End With
+    
+    Set OutlookMail = Nothing
+    Set OutlookApp = Nothing
+    
+    On Error GoTo 0
+End Sub
+{% endif %}
+
+' Helper Functions
+{{ common_functions }}

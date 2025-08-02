@@ -1,51 +1,41 @@
 """
-OpenAI integration service for AI operations
+OpenAI integration service for AI operations with failover support
 """
 import json
-import openai
-from typing import List, Dict, Any, Optional
-import tiktoken
 import logging
-import asyncio
 from functools import lru_cache
+from typing import List, Dict, Any, Optional
+
+import openai
+import tiktoken
 
 from app.core.config import settings
+from app.services.ai_failover_service import ai_failover_service, ModelTier
 
 logger = logging.getLogger(__name__)
 
 
 class OpenAIService:
-    """Service for OpenAI API interactions"""
+    """Service for OpenAI API interactions with AI model failover"""
     
     def __init__(self):
-        # Use OpenRouter if API key is available, otherwise fallback to OpenAI
-        if settings.OPENROUTER_API_KEY:
-            self.client = openai.AsyncOpenAI(
-                api_key=settings.OPENROUTER_API_KEY,
-                base_url="https://openrouter.ai/api/v1",
-                default_headers={
-                    "HTTP-Referer": "https://excel-unified.app",
-                    "X-Title": "Excel Unified"
-                }
-            )
-            # Use Gemini models for OpenRouter
-            self.model = "google/gemini-2.0-flash-exp:free"  # Free tier for general chat
-            self.vision_model = "google/gemini-flash-1.5-8b"  # Vision capable model
-        else:
-            self.client = openai.AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-            self.model = settings.OPENAI_MODEL
-            self.vision_model = "gpt-4-vision-preview"
-        
-        # Always use OpenAI for embeddings (OpenRouter doesn't support embeddings)
+        # Initialize embedding client (always use OpenAI for embeddings)
         self.embedding_client = openai.AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
         self.embedding_model = settings.OPENAI_EMBEDDING_MODEL
+        
+        # Use AI failover service for text generation
+        self.failover_service = ai_failover_service
+        
+        # Fallback settings for non-failover methods
+        self.model = settings.OPENAI_MODEL
+        self.vision_model = "gpt-4-vision-preview"
         
     @lru_cache(maxsize=1)
     def _get_tokenizer(self, model: str):
         """Get tokenizer for the model"""
         try:
             return tiktoken.encoding_for_model(model)
-        except:
+        except Exception:
             return tiktoken.get_encoding("cl100k_base")
     
     def count_tokens(self, text: str, model: Optional[str] = None) -> int:
@@ -85,34 +75,37 @@ class OpenAIService:
         messages: List[Dict[str, str]],
         temperature: Optional[float] = None,
         max_tokens: Optional[int] = None,
-        stream: bool = False
+        stream: bool = False,
+        preferred_tier: Optional[ModelTier] = None,
+        supports_vision: Optional[bool] = None,
+        supports_function_calling: Optional[bool] = None
     ):
-        """Generate chat completion"""
+        """Generate chat completion with AI model failover"""
         temperature = temperature if temperature is not None else settings.TEMPERATURE
         max_tokens = max_tokens if max_tokens is not None else settings.MAX_TOKENS
         
         try:
-            response = await self.client.chat.completions.create(
-                model=self.model,
+            # Use failover service for robust completion
+            result = await self.failover_service.chat_completion_with_failover(
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
-                stream=stream
+                stream=stream,
+                required_tier=preferred_tier,
+                supports_vision=supports_vision,
+                supports_function_calling=supports_function_calling
             )
             
-            if stream:
-                return response
-            else:
-                return response.choices[0].message.content
+            return result
             
         except Exception as e:
-            logger.error(f"Error in chat completion: {str(e)}")
+            logger.error(f"Error in chat completion with failover: {str(e)}")
             raise
     
     async def analyze_excel_content(
-        self,
-        excel_data: Dict[str, Any],
-        user_query: Optional[str] = None
+            self,
+            excel_data: Dict[str, Any],
+            user_query: Optional[str] = None
     ) -> Dict[str, Any]:
         """Analyze Excel content using AI"""
         
@@ -120,13 +113,15 @@ class OpenAIService:
         context = self._prepare_excel_context(excel_data)
         
         # Create the prompt
-        system_message = """You are an Excel expert assistant. Analyze the provided Excel data 
-        and provide insights, identify issues, and suggest improvements. Focus on:
-        1. Data quality issues
-        2. Formula errors or inefficiencies
-        3. Structure and organization problems
-        4. Best practices violations
-        5. Optimization opportunities"""
+        system_message = (
+            "You are an Excel expert assistant. Analyze the provided Excel data "
+            "and provide insights, identify issues, and suggest improvements. Focus on:\n"
+            "1. Data quality issues\n"
+            "2. Formula errors or inefficiencies\n"
+            "3. Structure and organization problems\n"
+            "4. Best practices violations\n"
+            "5. Optimization opportunities"
+        )
         
         user_message = f"Excel Data Context:\n{context}"
         if user_query:
@@ -137,29 +132,47 @@ class OpenAIService:
             {"role": "user", "content": user_message}
         ]
         
-        # Get AI analysis
-        analysis = await self.chat_completion(messages)
+        # Get AI analysis with failover (prefer premium models for analysis)
+        analysis = await self.chat_completion(
+            messages, 
+            preferred_tier=ModelTier.PREMIUM
+        )
+        
+        # Get model info from failover service
+        model_status = self.failover_service.get_system_status()
+        active_model = "unknown"
+        if model_status["healthy_models"] > 0:
+            for model_key, model_info in model_status["models"].items():
+                if model_info["is_healthy"]:
+                    active_model = model_key
+                    break
         
         return {
             "analysis": analysis,
             "context_tokens": self.count_tokens(context),
-            "model_used": self.model
+            "model_used": active_model,
+            "failover_status": {
+                "healthy_models": model_status["healthy_models"],
+                "total_models": model_status["total_models"]
+            }
         }
     
     async def generate_excel_solution(
-        self,
-        problem_description: str,
-        context: Optional[Dict[str, Any]] = None
+            self,
+            problem_description: str,
+            context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Generate Excel solution for a problem"""
         
-        system_message = """You are an Excel expert. Provide detailed, step-by-step solutions
-        for Excel problems. Include:
-        1. Specific formulas with explanations
-        2. Alternative approaches if applicable
-        3. Best practices and tips
-        4. Common pitfalls to avoid
-        Format your response in clear sections with examples."""
+        system_message = (
+            "You are an Excel expert. Provide detailed, step-by-step solutions "
+            "for Excel problems. Include:\n"
+            "1. Specific formulas with explanations\n"
+            "2. Alternative approaches if applicable\n"
+            "3. Best practices and tips\n"
+            "4. Common pitfalls to avoid\n"
+            "Format your response in clear sections with examples."
+        )
         
         user_message = f"Problem: {problem_description}"
         if context:
@@ -170,12 +183,16 @@ class OpenAIService:
             {"role": "user", "content": user_message}
         ]
         
-        solution = await self.chat_completion(messages)
+        solution = await self.chat_completion(
+            messages, 
+            preferred_tier=ModelTier.STANDARD
+        )
         
         return {
             "solution": solution,
             "problem": problem_description,
-            "model_used": self.model
+            "model_used": "failover_service",
+            "failover_enabled": True
         }
     
     def _prepare_excel_context(self, excel_data: Dict[str, Any]) -> str:
@@ -215,44 +232,73 @@ class OpenAIService:
         
         return context
     
-    async def analyze_image(self, image_data: str, prompt: str, temperature: Optional[float] = None) -> str:
-        """Analyze image using vision model with adjustable temperature"""
+    async def analyze_image(
+            self, image_data: str, prompt: str,
+            temperature: Optional[float] = None
+    ) -> str:
+        """Analyze image using vision models with failover"""
         try:
             # Use provided temperature or default from settings
-            temp = temperature if temperature is not None else settings.VISION_TEMPERATURE
-            
-            # Use vision model for image analysis
-            response = await self.client.chat.completions.create(
-                model=self.vision_model,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": prompt},
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": f"data:image/jpeg;base64,{image_data}"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                temperature=temp,
-                max_tokens=2000
+            temp = (
+                temperature if temperature is not None
+                else settings.VISION_TEMPERATURE
             )
             
-            return response.choices[0].message.content
+            # Create vision-compatible messages
+            messages = [
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": prompt},
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{image_data}"
+                            }
+                        }
+                    ]
+                }
+            ]
+            
+            # Use failover service with vision support requirement
+            result = await self.failover_service.chat_completion_with_failover(
+                messages=messages,
+                temperature=temp,
+                max_tokens=2000,
+                supports_vision=True  # Require vision support
+            )
+            
+            return result
             
         except Exception as e:
-            logger.error(f"Error analyzing image: {str(e)}")
-            raise
+            logger.error(f"Error analyzing image with failover: {str(e)}")
+            
+            # Fallback to direct OpenAI call if failover fails
+            try:
+                logger.info("Attempting direct OpenAI fallback for image analysis")
+                direct_client = openai.AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
+                response = await direct_client.chat.completions.create(
+                    model=self.vision_model,
+                    messages=messages,
+                    temperature=temp,
+                    max_tokens=2000
+                )
+                return response.choices[0].message.content
+            except Exception as fallback_error:
+                logger.error(f"Direct OpenAI fallback also failed: {fallback_error}")
+                raise e
     
-    async def analyze_image_structured(self, image_data: str, prompt: str) -> Dict[str, Any]:
+    async def analyze_image_structured(
+            self, image_data: str, prompt: str
+    ) -> Dict[str, Any]:
         """Analyze image and return structured data"""
         try:
             # Add JSON format instruction to prompt
-            json_prompt = f"{prompt}\n\nIMPORTANT: Return ONLY valid JSON with no additional text or markdown formatting."
+            json_prompt = (
+                f"{prompt}\n\n"
+                "IMPORTANT: Return ONLY valid JSON with no additional text "
+                "or markdown formatting."
+            )
             
             # Use vision model for structured data extraction
             response = await self.client.chat.completions.create(
@@ -260,7 +306,11 @@ class OpenAIService:
                 messages=[
                     {
                         "role": "system",
-                        "content": "You are a data extraction expert. Extract structured data from images and return valid JSON only. Do not include any markdown formatting or additional text."
+                        "content": (
+                            "You are a data extraction expert. Extract structured "
+                            "data from images and return valid JSON only. Do not "
+                            "include any markdown formatting or additional text."
+                        )
                     },
                     {
                         "role": "user",
@@ -308,25 +358,30 @@ class OpenAIService:
             logger.error(f"Error analyzing image for structured data: {str(e)}")
             raise
     
-    async def parse_vba_requirements(self, description: str, context: Optional[Dict[str, Any]] = None,
-                                    language: str = "en") -> Dict[str, Any]:
+    async def parse_vba_requirements(
+            self, description: str,
+            context: Optional[Dict[str, Any]] = None,
+            language: str = "en"
+    ) -> Dict[str, Any]:
         """Parse user requirements for VBA generation"""
         try:
-            system_prompt = """You are a VBA code generation assistant. Analyze the user's request and extract:
-1. Main objective/purpose
-2. Data sources (worksheets, ranges)
-3. Required operations (sort, filter, calculate, etc.)
-4. Output format and destination
-5. Any specific constraints or requirements
+            system_prompt = (
+                "You are a VBA code generation assistant. Analyze the user's "
+                "request and extract:\n"
+                "1. Main objective/purpose\n"
+                "2. Data sources (worksheets, ranges)\n"
+                "3. Required operations (sort, filter, calculate, etc.)\n"
+                "4. Output format and destination\n"
+                "5. Any specific constraints or requirements\n\n"
+                "Return a structured JSON response."
+            )
 
-Return a structured JSON response."""
-
-            user_prompt = f"""User request: {description}
-            
-Context: {context if context else 'No additional context'}
-Language preference: {language}
-
-Extract the requirements for VBA code generation."""
+            user_prompt = (
+                f"User request: {description}\n\n"
+                f"Context: {context if context else 'No additional context'}\n"
+                f"Language preference: {language}\n\n"
+                "Extract the requirements for VBA code generation."
+            )
 
             response = await self.client.chat.completions.create(
                 model=self.model,
@@ -338,28 +393,33 @@ Extract the requirements for VBA code generation."""
                 temperature=0.3
             )
             
-            return eval(response.choices[0].message.content)
+            return json.loads(response.choices[0].message.content)
             
         except Exception as e:
             logger.error(f"Error parsing VBA requirements: {str(e)}")
             raise
     
-    async def generate_vba_code(self, requirements: Dict[str, Any], language: str = "en") -> str:
+    async def generate_vba_code(
+            self, requirements: Dict[str, Any], language: str = "en"
+    ) -> str:
         """Generate VBA code based on parsed requirements"""
         try:
-            system_prompt = f"""You are an expert VBA developer. Generate clean, efficient VBA code based on the requirements.
-Include:
-- Option Explicit
-- Error handling
-- Comments in {language}
-- Performance optimizations
-- No Select/Activate patterns
-- Proper variable declarations"""
+            system_prompt = (
+                "You are an expert VBA developer. Generate clean, efficient VBA "
+                "code based on the requirements.\n"
+                "Include:\n"
+                "- Option Explicit\n"
+                "- Error handling\n"
+                f"- Comments in {language}\n"
+                "- Performance optimizations\n"
+                "- No Select/Activate patterns\n"
+                "- Proper variable declarations"
+            )
 
-            user_prompt = f"""Generate VBA code for:
-Requirements: {requirements}
-
-The code should be production-ready and follow best practices."""
+            user_prompt = (
+                f"Generate VBA code for:\nRequirements: {requirements}\n\n"
+                "The code should be production-ready and follow best practices."
+            )
 
             response = await self.client.chat.completions.create(
                 model=self.model,
@@ -377,27 +437,27 @@ The code should be production-ready and follow best practices."""
             logger.error(f"Error generating VBA code: {str(e)}")
             raise
     
-    async def enhance_vba_code(self, vba_code: str, issues: List[Dict[str, Any]], 
-                              suggestions: List[Dict[str, Any]]) -> str:
+    async def enhance_vba_code(
+            self, vba_code: str, issues: List[Dict[str, Any]],
+            suggestions: List[Dict[str, Any]]
+    ) -> str:
         """Enhance existing VBA code with improvements"""
         try:
-            system_prompt = """You are an expert VBA developer. Enhance the provided VBA code by:
-1. Fixing identified issues
-2. Implementing suggested improvements
-3. Adding robust error handling
-4. Optimizing performance
-5. Improving code readability"""
+            system_prompt = (
+                "You are an expert VBA developer. Enhance the provided VBA code by:\n"
+                "1. Fixing identified issues\n"
+                "2. Implementing suggested improvements\n"
+                "3. Adding robust error handling\n"
+                "4. Optimizing performance\n"
+                "5. Improving code readability"
+            )
 
-            user_prompt = f"""Enhance this VBA code:
-
-```vba
-{vba_code}
-```
-
-Issues found: {issues}
-Suggestions: {suggestions}
-
-Provide the enhanced version with all improvements."""
+            user_prompt = (
+                f"Enhance this VBA code:\n\n```vba\n{vba_code}\n```\n\n"
+                f"Issues found: {issues}\n"
+                f"Suggestions: {suggestions}\n\n"
+                "Provide the enhanced version with all improvements."
+            )
 
             response = await self.client.chat.completions.create(
                 model=self.model,
@@ -412,7 +472,9 @@ Provide the enhanced version with all improvements."""
             # Extract code from response
             enhanced_code = response.choices[0].message.content
             # Remove markdown code blocks if present
-            enhanced_code = enhanced_code.replace("```vba", "").replace("```", "").strip()
+            enhanced_code = enhanced_code.replace(
+                "```vba", ""
+            ).replace("```", "").strip()
             
             return enhanced_code
             

@@ -19,7 +19,15 @@ except ImportError:
     OLETOOLS_AVAILABLE = False
     logging.warning("oletools not available. VBA extraction will be limited.")
 
+# 향상된 로깅 설정
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# 환경변수로 디버그 모드 제어
+VBA_DEBUG_MODE = os.getenv('VBA_ANALYZER_DEBUG', 'False').lower() == 'true'
+if VBA_DEBUG_MODE:
+    logger.setLevel(logging.DEBUG)
+    logger.debug("VBA 분석기 디버그 모드 활성화")
 
 
 class ErrorSeverity(Enum):
@@ -186,37 +194,83 @@ class AdvancedVBAAnalyzer:
     
     async def analyze_file(self, file_path: str) -> Dict[str, Any]:
         """
-        Comprehensive VBA analysis using oletools
+        Comprehensive VBA analysis using oletools (모니터링 강화)
         Returns detailed analysis results with errors and fixes
         """
+        import time
+        start_time = time.time()
+        
         try:
+            logger.info(f"=== VBA 분석 시작 ===")
+            logger.info(f"파일: {os.path.basename(file_path)}")
+            file_size = os.path.getsize(file_path) / 1024 / 1024  # MB
+            logger.info(f"파일 크기: {file_size:.2f} MB")
+            
             # Extract VBA modules
+            logger.info("VBA 모듈 추출 시작...")
+            extraction_start = time.time()
             modules = await self._extract_vba_modules(file_path)
+            extraction_time = time.time() - extraction_start
+            logger.info(f"VBA 모듈 추출 완료: {extraction_time:.2f}초")
             
             if not modules:
+                logger.info("VBA 코드가 발견되지 않음")
                 return {
                     "has_vba": False,
-                    "message": "No VBA code found in the file"
+                    "message": "No VBA code found in the file",
+                    "analysis_time": time.time() - start_time
                 }
             
+            logger.info(f"VBA 모듈 {len(modules)}개 발견")
+            if VBA_DEBUG_MODE:
+                for i, module in enumerate(modules):
+                    logger.debug(f"  모듈 {i+1}: {module.name} ({module.size} bytes, {module.type})")
+            
             # Analyze each module
+            logger.info("VBA 오류 분석 시작...")
+            analysis_start = time.time()
             all_errors = []
             security_score = 100
             
-            for module in modules:
+            for module_idx, module in enumerate(modules):
+                logger.debug(f"모듈 '{module.name}' 분석 중... ({module_idx+1}/{len(modules)})")
+                
                 # Detect errors
+                module_start = time.time()
                 errors = self._detect_errors_in_module(module)
+                module_time = time.time() - module_start
+                
                 all_errors.extend(errors)
+                
+                logger.debug(f"모듈 '{module.name}' 분석 완료: {len(errors)}개 오류, {module_time:.2f}초")
                 
                 # Calculate security impact
                 security_impact = self._calculate_security_impact(errors)
                 security_score -= security_impact
             
+            analysis_time = time.time() - analysis_start
+            logger.info(f"VBA 오류 분석 완료: {len(all_errors)}개 오류 발견, {analysis_time:.2f}초")
+            
             # Generate fix suggestions
+            logger.info("수정 제안 생성 중...")
+            fix_start = time.time()
             fixes = self._generate_fixes(all_errors)
+            fix_time = time.time() - fix_start
+            logger.info(f"수정 제안 생성 완료: {len(fixes)}개 제안, {fix_time:.2f}초")
             
             # Calculate overall confidence
             confidence = self._calculate_confidence(all_errors)
+            
+            total_time = time.time() - start_time
+            
+            # 결과 요약 로깅
+            logger.info("=== VBA 분석 완료 ===")
+            logger.info(f"총 분석 시간: {total_time:.2f}초")
+            logger.info(f"모듈 수: {len(modules)}개")
+            logger.info(f"발견된 오류: {len(all_errors)}개")
+            logger.info(f"보안 점수: {max(0, security_score):.1f}/100")
+            logger.info(f"신뢰도: {confidence:.2f}")
+            logger.info(f"자동 수정 가능: {len([e for e in all_errors if e.auto_fixable])}개")
             
             return {
                 "has_vba": True,
@@ -226,14 +280,28 @@ class AdvancedVBAAnalyzer:
                 "security_score": max(0, security_score),
                 "confidence": confidence,
                 "summary": self._generate_summary(all_errors),
-                "auto_fixable_count": len([e for e in all_errors if e.auto_fixable])
+                "auto_fixable_count": len([e for e in all_errors if e.auto_fixable]),
+                "analysis_time": total_time,
+                "performance_metrics": {
+                    "extraction_time": extraction_time,
+                    "analysis_time": analysis_time,
+                    "fix_generation_time": fix_time,
+                    "modules_analyzed": len(modules),
+                    "avg_module_time": analysis_time / max(len(modules), 1)
+                }
             }
             
         except Exception as e:
-            logger.error(f"VBA analysis failed: {str(e)}")
+            total_time = time.time() - start_time
+            logger.error(f"=== VBA 분석 실패 ===")
+            logger.error(f"파일: {os.path.basename(file_path)}")
+            logger.error(f"실패 시점: {total_time:.2f}초 후")
+            logger.error(f"오류 상세: {str(e)}")
+            
             return {
                 "error": str(e),
-                "has_vba": False
+                "has_vba": False,
+                "analysis_time": total_time
             }
     
     async def _extract_vba_modules(self, file_path: str) -> List[VBAModule]:

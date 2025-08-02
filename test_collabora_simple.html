@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collabora 간단 테스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+        .url-display {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 11px;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .debug-info {
+            background: #e3f2fd;
+            border: 1px solid #81d4fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Collabora Online 빠른 테스트</h1>
+        
+        <div class="debug-info">
+            <h4>🎯 미리 생성된 URL로 테스트</h4>
+            <p>아래 URL들은 최신 토큰으로 생성되었습니다. 각각 테스트해보세요.</p>
+        </div>
+
+        <!-- Test 1: HTTP with permission -->
+        <div class="test-section">
+            <h3>테스트 1: HTTP + permission</h3>
+            <div class="url-display">http://localhost:9980/browser/0b27e85/cool.html?WOPISrc=http://localhost:3000/api/v1/wopi/files/7&access_token=eyJhbGciOiJIUzI1NiJ9.eyJmaWxlX2lkIjoiNyIsInVzZXJfaWQiOiIxIiwicGVybWlzc2lvbnMiOnsiY2FuX3dyaXRlIjpmYWxzZSwiY2FuX2V4cG9ydCI6dHJ1ZSwiY2FuX3ByaW50Ijp0cnVlfSwiaWF0IjoxNzU0MTYzNTUyLCJleHAiOjE3NTQyNDk5NTIsImlzcyI6ImV4Y2VsLXVuaWZpZWQiLCJhdWQiOiJ3b3BpIn0.qRpR-K1rTbU95JMnI9Gu857PcXPfOHVVNQHSwkGbvz8&permission=readonly</div>
+            <button class="btn" onclick="loadTest1()">iframe 로드</button>
+            <button class="btn" onclick="openTest1()">새 탭 열기</button>
+            <iframe id="iframe1" src="about:blank"></iframe>
+        </div>
+
+        <!-- Test 2: HTTP without permission -->
+        <div class="test-section">
+            <h3>테스트 2: HTTP (permission 없음)</h3>
+            <div class="url-display">http://localhost:9980/browser/0b27e85/cool.html?WOPISrc=http://localhost:3000/api/v1/wopi/files/7&access_token=eyJhbGciOiJIUzI1NiJ9.eyJmaWxlX2lkIjoiNyIsInVzZXJfaWQiOiIxIiwicGVybWlzc2lvbnMiOnsiY2FuX3dyaXRlIjpmYWxzZSwiY2FuX2V4cG9ydCI6dHJ1ZSwiY2FuX3ByaW50Ijp0cnVlfSwiaWF0IjoxNzU0MTYzNTUyLCJleHAiOjE3NTQyNDk5NTIsImlzcyI6ImV4Y2VsLXVuaWZpZWQiLCJhdWQiOiJ3b3BpIn0.qRpR-K1rTbU95JMnI9Gu857PcXPfOHVVNQHSwkGbvz8</div>
+            <button class="btn" onclick="loadTest2()">iframe 로드</button>
+            <button class="btn" onclick="openTest2()">새 탭 열기</button>
+            <iframe id="iframe2" src="about:blank"></iframe>
+        </div>
+
+        <!-- Test 3: Direct Collabora Test -->
+        <div class="test-section">
+            <h3>테스트 3: Collabora 메인 페이지 확인</h3>
+            <div class="url-display">http://localhost:9980</div>
+            <button class="btn" onclick="loadCollabraMain()">Collabora 메인 로드</button>
+            <button class="btn" onclick="openCollabraMain()">새 탭 열기</button>
+            <iframe id="iframe3" src="about:blank"></iframe>
+        </div>
+
+        <div class="debug-info">
+            <h4>🔧 디버깅 체크리스트</h4>
+            <ol>
+                <li><strong>F12</strong> 개발자 도구 열기</li>
+                <li><strong>Console</strong> 탭에서 JavaScript 에러 확인</li>
+                <li><strong>Network</strong> 탭에서 HTTP 요청 상태 확인</li>
+                <li><strong>Security</strong> 탭에서 HTTPS/인증서 문제 확인</li>
+                <li>iframe에서 "resize-detector"가 보이면 콘솔 에러 메시지 복사</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const url1 = "http://localhost:9980/browser/0b27e85/cool.html?WOPISrc=http://localhost:3000/api/v1/wopi/files/7&access_token=eyJhbGciOiJIUzI1NiJ9.eyJmaWxlX2lkIjoiNyIsInVzZXJfaWQiOiIxIiwicGVybWlzc2lvbnMiOnsiY2FuX3dyaXRlIjpmYWxzZSwiY2FuX2V4cG9ydCI6dHJ1ZSwiY2FuX3ByaW50Ijp0cnVlfSwiaWF0IjoxNzU0MTYzNTUyLCJleHAiOjE3NTQyNDk5NTIsImlzcyI6ImV4Y2VsLXVuaWZpZWQiLCJhdWQiOiJ3b3BpIn0.qRpR-K1rTbU95JMnI9Gu857PcXPfOHVVNQHSwkGbvz8&permission=readonly";
+        
+        const url2 = "http://localhost:9980/browser/0b27e85/cool.html?WOPISrc=http://localhost:3000/api/v1/wopi/files/7&access_token=eyJhbGciOiJIUzI1NiJ9.eyJmaWxlX2lkIjoiNyIsInVzZXJfaWQiOiIxIiwicGVybWlzc2lvbnMiOnsiY2FuX3dyaXRlIjpmYWxzZSwiY2FuX2V4cG9ydCI6dHJ1ZSwiY2FuX3ByaW50Ijp0cnVlfSwiaWF0IjoxNzU0MTYzNTUyLCJleHAiOjE3NTQyNDk5NTIsImlzcyI6ImV4Y2VsLXVuaWZpZWQiLCJhdWQiOiJ3b3BpIn0.qRpR-K1rTbU95JMnI9Gu857PcXPfOHVVNQHSwkGbvz8";
+        
+        const url3 = "http://localhost:9980";
+
+        function loadTest1() {
+            console.log('Loading Test 1:', url1);
+            document.getElementById('iframe1').src = url1;
+        }
+
+        function loadTest2() {
+            console.log('Loading Test 2:', url2);
+            document.getElementById('iframe2').src = url2;
+        }
+
+        function loadCollabraMain() {
+            console.log('Loading Collabora Main:', url3);
+            document.getElementById('iframe3').src = url3;
+        }
+
+        function openTest1() {
+            window.open(url1, '_blank');
+        }
+
+        function openTest2() {
+            window.open(url2, '_blank');
+        }
+
+        function openCollabraMain() {
+            window.open(url3, '_blank');
+        }
+
+        // Monitor iframe events
+        document.addEventListener('DOMContentLoaded', function() {
+            ['iframe1', 'iframe2', 'iframe3'].forEach((id, index) => {
+                const iframe = document.getElementById(id);
+                
+                iframe.onload = function() {
+                    console.log(`${id} loaded successfully:`, iframe.src);
+                    
+                    // Try to detect resize-detector
+                    setTimeout(() => {
+                        try {
+                            const doc = iframe.contentDocument || iframe.contentWindow.document;
+                            if (doc && doc.body) {
+                                const content = doc.body.innerHTML;
+                                if (content.includes('resize-detector')) {
+                                    console.error(`${id}: ❌ resize-detector detected - empty document`);
+                                } else if (content.includes('cool') || content.includes('collabora')) {
+                                    console.log(`${id}: ✅ Collabora content detected`);
+                                } else {
+                                    console.warn(`${id}: ⚠️ Unknown content:`, content.substring(0, 100));
+                                }
+                            }
+                        } catch (e) {
+                            console.log(`${id}: Content check blocked by CORS (normal):`, e.message);
+                        }
+                    }, 2000);
+                };
+                
+                iframe.onerror = function() {
+                    console.error(`${id} failed to load:`, iframe.src);
+                };
+            });
+        });
+
+        // Show current time for token expiry reference
+        console.log('Current time:', new Date().toISOString());
+        console.log('Token expires at:', new Date(1754249952 * 1000).toISOString());
+    </script>
+</body>
+</html>

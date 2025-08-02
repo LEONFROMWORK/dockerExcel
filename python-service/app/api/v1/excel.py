@@ -2,6 +2,7 @@
 Excel analysis API endpoints
 """
 from fastapi import APIRouter, File, UploadFile, HTTPException, Depends
+from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 import tempfile
 import os
@@ -562,4 +563,89 @@ async def optimize_formulas(
         raise HTTPException(
             status_code=500,
             detail=i18n.get_error_message("optimization_failed", error=str(e))
+        )
+
+
+class CellVerificationRequest(BaseModel):
+    file_id: str
+    cell_address: str
+
+@router.post("/verify-cell-position")
+async def verify_cell_position(
+    request: CellVerificationRequest,
+    db: AsyncSession = Depends(get_db),
+    i18n: I18nContext = Depends(get_i18n_context)
+) -> Dict[str, Any]:
+    """
+    Verify cell position by analyzing the same cell in Python
+    Used for testing coordinate consistency between ExcelJS and Python
+    """
+    try:
+        # TODO: 실제 파일 경로를 file_id로부터 가져오는 로직 구현
+        # 현재는 테스트용으로 하드코딩
+        if request.file_id == "36":
+            file_path = "/Users/kevin/Desktop/사고조사.xlsx"
+        else:
+            # 기본 테스트 파일 사용
+            file_path = "/Users/kevin/Desktop/사고조사.xlsx"
+        
+        if not os.path.exists(file_path):
+            raise HTTPException(
+                status_code=404,
+                detail=f"File not found: {file_path}"
+            )
+        
+        # openpyxl로 Excel 파일 읽기
+        import openpyxl
+        workbook = openpyxl.load_workbook(file_path, data_only=True)
+        worksheet = workbook.active
+        
+        # 셀 주소를 좌표로 변환 (예: "C3" -> row=3, col=3)
+        try:
+            cell = worksheet[request.cell_address]
+            python_address = cell.coordinate
+            python_value = cell.value
+            python_row = cell.row
+            python_col = cell.column
+            
+            # 셀 타입 판단
+            if python_value is None:
+                cell_type = "empty"
+            elif isinstance(python_value, (int, float)):
+                cell_type = "number"
+            elif isinstance(python_value, str):
+                cell_type = "text"
+            else:
+                cell_type = "other"
+            
+            workbook.close()
+            
+            return {
+                "success": True,
+                "address": python_address,
+                "value": python_value,
+                "row": python_row,
+                "column": python_col,
+                "type": cell_type,
+                "requested_address": request.cell_address,
+                "match": request.cell_address == python_address
+            }
+            
+        except Exception as cell_error:
+            workbook.close()
+            return {
+                "success": False,
+                "error": f"Cell access error: {str(cell_error)}",
+                "address": "ERROR",
+                "value": None,
+                "type": "error",
+                "requested_address": request.cell_address,
+                "match": False
+            }
+        
+    except Exception as e:
+        logger.error(f"Cell position verification failed: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Verification failed: {str(e)}"
         )

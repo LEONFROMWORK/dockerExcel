@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  collabora:
+    image: collabora/code:latest
+    container_name: collabora_online
+    restart: unless-stopped
+    environment:
+      # Basic configuration
+      - domain=localhost
+      - username=admin
+      - password=admin
+      - DONT_GEN_SSL_CERT=true
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=false
+      
+      # WOPI configuration
+      - aliasgroup1=http://localhost:8000
+      - aliasgroup2=http://host.docker.internal:8000
+      
+      # Performance settings
+      - MEMPROPORTION=50
+      - dictionaries=en_US ko_KR
+      
+      # Security settings
+      - DISABLE_COPY=false
+      - ENABLE_MACROS=true
+      
+      # Logging
+      - LOOL_LOGLEVEL=information
+      
+    ports:
+      - "9980:9980"
+    cap_add:
+      - MKNOD
+    volumes:
+      - collabora_config:/etc/loolwsd
+    networks:
+      - excel_network
+
+volumes:
+  collabora_config:
+
+networks:
+  excel_network:
+    external: true

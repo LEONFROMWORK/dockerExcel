@@ -3,6 +3,7 @@ Excel file analysis service
 """
 import pandas as pd
 import openpyxl
+from openpyxl.utils import get_column_letter
 from typing import Dict, Any, List, Optional, Tuple
 import re
 from pathlib import Path
@@ -99,12 +100,13 @@ class ExcelAnalyzer:
         
         # Extract column widths
         column_widths = {}
-        for col in sheet.columns:
-            col_letter = col[0].column_letter if col else None
+        for col_idx, col in enumerate(sheet.columns, 1):
+            # MergedCell 문제 방지를 위해 get_column_letter 사용
+            col_letter = get_column_letter(col_idx)
             if col_letter and sheet.column_dimensions[col_letter].width:
                 # Convert Excel width to pixels (approximately)
                 width = sheet.column_dimensions[col_letter].width
-                column_widths[col[0].column] = int(width * 7)  # Excel unit * 7 ≈ pixels
+                column_widths[col_idx] = int(width * 7)  # Excel unit * 7 ≈ pixels
         analysis["column_widths"] = column_widths
         
         # Extract row heights

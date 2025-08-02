@@ -32,7 +32,7 @@ services:
   rails:
     build:
       context: ./rails-app
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       args:
         RUBY_VERSION: 3.4.5
     command: bash -c "bin/vite dev & ./bin/rails-server"
@@ -71,7 +71,7 @@ services:
   sidekiq:
     build:
       context: ./rails-app
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     command: bundle exec sidekiq
     volumes:
       - ./rails-app:/rails
@@ -114,6 +114,25 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  collabora:
+    image: collabora/code
+    container_name: collabora
+    ports:
+      - "9980:9980"
+    environment:
+      - aliasgroup1=http://rails:3000
+      - extra_params=--o:ssl.enable=false --o:security.capabilities=false
+      - username=admin
+      - password=admin123
+    cap_add:
+      - MKNOD
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9980"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   # Optional: Nginx for production-like setup
   # nginx:

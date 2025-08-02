@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Collabora 브라우저 디버깅</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-info { background: #f0f8ff; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #ffe6e6; border-left: 4px solid #ff0000; }
+        .success { background: #e6ffe6; border-left: 4px solid #00aa00; }
+        .warning { background: #fff3cd; border-left: 4px solid #ffaa00; }
+        iframe { width: 100%; height: 600px; border: 2px solid #333; margin: 10px 0; }
+        .console-output { background: #000; color: #0f0; padding: 10px; font-family: monospace; height: 200px; overflow-y: scroll; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Collabora 브라우저 디버깅</h1>
+    
+    <div class="debug-info">
+        <h3>실시간 진단</h3>
+        <p>이 페이지는 Collabora URL 로딩 과정에서 발생하는 문제를 실시간으로 추적합니다.</p>
+    </div>
+
+    <button onclick="testCollaboraURL()">Collabora URL 테스트</button>
+    <button onclick="clearConsole()">콘솔 지우기</button>
+    <button onclick="openInNewTab()">새 탭에서 열기</button>
+
+    <div class="debug-info">
+        <h3>📋 진단 콘솔</h3>
+        <div id="console" class="console-output">진단 시작 대기 중...\n</div>
+    </div>
+
+    <div class="debug-info">
+        <h3>🌐 Collabora iframe</h3>
+        <iframe id="collabora-frame" src="about:blank"></iframe>
+    </div>
+
+    <script>
+        const collaboraURL = "http://localhost:9980/browser/0b27e85/cool.html?WOPISrc=http://localhost:3000/api/v1/wopi/files/7&access_token=eyJhbGciOiJIUzI1NiJ9.eyJmaWxlX2lkIjoiNyIsInVzZXJfaWQiOiIxIiwicGVybWlzc2lvbnMiOnsiY2FuX3dyaXRlIjpmYWxzZSwiY2FuX2V4cG9ydCI6dHJ1ZSwiY2FuX3ByaW50Ijp0cnVlfSwiaWF0IjoxNzU0MTY0MjY4LCJleHAiOjE3NTQyNTA2NjgsImlzcyI6ImV4Y2VsLXVuaWZpZWQiLCJhdWQiOiJ3b3BpIn0.CD4H3YIHxzxxFXewhyoSpd2E7NgyrJwiHGhAsqRmEEk";
+        
+        function log(message, type = 'info') {
+            const console = document.getElementById('console');
+            const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
+            const prefix = type === 'error' ? '❌' : type === 'warning' ? '⚠️' : type === 'success' ? '✅' : 'ℹ️';
+            console.innerHTML += `[${timestamp}] ${prefix} ${message}\n`;
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function clearConsole() {
+            document.getElementById('console').innerHTML = '콘솔 지워짐\n';
+        }
+
+        function openInNewTab() {
+            log('새 탭에서 URL 열기: ' + collaboraURL);
+            window.open(collaboraURL, '_blank');
+        }
+
+        function testCollaboraURL() {
+            const iframe = document.getElementById('collabora-frame');
+            
+            log('🔧 Collabora URL 테스트 시작');
+            log('URL: ' + collaboraURL);
+            
+            // iframe 이벤트 리스너 설정
+            iframe.onload = function() {
+                log('iframe 로드 완료', 'success');
+                
+                // iframe 내용 검사 시도
+                setTimeout(() => {
+                    try {
+                        const doc = iframe.contentDocument || iframe.contentWindow.document;
+                        if (doc) {
+                            const title = doc.title || 'No title';
+                            const bodyContent = doc.body ? doc.body.innerHTML.substring(0, 100) + '...' : 'No body';
+                            
+                            log('iframe 제목: ' + title);
+                            log('iframe 내용 (100자): ' + bodyContent);
+                            
+                            // resize-detector 확인
+                            if (bodyContent.includes('resize-detector')) {
+                                log('❌ resize-detector 감지됨 - 빈 문서 상태', 'error');
+                            } else if (bodyContent.includes('collabora') || bodyContent.includes('cool')) {
+                                log('✅ Collabora 콘텐츠 감지됨', 'success');
+                            } else {
+                                log('⚠️ 예상치 못한 콘텐츠', 'warning');
+                            }
+                        } else {
+                            log('iframe 문서에 접근할 수 없음 (CORS 제한)', 'warning');
+                        }
+                    } catch (e) {
+                        log('iframe 콘텐츠 검사 실패: ' + e.message, 'warning');
+                    }
+                }, 2000);
+            };
+            
+            iframe.onerror = function() {
+                log('iframe 로드 실패', 'error');
+            };
+            
+            // 네트워크 요청 모니터링
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+                log('Fetch 요청: ' + args[0]);
+                return originalFetch.apply(this, args)
+                    .then(response => {
+                        log('Fetch 응답: ' + response.status + ' ' + response.statusText, 
+                             response.ok ? 'success' : 'error');
+                        return response;
+                    })
+                    .catch(error => {
+                        log('Fetch 에러: ' + error.message, 'error');
+                        throw error;
+                    });
+            };
+            
+            // 에러 이벤트 리스너
+            window.addEventListener('error', function(e) {
+                log('JavaScript 에러: ' + e.message + ' (줄: ' + e.lineno + ')', 'error');
+            });
+            
+            // URL 로드 시작
+            log('iframe src 설정 중...');
+            iframe.src = collaboraURL;
+        }
+
+        // 페이지 로드 시 자동 시작
+        window.addEventListener('DOMContentLoaded', function() {
+            log('페이지 로드 완료 - 테스트 준비됨');
+            log('Collabora URL 길이: ' + collaboraURL.length + ' 문자');
+        });
+    </script>
+</body>
+</html>

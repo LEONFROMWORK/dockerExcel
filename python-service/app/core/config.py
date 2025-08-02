@@ -35,6 +35,12 @@ class Settings(BaseSettings):
     # OpenRouter Configuration
     OPENROUTER_API_KEY: Optional[str] = Field(default=None)
     
+    # Anthropic Configuration
+    ANTHROPIC_API_KEY: Optional[str] = Field(default=None)
+    
+    # Groq Configuration
+    GROQ_API_KEY: Optional[str] = Field(default=None)
+    
     # Security
     SECRET_KEY: str = Field(default="your-secret-key-here")
     ALGORITHM: str = Field(default="HS256")
@@ -42,14 +48,14 @@ class Settings(BaseSettings):
     
     # CORS
     CORS_ORIGINS: List[str] = Field(
-        default=["http://localhost:3000", "http://localhost:3036"]
+        default=["http://localhost:3000", "http://localhost:3036", "http://localhost:8081", "file://", "*"]
     )
     
     # Redis Configuration
     REDIS_URL: Optional[str] = Field(default="redis://localhost:6379/0")
     
     # Logging
-    LOG_LEVEL: str = Field(default="INFO")
+    LOG_LEVEL: str = Field(default="DEBUG")
     LOG_FORMAT: str = Field(default="json")
     
     # File Upload

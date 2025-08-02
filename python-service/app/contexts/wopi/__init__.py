@@ -1,0 +1,1 @@
+"""WOPI (Web Application Open Platform Interface) context for Collabora Online integration."""

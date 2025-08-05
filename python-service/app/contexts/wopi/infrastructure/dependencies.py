@@ -2,16 +2,13 @@
 Dependency injection configuration for WOPI context.
 """
 
-import os
 import logging
 from typing import Generator
-from fastapi import Depends
 import redis.asyncio as redis
 
-from ..domain.services import FileInfoService, FileContentService, TokenService
+from ..domain.services import FileContentService, TokenService
 from .token_manager import RedisTokenManager
 from .jwt_token_service import JWTTokenService
-from .streaming_file_storage import StreamingFileStorage
 from .rails_storage_adapter import RailsStorageAdapter
 from .test_token_service import TestTokenService
 from .structured_logger import wopi_logger
@@ -36,11 +33,15 @@ async def get_redis_pool() -> redis.ConnectionPool:
             max_connections=settings.redis_pool_size,
             decode_responses=True,
             socket_keepalive=settings.redis_socket_keepalive,
-            socket_keepalive_options={
-                1: 1,  # TCP_KEEPIDLE
-                2: 3,  # TCP_KEEPINTVL
-                3: 5,  # TCP_KEEPCNT
-            } if settings.redis_socket_keepalive else None
+            socket_keepalive_options=(
+                {
+                    1: 1,  # TCP_KEEPIDLE
+                    2: 3,  # TCP_KEEPINTVL
+                    3: 5,  # TCP_KEEPCNT
+                }
+                if settings.redis_socket_keepalive
+                else None
+            ),
         )
     return _redis_pool
 
@@ -68,13 +69,12 @@ def get_token_service() -> TokenService:
                 secret_key=settings.jwt_secret_key,
                 algorithm=settings.jwt_algorithm,
                 token_ttl_hours=settings.token_ttl_hours,
-                refresh_ttl_days=settings.refresh_ttl_days
+                refresh_ttl_days=settings.refresh_ttl_days,
             )
             logger.info("Using JWT token service")
         else:
             _token_service = RedisTokenManager(
-                redis_url=settings.redis_url,
-                pool_size=settings.redis_pool_size
+                redis_url=settings.redis_url, pool_size=settings.redis_pool_size
             )
             logger.info("Using Redis token service")
     return _token_service
@@ -100,7 +100,7 @@ def get_csrf_protection() -> CSRFProtection:
             header_name=settings.csrf_header_name,
             cookie_secure=settings.csrf_cookie_secure,
             cookie_samesite=settings.csrf_cookie_samesite,
-            token_ttl_hours=settings.csrf_token_ttl_hours
+            token_ttl_hours=settings.csrf_token_ttl_hours,
         )
         logger.info("CSRF protection initialized")
     return _csrf_protection
@@ -121,13 +121,13 @@ async def get_current_file_storage() -> FileContentService:
 async def cleanup_services():
     """Cleanup services on shutdown."""
     global _redis_pool, _token_service, _file_storage, _csrf_protection
-    
+
     if _redis_pool:
         await _redis_pool.disconnect()
         _redis_pool = None
-    
+
     _token_service = None
     _file_storage = None
     _csrf_protection = None
-    
+
     logger.info("Services cleaned up")

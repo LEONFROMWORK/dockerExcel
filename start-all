@@ -1,0 +1,395 @@
+#!/bin/bash
+
+# Excel Unified 전체 시스템 원클릭 실행 스크립트
+# 모든 서버와 Docker 서비스를 한 번에 시작
+
+set -e  # Exit on any error
+
+# 색상 정의
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+# 로그 함수들
+log_info() {
+    echo -e "${BLUE}ℹ️  $1${NC}"
+}
+
+log_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+log_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
+log_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+log_header() {
+    echo -e "${BOLD}${CYAN}🚀 $1${NC}"
+}
+
+# 파라미터 파싱
+ONLY_SERVICE=""
+OPEN_BROWSER=true
+VERBOSE=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --only)
+            ONLY_SERVICE="$2"
+            shift 2
+            ;;
+        --no-browser)
+            OPEN_BROWSER=false
+            shift
+            ;;
+        --verbose)
+            VERBOSE=true
+            shift
+            ;;
+        --help)
+            echo "사용법: ./start-all [옵션]"
+            echo "옵션:"
+            echo "  --only [rails|python|collabora|docker]  특정 서비스만 실행"
+            echo "  --no-browser                             브라우저 자동 실행 안함"
+            echo "  --verbose                                자세한 로그 출력"
+            echo "  --help                                   도움말 표시"
+            exit 0
+            ;;
+        *)
+            log_error "알 수 없는 옵션: $1"
+            exit 1
+            ;;
+    esac
+done
+
+# 시작 시간 기록
+START_TIME=$(date +%s)
+
+log_header "Excel Unified 통합 시스템 시작"
+echo ""
+
+# 1. 기존 프로세스 정리
+if [[ -z "$ONLY_SERVICE" || "$ONLY_SERVICE" == "all" ]]; then
+    log_info "기존 프로세스 정리 중..."
+
+    # Rails 서버 종료
+    pkill -f "rails server" 2>/dev/null || true
+    pkill -f "puma" 2>/dev/null || true
+
+    # Vite 개발 서버 종료
+    pkill -f "vite" 2>/dev/null || true
+    pkill -f "node.*vite" 2>/dev/null || true
+
+    # Python 서비스 종료
+    pkill -f "uvicorn" 2>/dev/null || true
+    pkill -f "python.*main:app" 2>/dev/null || true
+
+    # Sidekiq 종료
+    pkill -f "sidekiq" 2>/dev/null || true
+
+    # tmux 세션 종료
+    tmux kill-session -t excel-unified 2>/dev/null || true
+
+    sleep 2
+    log_success "기존 프로세스 정리 완료"
+fi
+
+# 2. 필수 서비스 확인 함수
+check_postgresql() {
+    log_info "PostgreSQL 상태 확인 중..."
+    if pg_isready -h localhost -p 5432 > /dev/null 2>&1; then
+        log_success "PostgreSQL 실행 중"
+        return 0
+    else
+        log_warning "PostgreSQL이 실행되지 않았습니다."
+        log_info "PostgreSQL 시작 시도 중..."
+
+        # macOS에서 PostgreSQL 시작 시도
+        if command -v brew &> /dev/null; then
+            brew services start postgresql@14 2>/dev/null || brew services start postgresql 2>/dev/null || true
+            sleep 3
+            if pg_isready -h localhost -p 5432 > /dev/null 2>&1; then
+                log_success "PostgreSQL 시작됨"
+                return 0
+            fi
+        fi
+
+        log_error "PostgreSQL을 시작할 수 없습니다. 수동으로 시작해주세요:"
+        log_error "  brew services start postgresql"
+        return 1
+    fi
+}
+
+check_redis() {
+    log_info "Redis 상태 확인 중..."
+    if redis-cli ping > /dev/null 2>&1; then
+        log_success "Redis 실행 중"
+        return 0
+    else
+        log_warning "Redis가 실행되지 않았습니다."
+        log_info "Redis 시작 시도 중..."
+
+        # macOS에서 Redis 시작 시도
+        if command -v brew &> /dev/null; then
+            brew services start redis 2>/dev/null || true
+            sleep 2
+            if redis-cli ping > /dev/null 2>&1; then
+                log_success "Redis 시작됨"
+                return 0
+            fi
+        fi
+
+        log_error "Redis를 시작할 수 없습니다. 수동으로 시작해주세요:"
+        log_error "  brew services start redis"
+        return 1
+    fi
+}
+
+# 3. Docker 서비스 시작 함수
+start_collabora_docker() {
+    log_info "Collabora Online Docker 상태 확인 중..."
+
+    # 기존 Collabora 컨테이너 확인
+    EXISTING_CONTAINER=$(docker ps -a --filter "name=collabora" --format "{{.Names}}" | head -1)
+
+    if [[ -n "$EXISTING_CONTAINER" ]]; then
+        CONTAINER_STATUS=$(docker inspect --format="{{.State.Status}}" "$EXISTING_CONTAINER")
+
+        if [[ "$CONTAINER_STATUS" == "running" ]]; then
+            log_success "Collabora Docker 이미 실행 중: $EXISTING_CONTAINER"
+            return 0
+        else
+            log_info "기존 Collabora 컨테이너 시작: $EXISTING_CONTAINER"
+            docker start "$EXISTING_CONTAINER"
+            sleep 5
+            log_success "Collabora Docker 시작됨"
+            return 0
+        fi
+    fi
+
+    # 새 Collabora 컨테이너 실행
+    log_info "새 Collabora Online 컨테이너 실행 중..."
+    docker run -d \
+        --name collabora-unified \
+        -p 9980:9980 \
+        -e "aliasgroup1=http://host.docker.internal:3000" \
+        -e "extra_params=--o:ssl.enable=false --o:ssl.termination=true" \
+        -e "DONT_GEN_SSL_CERT=1" \
+        --add-host host.docker.internal:host-gateway \
+        collabora/code:23.05.4.2.1
+
+    # 컨테이너 시작 대기
+    log_info "Collabora 서비스 시작 대기 중..."
+    for i in {1..30}; do
+        if curl -s "http://localhost:9980/hosting/discovery" > /dev/null 2>&1; then
+            log_success "Collabora Online 실행됨 (포트 9980)"
+            return 0
+        fi
+        sleep 2
+    done
+
+    log_error "Collabora Online 시작 실패"
+    return 1
+}
+
+# 4. 서비스별 시작 함수들
+start_rails() {
+    log_info "Rails 서버 시작 중... (포트 3000)"
+    cd /Users/kevin/excel-unified/rails-app
+
+    # 환경 설정
+    export RAILS_ENV=development
+    export PORT=3000
+
+    # tmux 세션 생성 및 Rails 시작
+    tmux new-session -d -s excel-unified -n rails
+    tmux send-keys -t excel-unified:rails "cd /Users/kevin/excel-unified/rails-app && bin/dev" C-m
+
+    # Rails 서버 시작 대기
+    log_info "Rails 서버 시작 대기 중..."
+    for i in {1..30}; do
+        if curl -s "http://localhost:3000/up" > /dev/null 2>&1; then
+            log_success "Rails 서버 실행됨 (포트 3000)"
+            return 0
+        fi
+        sleep 2
+    done
+
+    log_error "Rails 서버 시작 실패"
+    return 1
+}
+
+start_python() {
+    log_info "Python 서비스 시작 중... (포트 8000)"
+
+    # 포트 8000이 사용 중인지 확인
+    if lsof -ti:8000 > /dev/null 2>&1; then
+        log_warning "포트 8000이 이미 사용 중입니다. 기존 프로세스를 종료합니다."
+        kill -9 $(lsof -ti:8000) 2>/dev/null || true
+        sleep 2
+    fi
+
+    # Python 서비스를 별도 tmux 윈도우에서 실행
+    tmux new-window -t excel-unified -n python
+    tmux send-keys -t excel-unified:python "cd /Users/kevin/excel-unified/python-service && ./start_service.sh" C-m
+
+    # Python 서비스 시작 대기 (시간 증가 및 더 자세한 체크)
+    log_info "Python 서비스 시작 대기 중..."
+    for i in {1..45}; do
+        if curl -s "http://localhost:8000/health" > /dev/null 2>&1; then
+            log_success "Python 서비스 실행됨 (포트 8000)"
+            # 추가 서비스 상태 확인
+            if curl -s "http://localhost:8000/docs" > /dev/null 2>&1; then
+                log_success "Python API 문서도 접근 가능합니다"
+            fi
+            return 0
+        fi
+
+        # 진행 상황 표시
+        if [[ $((i % 5)) -eq 0 ]]; then
+            log_info "Python 서비스 시작 대기 중... (${i}/45)"
+        fi
+        sleep 2
+    done
+
+    log_error "Python 서비스 시작 실패"
+    log_error "tmux attach -t excel-unified:python 으로 로그를 확인해보세요"
+    return 1
+}
+
+start_sidekiq() {
+    log_info "Sidekiq 백그라운드 작업 시작 중..."
+
+    # Sidekiq을 별도 tmux 윈도우에서 실행
+    tmux new-window -t excel-unified -n sidekiq
+    tmux send-keys -t excel-unified:sidekiq "cd /Users/kevin/excel-unified/rails-app && bundle exec sidekiq" C-m
+
+    sleep 3
+    log_success "Sidekiq 실행됨"
+}
+
+# 5. 상태 확인 함수
+check_all_services() {
+    log_info "모든 서비스 상태 확인 중..."
+
+    SERVICES_STATUS=""
+
+    # Rails 상태 확인
+    if curl -s "http://localhost:3000/up" > /dev/null 2>&1; then
+        SERVICES_STATUS+="${GREEN}✅ Rails (3000)${NC}\n"
+    else
+        SERVICES_STATUS+="${RED}❌ Rails (3000)${NC}\n"
+    fi
+
+    # Python 상태 확인
+    if curl -s "http://localhost:8000/health" > /dev/null 2>&1; then
+        SERVICES_STATUS+="${GREEN}✅ Python (8000)${NC}\n"
+    else
+        SERVICES_STATUS+="${RED}❌ Python (8000)${NC}\n"
+    fi
+
+    # Collabora 상태 확인
+    if curl -s "http://localhost:9980/hosting/discovery" > /dev/null 2>&1; then
+        SERVICES_STATUS+="${GREEN}✅ Collabora (9980)${NC}\n"
+    else
+        SERVICES_STATUS+="${RED}❌ Collabora (9980)${NC}\n"
+    fi
+
+    # PostgreSQL 상태 확인
+    if pg_isready -h localhost -p 5432 > /dev/null 2>&1; then
+        SERVICES_STATUS+="${GREEN}✅ PostgreSQL (5432)${NC}\n"
+    else
+        SERVICES_STATUS+="${RED}❌ PostgreSQL (5432)${NC}\n"
+    fi
+
+    # Redis 상태 확인
+    if redis-cli ping > /dev/null 2>&1; then
+        SERVICES_STATUS+="${GREEN}✅ Redis (6379)${NC}\n"
+    else
+        SERVICES_STATUS+="${RED}❌ Redis (6379)${NC}\n"
+    fi
+
+    echo -e "$SERVICES_STATUS"
+}
+
+# 6. 메인 실행 로직
+main() {
+    case "$ONLY_SERVICE" in
+        "rails")
+            check_postgresql || exit 1
+            check_redis || exit 1
+            start_rails || exit 1
+            ;;
+        "python")
+            start_python || exit 1
+            ;;
+        "collabora")
+            start_collabora_docker || exit 1
+            ;;
+        "docker")
+            start_collabora_docker || exit 1
+            ;;
+        *)
+            # 전체 시스템 시작
+            log_header "필수 서비스 확인"
+            check_postgresql || exit 1
+            check_redis || exit 1
+
+            log_header "Docker 서비스 시작"
+            start_collabora_docker || exit 1
+
+            log_header "애플리케이션 서비스 시작"
+            start_rails || exit 1
+            start_python || exit 1
+            start_sidekiq || exit 1
+            ;;
+    esac
+
+    # 실행 시간 계산
+    END_TIME=$(date +%s)
+    DURATION=$((END_TIME - START_TIME))
+
+    echo ""
+    log_header "🎉 Excel Unified 시스템 시작 완료! (${DURATION}초)"
+    echo ""
+
+    # 서비스 상태 표시
+    check_all_services
+
+    echo ""
+    log_info "서비스 URL:"
+    echo -e "  ${CYAN}📍 메인 애플리케이션: ${BOLD}http://localhost:3000${NC}"
+    echo -e "  ${CYAN}📍 Python API: ${BOLD}http://localhost:8000${NC}"
+    echo -e "  ${CYAN}📍 API 문서: ${BOLD}http://localhost:8000/docs${NC}"
+    echo -e "  ${CYAN}📍 Collabora Online: ${BOLD}http://localhost:9980${NC}"
+    echo ""
+
+    log_info "유용한 명령어:"
+    echo -e "  ${YELLOW}tmux attach -t excel-unified${NC}    # 서비스 로그 확인"
+    echo -e "  ${YELLOW}./stop-all${NC}                     # 모든 서비스 종료"
+    echo -e "  ${YELLOW}docker logs -f collabora-unified${NC} # Collabora 로그 확인"
+    echo ""
+
+    # 브라우저 자동 실행
+    if [[ "$OPEN_BROWSER" == true && -z "$ONLY_SERVICE" ]]; then
+        log_info "브라우저에서 애플리케이션 열기 중..."
+        if command -v open &> /dev/null; then
+            # macOS
+            open "http://localhost:3000"
+        elif command -v xdg-open &> /dev/null; then
+            # Linux
+            xdg-open "http://localhost:3000"
+        fi
+    fi
+}
+
+# 스크립트 실행
+main "$@"

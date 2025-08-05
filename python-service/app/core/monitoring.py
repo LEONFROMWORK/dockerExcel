@@ -1,395 +1,440 @@
 """
-모니터링 시스템
-Prometheus 메트릭과 구조화된 로깅
+Enhanced Monitoring and Logging
+향상된 모니터링 및 로깅 시스템
 """
 
 import time
+import json
 import logging
-from typing import Optional, Dict, Any
-from functools import wraps
-from contextlib import contextmanager
-from prometheus_client import Counter, Histogram, Gauge, Info
-import structlog
-from datetime import datetime
 import asyncio
+from typing import Dict, Any, Optional, List
+from datetime import datetime
+from contextlib import asynccontextmanager
+from functools import wraps
+import traceback
+import psutil
 import os
-import sys
+from collections import defaultdict, deque
 
-# 조건부 imports
-try:
-    import psutil
-except ImportError:
-    psutil = None
+from app.core.integrated_cache import integrated_cache
 
-# Prometheus 메트릭 정의
-request_count = Counter(
-    'excel_unified_requests_total',
-    'Total number of requests',
-    ['method', 'endpoint', 'status']
-)
-
-request_duration = Histogram(
-    'excel_unified_request_duration_seconds',
-    'Request duration in seconds',
-    ['method', 'endpoint']
-)
-
-active_connections = Gauge(
-    'excel_unified_active_connections',
-    'Number of active connections'
-)
-
-error_count = Counter(
-    'excel_unified_errors_total',
-    'Total number of errors',
-    ['error_type', 'endpoint']
-)
-
-analysis_count = Counter(
-    'excel_unified_analysis_total',
-    'Total number of analyses performed',
-    ['analysis_type', 'status']
-)
-
-analysis_duration = Histogram(
-    'excel_unified_analysis_duration_seconds',
-    'Analysis duration in seconds',
-    ['analysis_type']
-)
-
-cache_hits = Counter(
-    'excel_unified_cache_hits_total',
-    'Total number of cache hits',
-    ['cache_type']
-)
-
-cache_misses = Counter(
-    'excel_unified_cache_misses_total',
-    'Total number of cache misses',
-    ['cache_type']
-)
-
-file_processing_size = Histogram(
-    'excel_unified_file_size_bytes',
-    'Size of processed files in bytes',
-    ['file_type']
-)
-
-# 서비스 정보
-service_info = Info(
-    'excel_unified_service',
-    'Service information'
-)
-service_info.info({
-    'version': '1.0.0',
-    'environment': 'development'
-})
-
-# 구조화된 로거 설정
-def setup_structured_logging():
-    """구조화된 로깅 설정"""
-    structlog.configure(
-        processors=[
-            structlog.stdlib.filter_by_level,
-            structlog.stdlib.add_logger_name,
-            structlog.stdlib.add_log_level,
-            structlog.stdlib.PositionalArgumentsFormatter(),
-            structlog.processors.TimeStamper(fmt="iso"),
-            structlog.processors.StackInfoRenderer(),
-            structlog.processors.format_exc_info,
-            structlog.processors.UnicodeDecoder(),
-            structlog.processors.CallsiteParameterAdder(
-                parameters=[
-                    structlog.processors.CallsiteParameter.FILENAME,
-                    structlog.processors.CallsiteParameter.FUNC_NAME,
-                    structlog.processors.CallsiteParameter.LINENO,
-                ]
-            ),
-            structlog.processors.JSONRenderer()
-        ],
-        context_class=dict,
-        logger_factory=structlog.stdlib.LoggerFactory(),
-        cache_logger_on_first_use=True,
-    )
-
-# 구조화된 로거 인스턴스
-logger = structlog.get_logger()
+logger = logging.getLogger(__name__)
 
 
-class PerformanceMonitor:
-    """성능 모니터링 클래스"""
-    
-    @staticmethod
-    @contextmanager
-    def monitor_operation(operation_name: str, **extra_fields):
-        """작업 성능 모니터링 컨텍스트 매니저"""
-        start_time = time.time()
-        
-        logger.info(
-            "operation_started",
-            operation=operation_name,
-            **extra_fields
+class MetricsCollector:
+    """메트릭 수집기"""
+
+    def __init__(self):
+        self.metrics = defaultdict(
+            lambda: {
+                "count": 0,
+                "total_time": 0,
+                "errors": 0,
+                "last_error": None,
+                "percentiles": deque(maxlen=1000),  # 최근 1000개 요청만 저장
+            }
         )
-        
-        try:
-            yield
-            
-            duration = time.time() - start_time
-            logger.info(
-                "operation_completed",
-                operation=operation_name,
-                duration=duration,
-                status="success",
-                **extra_fields
-            )
-            
-            # Prometheus 메트릭 업데이트
-            if 'analysis_type' in extra_fields:
-                analysis_duration.labels(
-                    analysis_type=extra_fields['analysis_type']
-                ).observe(duration)
-                analysis_count.labels(
-                    analysis_type=extra_fields['analysis_type'],
-                    status='success'
-                ).inc()
-                
-        except Exception as e:
-            duration = time.time() - start_time
-            logger.error(
-                "operation_failed",
-                operation=operation_name,
-                duration=duration,
-                status="error",
-                error=str(e),
-                **extra_fields
-            )
-            
-            # 오류 메트릭 업데이트
-            error_count.labels(
-                error_type=type(e).__name__,
-                endpoint=extra_fields.get('endpoint', 'unknown')
-            ).inc()
-            
-            if 'analysis_type' in extra_fields:
-                analysis_count.labels(
-                    analysis_type=extra_fields['analysis_type'],
-                    status='error'
-                ).inc()
-            
-            raise
-    
+        self.start_time = time.time()
+
+    def record_request(
+        self,
+        endpoint: str,
+        duration: float,
+        status_code: int,
+        error: Optional[str] = None,
+    ):
+        """요청 메트릭 기록"""
+        metric = self.metrics[endpoint]
+        metric["count"] += 1
+        metric["total_time"] += duration
+        metric["percentiles"].append(duration)
+
+        if status_code >= 400:
+            metric["errors"] += 1
+            metric["last_error"] = {
+                "time": datetime.now().isoformat(),
+                "status": status_code,
+                "error": error,
+            }
+
+    def get_stats(self, endpoint: Optional[str] = None) -> Dict[str, Any]:
+        """통계 조회"""
+        if endpoint:
+            return self._calculate_endpoint_stats(endpoint)
+
+        # 전체 통계
+        total_requests = sum(m["count"] for m in self.metrics.values())
+        total_errors = sum(m["errors"] for m in self.metrics.values())
+        uptime = time.time() - self.start_time
+
+        return {
+            "uptime_seconds": uptime,
+            "total_requests": total_requests,
+            "total_errors": total_errors,
+            "error_rate": total_errors / total_requests if total_requests > 0 else 0,
+            "endpoints": {
+                ep: self._calculate_endpoint_stats(ep) for ep in self.metrics.keys()
+            },
+        }
+
+    def _calculate_endpoint_stats(self, endpoint: str) -> Dict[str, Any]:
+        """엔드포인트별 통계 계산"""
+        metric = self.metrics[endpoint]
+        count = metric["count"]
+
+        if count == 0:
+            return {"count": 0, "errors": 0}
+
+        percentiles = sorted(metric["percentiles"])
+
+        return {
+            "count": count,
+            "errors": metric["errors"],
+            "error_rate": metric["errors"] / count,
+            "avg_time": metric["total_time"] / count,
+            "p50": percentiles[len(percentiles) // 2] if percentiles else 0,
+            "p90": percentiles[int(len(percentiles) * 0.9)] if percentiles else 0,
+            "p99": percentiles[int(len(percentiles) * 0.99)] if percentiles else 0,
+            "last_error": metric["last_error"],
+        }
+
+
+class SystemMonitor:
+    """시스템 리소스 모니터"""
+
     @staticmethod
-    def monitor_request(func):
-        """요청 모니터링 데코레이터"""
+    def get_system_metrics() -> Dict[str, Any]:
+        """시스템 메트릭 수집"""
+        try:
+            # CPU 사용률
+            cpu_percent = psutil.cpu_percent(interval=0.1)
+
+            # 메모리 사용률
+            memory = psutil.virtual_memory()
+
+            # 디스크 사용률
+            disk = psutil.disk_usage("/")
+
+            # 프로세스 정보
+            process = psutil.Process(os.getpid())
+            process_memory = process.memory_info()
+
+            # 네트워크 I/O
+            net_io = psutil.net_io_counters()
+
+            return {
+                "timestamp": datetime.now().isoformat(),
+                "cpu": {"percent": cpu_percent, "count": psutil.cpu_count()},
+                "memory": {
+                    "percent": memory.percent,
+                    "available_mb": memory.available / 1024 / 1024,
+                    "total_mb": memory.total / 1024 / 1024,
+                },
+                "disk": {
+                    "percent": disk.percent,
+                    "free_gb": disk.free / 1024 / 1024 / 1024,
+                    "total_gb": disk.total / 1024 / 1024 / 1024,
+                },
+                "process": {
+                    "memory_mb": process_memory.rss / 1024 / 1024,
+                    "cpu_percent": process.cpu_percent(),
+                    "num_threads": process.num_threads(),
+                },
+                "network": {
+                    "bytes_sent": net_io.bytes_sent,
+                    "bytes_recv": net_io.bytes_recv,
+                    "packets_sent": net_io.packets_sent,
+                    "packets_recv": net_io.packets_recv,
+                },
+            }
+        except Exception as e:
+            logger.error(f"Failed to collect system metrics: {e}")
+            return {}
+
+
+class PerformanceTracker:
+    """성능 추적기"""
+
+    def __init__(self, name: str):
+        self.name = name
+        self.start_time = None
+        self.checkpoints = []
+
+    def start(self):
+        """추적 시작"""
+        self.start_time = time.time()
+        self.checkpoints = []
+        return self
+
+    def checkpoint(self, label: str):
+        """체크포인트 기록"""
+        if not self.start_time:
+            return
+
+        elapsed = time.time() - self.start_time
+        self.checkpoints.append(
+            {
+                "label": label,
+                "elapsed": elapsed,
+                "timestamp": datetime.now().isoformat(),
+            }
+        )
+
+    def end(self) -> Dict[str, Any]:
+        """추적 종료 및 결과 반환"""
+        if not self.start_time:
+            return {}
+
+        total_time = time.time() - self.start_time
+
+        return {
+            "name": self.name,
+            "total_time": total_time,
+            "checkpoints": self.checkpoints,
+            "timestamp": datetime.now().isoformat(),
+        }
+
+
+class RequestLogger:
+    """요청 로거"""
+
+    @staticmethod
+    async def log_request(
+        request: Any, response: Any = None, error: Optional[Exception] = None
+    ):
+        """요청/응답 로깅"""
+        log_data = {
+            "timestamp": datetime.now().isoformat(),
+            "method": request.method,
+            "path": request.url.path,
+            "query_params": dict(request.query_params),
+            "client_ip": request.client.host if request.client else "unknown",
+            "user_agent": request.headers.get("user-agent", "unknown"),
+        }
+
+        if response:
+            log_data["status_code"] = response.status_code
+            log_data["response_time"] = getattr(response, "headers", {}).get(
+                "X-Process-Time"
+            )
+
+        if error:
+            log_data["error"] = {
+                "type": type(error).__name__,
+                "message": str(error),
+                "traceback": traceback.format_exc(),
+            }
+
+        # 구조화된 로그 출력
+        if error:
+            logger.error(f"Request failed: {json.dumps(log_data)}")
+        else:
+            logger.info(f"Request completed: {json.dumps(log_data)}")
+
+        # 캐시에 저장 (분석용)
+        try:
+            await integrated_cache.set(
+                f"request_log:{datetime.now().strftime('%Y%m%d')}:{request.url.path}",
+                log_data,
+                ttl=86400,  # 1일 보관
+            )
+        except Exception as e:
+            logger.warning(f"Failed to cache request log: {e}")
+
+
+# 전역 인스턴스
+metrics_collector = MetricsCollector()
+system_monitor = SystemMonitor()
+
+
+# 데코레이터
+def monitor_performance(name: Optional[str] = None):
+    """성능 모니터링 데코레이터"""
+
+    def decorator(func):
         @wraps(func)
         async def async_wrapper(*args, **kwargs):
-            start_time = time.time()
-            endpoint = func.__name__
-            
+            func_name = name or f"{func.__module__}.{func.__name__}"
+            tracker = PerformanceTracker(func_name)
+            tracker.start()
+
             try:
                 result = await func(*args, **kwargs)
-                
-                duration = time.time() - start_time
-                status_code = getattr(result, 'status_code', 200)
-                
-                # 메트릭 업데이트
-                request_count.labels(
-                    method='POST',
-                    endpoint=endpoint,
-                    status=status_code
-                ).inc()
-                
-                request_duration.labels(
-                    method='POST',
-                    endpoint=endpoint
-                ).observe(duration)
-                
-                logger.info(
-                    "request_completed",
-                    endpoint=endpoint,
-                    duration=duration,
-                    status_code=status_code
-                )
-                
+                performance_data = tracker.end()
+
+                # 성능 데이터 로깅
+                if performance_data["total_time"] > 1.0:  # 1초 이상 걸린 작업
+                    logger.warning(
+                        f"Slow operation detected: {json.dumps(performance_data)}"
+                    )
+
                 return result
-                
             except Exception as e:
-                duration = time.time() - start_time
-                
-                request_count.labels(
-                    method='POST',
-                    endpoint=endpoint,
-                    status=500
-                ).inc()
-                
-                error_count.labels(
-                    error_type=type(e).__name__,
-                    endpoint=endpoint
-                ).inc()
-                
-                logger.error(
-                    "request_failed",
-                    endpoint=endpoint,
-                    duration=duration,
-                    error=str(e)
-                )
-                
+                performance_data = tracker.end()
+                performance_data["error"] = str(e)
+                logger.error(f"Operation failed: {json.dumps(performance_data)}")
                 raise
-        
+
         @wraps(func)
         def sync_wrapper(*args, **kwargs):
-            start_time = time.time()
-            endpoint = func.__name__
-            
+            func_name = name or f"{func.__module__}.{func.__name__}"
+            tracker = PerformanceTracker(func_name)
+            tracker.start()
+
             try:
                 result = func(*args, **kwargs)
-                
-                duration = time.time() - start_time
-                
-                logger.info(
-                    "request_completed",
-                    endpoint=endpoint,
-                    duration=duration
-                )
-                
+                performance_data = tracker.end()
+
+                if performance_data["total_time"] > 1.0:
+                    logger.warning(
+                        f"Slow operation detected: {json.dumps(performance_data)}"
+                    )
+
                 return result
-                
             except Exception as e:
-                duration = time.time() - start_time
-                
-                logger.error(
-                    "request_failed",
-                    endpoint=endpoint,
-                    duration=duration,
-                    error=str(e)
-                )
-                
+                performance_data = tracker.end()
+                performance_data["error"] = str(e)
+                logger.error(f"Operation failed: {json.dumps(performance_data)}")
                 raise
-        
+
         if asyncio.iscoroutinefunction(func):
             return async_wrapper
         else:
             return sync_wrapper
-    
-    @staticmethod
-    def record_file_processing(file_path: str, file_type: str):
-        """파일 처리 메트릭 기록"""
-        file_size = os.path.getsize(file_path)
-        
-        file_processing_size.labels(
-            file_type=file_type
-        ).observe(file_size)
-        
-        logger.info(
-            "file_processed",
-            file_path=file_path,
-            file_type=file_type,
-            file_size=file_size
+
+    return decorator
+
+
+@asynccontextmanager
+async def track_operation(operation_name: str):
+    """컨텍스트 매니저 형태의 성능 추적"""
+    tracker = PerformanceTracker(operation_name)
+    tracker.start()
+
+    try:
+        yield tracker
+    finally:
+        performance_data = tracker.end()
+
+        # 메트릭 기록
+        metrics_collector.record_request(
+            endpoint=operation_name,
+            duration=performance_data["total_time"],
+            status_code=200,
         )
-    
-    @staticmethod
-    def record_cache_access(cache_type: str, hit: bool):
-        """캐시 접근 메트릭 기록"""
-        if hit:
-            cache_hits.labels(cache_type=cache_type).inc()
+
+        # 로깅
+        if performance_data["total_time"] > 1.0:
+            logger.warning(f"Slow operation: {json.dumps(performance_data)}")
         else:
-            cache_misses.labels(cache_type=cache_type).inc()
+            logger.debug(f"Operation completed: {json.dumps(performance_data)}")
 
 
-class AnalysisMetrics:
-    """분석 관련 메트릭"""
-    
-    @staticmethod
-    def record_error_detection(error_count: int, error_types: Dict[str, int]):
-        """오류 감지 메트릭 기록"""
-        logger.info(
-            "errors_detected",
-            total_errors=error_count,
-            error_types=error_types
+class AlertManager:
+    """알림 관리자"""
+
+    def __init__(self):
+        self.alerts = []
+        self.thresholds = {
+            "cpu_percent": 80,
+            "memory_percent": 85,
+            "disk_percent": 90,
+            "error_rate": 0.05,  # 5%
+            "response_time_p99": 2.0,  # 2초
+        }
+
+    async def check_and_alert(self):
+        """시스템 상태 확인 및 알림"""
+        # 시스템 메트릭 확인
+        system_metrics = system_monitor.get_system_metrics()
+
+        if (
+            system_metrics.get("cpu", {}).get("percent", 0)
+            > self.thresholds["cpu_percent"]
+        ):
+            await self._create_alert(
+                "HIGH_CPU_USAGE",
+                f"CPU usage is {system_metrics['cpu']['percent']}%",
+                "warning",
+            )
+
+        if (
+            system_metrics.get("memory", {}).get("percent", 0)
+            > self.thresholds["memory_percent"]
+        ):
+            await self._create_alert(
+                "HIGH_MEMORY_USAGE",
+                f"Memory usage is {system_metrics['memory']['percent']}%",
+                "warning",
+            )
+
+        # API 메트릭 확인
+        api_stats = metrics_collector.get_stats()
+        for endpoint, stats in api_stats.get("endpoints", {}).items():
+            if stats.get("error_rate", 0) > self.thresholds["error_rate"]:
+                await self._create_alert(
+                    "HIGH_ERROR_RATE",
+                    f"Error rate for {endpoint} is {stats['error_rate']:.2%}",
+                    "critical",
+                )
+
+            if stats.get("p99", 0) > self.thresholds["response_time_p99"]:
+                await self._create_alert(
+                    "SLOW_RESPONSE",
+                    f"P99 response time for {endpoint} is {stats['p99']:.2f}s",
+                    "warning",
+                )
+
+    async def _create_alert(self, alert_type: str, message: str, severity: str):
+        """알림 생성"""
+        alert = {
+            "id": f"{alert_type}_{int(time.time())}",
+            "type": alert_type,
+            "message": message,
+            "severity": severity,
+            "timestamp": datetime.now().isoformat(),
+            "status": "active",
+        }
+
+        self.alerts.append(alert)
+
+        # 로그 출력
+        if severity == "critical":
+            logger.critical(f"ALERT: {message}")
+        else:
+            logger.warning(f"ALERT: {message}")
+
+        # 캐시에 저장
+        await integrated_cache.set(
+            f"alert:{alert['id']}", alert, ttl=3600  # 1시간 보관
         )
-    
-    @staticmethod
-    def record_formula_analysis(formula_count: int, complexity_dist: Dict[str, int]):
-        """수식 분석 메트릭 기록"""
-        logger.info(
-            "formulas_analyzed",
-            total_formulas=formula_count,
-            complexity_distribution=complexity_dist
-        )
-    
-    @staticmethod
-    def record_comparison_result(differences: int, match_percentage: float):
-        """비교 분석 메트릭 기록"""
-        logger.info(
-            "comparison_completed",
-            differences_found=differences,
-            match_percentage=match_percentage
-        )
+
+        # TODO: 실제 알림 발송 (이메일, Slack 등)
+
+    def get_active_alerts(self) -> List[Dict[str, Any]]:
+        """활성 알림 조회"""
+        return [a for a in self.alerts if a["status"] == "active"]
 
 
-class HealthCheck:
-    """시스템 상태 확인"""
-    
-    @staticmethod
-    def get_system_health() -> Dict[str, Any]:
-        """시스템 상태 정보 반환"""
-        if psutil is None:
-            return {
-                "status": "unknown",
-                "timestamp": datetime.now().isoformat(),
-                "message": "psutil not installed, system metrics unavailable"
-            }
-        
+# 전역 알림 관리자
+alert_manager = AlertManager()
+
+
+# 백그라운드 모니터링 태스크
+async def background_monitoring():
+    """백그라운드 모니터링 태스크"""
+    while True:
         try:
-            # CPU 사용률 (블로킹 방지를 위해 interval=0 사용)
-            cpu_percent = psutil.cpu_percent(interval=0)
-            
-            # 메모리 사용률
-            memory = psutil.virtual_memory()
-            
-            # 디스크 사용률
-            disk = psutil.disk_usage('/')
-            
-            # Python 프로세스 정보
-            process = psutil.Process()
-            
-            return {
-                "status": "healthy" if cpu_percent < 80 and memory.percent < 80 else "degraded",
-                "timestamp": datetime.now().isoformat(),
-                "system": {
-                    "cpu_percent": cpu_percent,
-                    "memory_percent": memory.percent,
-                    "memory_available_mb": memory.available / (1024 * 1024),
-                    "disk_percent": disk.percent,
-                    "disk_free_gb": disk.free / (1024 * 1024 * 1024)
-                },
-                "process": {
-                    "pid": process.pid,
-                    "cpu_percent": process.cpu_percent(interval=0),
-                    "memory_mb": process.memory_info().rss / (1024 * 1024),
-                    "threads": process.num_threads(),
-                    "open_files": len(process.open_files())
-                },
-                "python": {
-                    "version": sys.version,
-                    "platform": sys.platform
-                }
-            }
-        except PermissionError as e:
-            logger.error(f"권한 오류: {e}")
-            return {
-                "status": "error",
-                "timestamp": datetime.now().isoformat(),
-                "error": "Permission denied accessing system metrics"
-            }
+            # 30초마다 시스템 체크
+            await asyncio.sleep(30)
+
+            # 알림 체크
+            await alert_manager.check_and_alert()
+
+            # 시스템 메트릭 캐싱
+            system_metrics = system_monitor.get_system_metrics()
+            await integrated_cache.set("system_metrics:latest", system_metrics, ttl=60)
+
         except Exception as e:
-            logger.error(f"시스템 상태 확인 오류: {e}", exc_info=True)
-            return {
-                "status": "error",
-                "timestamp": datetime.now().isoformat(),
-                "error": str(e)
-            }
-
-
-# 모니터링 초기화
-setup_structured_logging()
+            logger.error(f"Background monitoring error: {e}")
+            await asyncio.sleep(60)  # 오류 시 1분 대기

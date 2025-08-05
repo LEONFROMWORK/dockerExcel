@@ -4,7 +4,7 @@ Reduces parameter count by grouping related parameters
 """
 
 from dataclasses import dataclass
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any
 from openpyxl.chart import Reference
 from openpyxl.styles import Font, PatternFill, Border, Alignment
 
@@ -12,6 +12,7 @@ from openpyxl.styles import Font, PatternFill, Border, Alignment
 @dataclass
 class TableConfig:
     """Configuration for creating tables"""
+
     start_cell: str
     end_cell: str
     table_name: str
@@ -21,6 +22,7 @@ class TableConfig:
 @dataclass
 class ValidationConfig:
     """Configuration for data validation"""
+
     cell_range: str
     validation_type: str
     formula1: str
@@ -35,6 +37,7 @@ class ValidationConfig:
 @dataclass
 class ChartConfig:
     """Configuration for creating charts"""
+
     chart_type: str
     data_range: Reference
     categories: Optional[Reference] = None
@@ -47,6 +50,7 @@ class ChartConfig:
 @dataclass
 class ComboChartConfig:
     """Configuration for combination charts"""
+
     primary_data: Reference
     secondary_data: Reference
     categories: Reference
@@ -59,6 +63,7 @@ class ComboChartConfig:
 @dataclass
 class CellStyleConfig:
     """Configuration for cell styling"""
+
     font: Optional[Font] = None
     fill: Optional[PatternFill] = None
     alignment: Optional[Alignment] = None
@@ -69,6 +74,7 @@ class CellStyleConfig:
 @dataclass
 class RangeStyleConfig:
     """Configuration for range styling"""
+
     start_row: int
     start_col: int
     end_row: int
@@ -79,6 +85,7 @@ class RangeStyleConfig:
 @dataclass
 class AlternateRowConfig:
     """Configuration for alternate row coloring"""
+
     start_row: int
     end_row: int
     start_col: int
@@ -90,11 +97,12 @@ class AlternateRowConfig:
 @dataclass
 class ConditionalFormatConfig:
     """Configuration for conditional formatting"""
+
     cell_range: str
     rule_type: str
     # Additional parameters as dict for flexibility
     params: Dict[str, Any] = None
-    
+
     def __post_init__(self):
         if self.params is None:
             self.params = {}

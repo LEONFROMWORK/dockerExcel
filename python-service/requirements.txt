@@ -3,6 +3,9 @@ fastapi==0.109.0
 uvicorn[standard]==0.27.0
 python-multipart==0.0.6
 
+# Database and Async Support
+greenlet>=2.0.0
+
 # AI and ML
 openai==1.10.0
 langchain==0.1.4
@@ -22,6 +25,7 @@ formulas==1.2.6  # Excel 수식 실시간 계산 엔진
 # AI Model Providers for Failover System
 anthropic>=0.18.0  # Claude API
 groq>=0.4.0  # Groq high-speed inference
+google-cloud-aiplatform>=1.106.0  # Google Vertex AI for embeddings
 
 # Image Processing
 Pillow==10.2.0

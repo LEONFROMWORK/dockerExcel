@@ -5,11 +5,11 @@ Analyze the data structure differences between Python service output and expecte
 import json
 
 # Load the API response
-with open('api_response.json', 'r') as f:
+with open("api_response.json", "r") as f:
     api_response = json.load(f)
 
 # Extract the workbook data
-workbook_data = api_response.get('data', {})
+workbook_data = api_response.get("data", {})
 
 print("=== PYTHON SERVICE OUTPUT STRUCTURE ANALYSIS ===\n")
 
@@ -20,24 +20,28 @@ for key in workbook_data.keys():
 
 # 2. Sheet structure
 print("\n2. Sheet structure:")
-sheets = workbook_data.get('sheets', {})
+sheets = workbook_data.get("sheets", {})
 for sheet_id, sheet in sheets.items():
     print(f"\n   Sheet ID: {sheet_id}")
     print(f"   Sheet keys: {list(sheet.keys())}")
-    
+
     # Check cellData structure
-    cell_data = sheet.get('cellData', {})
+    cell_data = sheet.get("cellData", {})
     if cell_data:
         first_row_key = list(cell_data.keys())[0]
         first_row = cell_data[first_row_key]
-        print(f"   cellData structure:")
-        print(f"     - First row key: {first_row_key} (type: {type(first_row_key).__name__})")
+        print("   cellData structure:")
+        print(
+            f"     - First row key: {first_row_key} (type: {type(first_row_key).__name__})"
+        )
         print(f"     - First row type: {type(first_row).__name__}")
-        
+
         if isinstance(first_row, dict) and first_row:
             first_col_key = list(first_row.keys())[0]
             first_cell = first_row[first_col_key]
-            print(f"     - First column key: {first_col_key} (type: {type(first_col_key).__name__})")
+            print(
+                f"     - First column key: {first_col_key} (type: {type(first_col_key).__name__})"
+            )
             print(f"     - First cell keys: {list(first_cell.keys())}")
             print(f"     - First cell value: {first_cell.get('v')}")
 
@@ -46,7 +50,7 @@ print("\n3. Univer requirements check:")
 
 # Check if sheet IDs match sheetOrder
 sheet_ids = set(sheets.keys())
-sheet_order = set(workbook_data.get('sheetOrder', []))
+sheet_order = set(workbook_data.get("sheetOrder", []))
 print(f"   ✓ Sheet IDs match sheetOrder: {sheet_ids == sheet_order}")
 
 # Check if all cells have required 'v' and 't' keys
@@ -57,17 +61,17 @@ missing_v = 0
 missing_t = 0
 
 for sheet_id, sheet in sheets.items():
-    cell_data = sheet.get('cellData', {})
+    cell_data = sheet.get("cellData", {})
     for row_key, row_data in cell_data.items():
         if isinstance(row_data, dict):
             for col_key, cell in row_data.items():
-                if 'v' in cell and 't' in cell:
+                if "v" in cell and "t" in cell:
                     valid_cells += 1
                 else:
                     invalid_cells += 1
-                    if 'v' not in cell:
+                    if "v" not in cell:
                         missing_v += 1
-                    if 't' not in cell:
+                    if "t" not in cell:
                         missing_t += 1
 
 print(f"   ✓ Valid cells: {valid_cells}")
@@ -78,7 +82,7 @@ if invalid_cells > 0:
 
 # 4. Check styles
 print("\n4. Styles structure:")
-styles = workbook_data.get('styles', {})
+styles = workbook_data.get("styles", {})
 print(f"   Total styles: {len(styles)}")
 if styles:
     first_style_id = list(styles.keys())[0]
@@ -88,7 +92,7 @@ if styles:
 
 # 5. Check for required Univer properties
 print("\n5. Required Univer properties:")
-required_props = ['id', 'name', 'locale', 'styles', 'sheets', 'sheetOrder']
+required_props = ["id", "name", "locale", "styles", "sheets", "sheetOrder"]
 for prop in required_props:
     exists = prop in workbook_data
     print(f"   {'✓' if exists else '✗'} {prop}: {exists}")
@@ -96,9 +100,9 @@ for prop in required_props:
 # 6. Data integrity check
 print("\n6. Data integrity:")
 total_cells = sum(
-    len(row_data) 
-    for sheet in sheets.values() 
-    for row_data in sheet.get('cellData', {}).values() 
+    len(row_data)
+    for sheet in sheets.values()
+    for row_data in sheet.get("cellData", {}).values()
     if isinstance(row_data, dict)
 )
 print(f"   Total cells across all sheets: {total_cells}")
@@ -106,11 +110,11 @@ print(f"   Total cells across all sheets: {total_cells}")
 # Count cells with actual values
 cells_with_values = 0
 for sheet in sheets.values():
-    cell_data = sheet.get('cellData', {})
+    cell_data = sheet.get("cellData", {})
     for row_data in cell_data.values():
         if isinstance(row_data, dict):
             for cell in row_data.values():
-                if cell.get('v') not in (None, ''):
+                if cell.get("v") not in (None, ""):
                     cells_with_values += 1
 
 print(f"   Cells with values: {cells_with_values}")
@@ -122,7 +126,7 @@ sample_count = 0
 for sheet_id, sheet in sheets.items():
     if sample_count >= 10:
         break
-    cell_data = sheet.get('cellData', {})
+    cell_data = sheet.get("cellData", {})
     for row_key in sorted(cell_data.keys(), key=int)[:5]:
         if sample_count >= 10:
             break
@@ -132,6 +136,8 @@ for sheet_id, sheet in sheets.items():
                 if sample_count >= 10:
                     break
                 cell = row_data[col_key]
-                if cell.get('v') not in (None, ''):
-                    print(f"   [{row_key},{col_key}]: '{cell.get('v')}' (type: {cell.get('t')})")
+                if cell.get("v") not in (None, ""):
+                    print(
+                        f"   [{row_key},{col_key}]: '{cell.get('v')}' (type: {cell.get('t')})"
+                    )
                     sample_count += 1

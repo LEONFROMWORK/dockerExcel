@@ -17,7 +17,7 @@ Excel Unified is an AI-powered Excel knowledge platform that combines:
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **Background Jobs**: Sidekiq with Redis
 - **Excel Processing**: HyperFormula (frontend formulas), openpyxl + pandas (backend)
-- **Spreadsheet UI**: Univer for Excel-like interface
+- **Spreadsheet UI**: Custom Excel grid viewer
 
 ## Key Commands
 
@@ -276,11 +276,11 @@ try {
 // Domain-specific composable
 import { useUnifiedExcelAI } from '@/domains/excel_ai/composables/useUnifiedExcelAI'
 
-const { 
-  currentFile, 
-  isProcessing, 
+const {
+  currentFile,
+  isProcessing,
   uploadFile,
-  analyzeFile 
+  analyzeFile
 } = useUnifiedExcelAI()
 ```
 
@@ -290,7 +290,7 @@ const {
 - Lazy loading for routes and heavy components
 - HyperFormula for client-side formula calculations only
 - LRU cache for Excel data (lru-cache package)
-- Virtual scrolling in Univer for large datasets
+- Virtual scrolling in Excel grid viewer for large datasets
 - Dynamic imports for code splitting
 
 ### Backend
@@ -338,11 +338,11 @@ test('uploads file successfully', async () => {
       plugins: [createTestingPinia()]
     }
   })
-  
+
   const file = new File(['test'], 'test.xlsx')
   const input = getByLabelText('Upload Excel file')
   await fireEvent.update(input, { target: { files: [file] } })
-  
+
   expect(screen.getByText('Analyzing...')).toBeInTheDocument()
 })
 ```
@@ -443,3 +443,194 @@ console.log('Component state:', this.$data)
 # Python debugging
 import pdb; pdb.set_trace()
 ```
+
+## 🚨 CRITICAL: Code Modification Safety Guidelines
+
+### ⚠️ NEVER Make Bulk Code Modifications Without Thorough Analysis
+
+These guidelines were created after a critical incident where bulk ESLint modifications caused widespread application failures. Follow these rules to prevent similar issues:
+
+### 1. Pre-Modification Analysis Requirements
+
+**BEFORE making any code quality changes (ESLint, RuboCop, linting, etc.):**
+
+```bash
+# 1. Check current error count and save baseline
+npm run lint > lint-baseline-$(date +%Y%m%d_%H%M%S).log
+
+# 2. Run application to verify it's working
+npm run dev  # Ensure app loads without errors
+
+# 3. Create a Git checkpoint
+git add -A && git commit -m "checkpoint: before code quality modifications"
+
+# 4. Document what you plan to change
+echo "Planned changes: [describe here]" > modification-plan.md
+```
+
+### 2. Safe Modification Process
+
+**When fixing linting errors:**
+
+1. **Fix ONE file at a time**
+   - Never use bulk auto-fix commands across multiple files
+   - Test the application after each file modification
+
+2. **Understand each change**
+   - Read the specific ESLint/linting rule documentation
+   - Understand why the error exists
+   - Verify the fix won't break functionality
+
+3. **Preserve functionality over style**
+   - If unsure whether a change will break functionality, don't make it
+   - Add ESLint disable comments with explanations instead
+
+### 3. Critical Areas - HANDLE WITH EXTREME CARE
+
+**These files/patterns require extra verification:**
+
+```javascript
+// 1. Module initialization order (Temporal Dead Zone issues)
+// WRONG - Can cause "Cannot access before initialization"
+import { someFunction } from './module'
+const config = someFunction()  // If module has circular deps
+
+// RIGHT - Ensure proper initialization
+import './criticalInit'  // Initialize first
+import { someFunction } from './module'
+
+// 2. Dynamic imports and code splitting
+// Verify lazy-loaded components still work after changes
+
+// 3. Build tool injections (Vite, Webpack)
+// Files like application.js may have build tool injections
+// Always check for import.meta.env or process.env usage
+
+// 4. Circular dependencies
+// Use madge to check: npx madge --circular app/javascript
+```
+
+### 4. Testing Requirements After Modifications
+
+**Run this checklist after EVERY modification session:**
+
+```bash
+# 1. Syntax check
+npm run lint
+
+# 2. Type checking (if TypeScript)
+npm run type-check
+
+# 3. Build test
+npm run build
+
+# 4. Full application test
+npm run dev
+# Then manually verify:
+# - Application loads
+# - Main routes work
+# - No console errors
+# - Key features function
+
+# 5. Run automated tests
+npm test
+bundle exec rspec
+```
+
+### 5. Recovery Procedures
+
+**If modifications break the application:**
+
+```bash
+# 1. Stop and assess - don't make more changes
+# 2. Check Git status
+git status
+git diff
+
+# 3. For selective recovery (recommended)
+# Identify specific broken files and revert only those
+git checkout HEAD -- path/to/broken/file.js
+
+# 4. For full recovery (last resort)
+git reset --hard HEAD
+
+# 5. Learn from the issue
+# Document what went wrong in the team knowledge base
+```
+
+### 6. Context Awareness Rules
+
+**Before modifying any file:**
+
+1. **Check related files**
+   ```bash
+   # Find imports/dependencies
+   grep -r "from ['\"]\./filename" app/javascript
+   grep -r "import.*filename" app/javascript
+   ```
+
+2. **Understand the module's role**
+   - Is it a critical initialization file?
+   - Does it have side effects on import?
+   - Is it used by the build system?
+
+3. **Check for build tool markers**
+   ```javascript
+   // Look for these patterns that indicate build tool integration:
+   import.meta.env
+   import.meta.hot
+   __dirname
+   process.env
+   require.context
+   ```
+
+### 7. ESLint Configuration Best Practices
+
+**Instead of fixing everything, configure ESLint appropriately:**
+
+```javascript
+// .eslintrc.js - Add gradual adoption rules
+module.exports = {
+  rules: {
+    // Start with warnings, not errors
+    'no-unused-vars': 'warn',
+    'no-undef': 'warn',
+
+    // Disable rules that break working code
+    'no-use-before-define': ['error', {
+      functions: false,
+      classes: false,
+      variables: false  // For hoisting patterns
+    }]
+  },
+
+  // Ignore generated or vendor files
+  ignorePatterns: [
+    'vendor/**',
+    '*.config.js',
+    'build/**'
+  ]
+}
+```
+
+### 8. Team Communication
+
+**When making code quality improvements:**
+
+1. **Announce intentions**
+   - Post in team chat before starting
+   - Share the modification plan
+
+2. **Create small PRs**
+   - One logical change per PR
+   - Include before/after testing evidence
+
+3. **Document rule exceptions**
+   ```javascript
+   // eslint-disable-next-line no-unused-vars -- Required by framework
+   const frameworkMagicVariable = true
+   ```
+
+### Remember: A Working Application > Perfect Linting Score
+
+The goal is maintainable, functioning code. Never sacrifice application stability for linting compliance. When in doubt, ask for review or postpone the modification.

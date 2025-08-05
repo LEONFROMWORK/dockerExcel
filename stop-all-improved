@@ -1,0 +1,321 @@
+#!/bin/bash
+
+# Excel Unified 개선된 시스템 종료 스크립트
+# 안전하고 완전한 종료를 보장
+
+set -e
+
+# 색상 정의
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+# 로그 함수들
+log_info() {
+    echo -e "${BLUE}ℹ️  $1${NC}"
+}
+
+log_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+log_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
+log_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+log_header() {
+    echo -e "${BOLD}${CYAN}🛑 $1${NC}"
+}
+
+# 파라미터 파싱
+FORCE=false
+KEEP_DOCKER=false
+CLEANUP_TEMP=true
+TIMEOUT=10
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --force)
+            FORCE=true
+            shift
+            ;;
+        --keep-docker)
+            KEEP_DOCKER=true
+            shift
+            ;;
+        --no-cleanup)
+            CLEANUP_TEMP=false
+            shift
+            ;;
+        --timeout)
+            TIMEOUT="$2"
+            shift 2
+            ;;
+        --help)
+            echo "사용법: ./stop-all-improved [옵션]"
+            echo "옵션:"
+            echo "  --force        강제 종료 (SIGKILL 사용)"
+            echo "  --keep-docker  Docker 컨테이너 유지"
+            echo "  --no-cleanup   임시 파일 정리 안함"
+            echo "  --timeout N    프로세스 종료 대기 시간 (기본: 10초)"
+            echo "  --help         도움말 표시"
+            exit 0
+            ;;
+        *)
+            log_error "알 수 없는 옵션: $1"
+            exit 1
+            ;;
+    esac
+done
+
+log_header "Excel Unified 시스템 종료"
+echo ""
+
+# 종료할 프로세스 목록 정의
+declare -A PROCESSES=(
+    ["Rails"]="rails server|puma"
+    ["Vite"]="vite|node.*vite"
+    ["Python"]="uvicorn|python.*main:app"
+    ["Sidekiq"]="sidekiq"
+    ["Tailwind"]="tailwindcss"
+)
+
+# 포트 목록 정의
+declare -A PORTS=(
+    ["Rails"]=3000
+    ["Python"]=8000
+    ["Vite"]=5173
+    ["Collabora"]=9980
+)
+
+# 안전한 프로세스 종료 함수
+safe_kill_process() {
+    local process_pattern=$1
+    local service_name=$2
+    local signal=${3:-TERM}
+
+    # 프로세스 찾기
+    local pids=$(pgrep -f "$process_pattern" 2>/dev/null || true)
+
+    if [[ -z "$pids" ]]; then
+        return 0
+    fi
+
+    # 신호 전송
+    for pid in $pids; do
+        if kill -0 "$pid" 2>/dev/null; then
+            kill -$signal "$pid" 2>/dev/null || true
+            if [[ "$VERBOSE" == true ]]; then
+                log_info "$service_name 프로세스 종료 신호 전송 (PID: $pid)"
+            fi
+        fi
+    done
+
+    # SIGTERM의 경우 프로세스 종료 대기
+    if [[ "$signal" == "TERM" ]]; then
+        local waited=0
+        while [[ $waited -lt $TIMEOUT ]]; do
+            local remaining_pids=$(pgrep -f "$process_pattern" 2>/dev/null || true)
+            if [[ -z "$remaining_pids" ]]; then
+                return 0
+            fi
+            sleep 1
+            ((waited++))
+        done
+
+        # 타임아웃 후에도 남아있으면 SIGKILL
+        log_warning "$service_name이 정상 종료되지 않아 강제 종료합니다."
+        safe_kill_process "$process_pattern" "$service_name" "KILL"
+    fi
+}
+
+# 포트 해제 함수
+release_port() {
+    local port=$1
+    local service=$2
+
+    if lsof -ti:$port > /dev/null 2>&1; then
+        local pid=$(lsof -ti:$port)
+        log_warning "$service (포트 $port) 사용 중인 프로세스 종료 (PID: $pid)"
+
+        if [[ "$FORCE" == true ]]; then
+            kill -9 $pid 2>/dev/null || true
+        else
+            kill -TERM $pid 2>/dev/null || true
+            sleep 2
+            if lsof -ti:$port > /dev/null 2>&1; then
+                kill -9 $pid 2>/dev/null || true
+            fi
+        fi
+    fi
+}
+
+# 1. tmux 세션 종료
+log_info "tmux 세션 종료 중..."
+if tmux has-session -t excel-unified 2>/dev/null; then
+    # 각 윈도우에 종료 신호 전송
+    for window in $(tmux list-windows -t excel-unified -F '#{window_name}' 2>/dev/null || true); do
+        tmux send-keys -t excel-unified:$window C-c 2>/dev/null || true
+    done
+    sleep 2
+
+    # 세션 종료
+    tmux kill-session -t excel-unified 2>/dev/null || true
+    log_success "tmux 세션 종료됨"
+else
+    log_info "tmux 세션이 실행 중이지 않음"
+fi
+
+# 2. 애플리케이션 프로세스 종료
+log_header "애플리케이션 프로세스 종료"
+
+for service in "${!PROCESSES[@]}"; do
+    log_info "$service 종료 중..."
+
+    # 프로세스 패턴을 |로 분리하여 각각 처리
+    IFS='|' read -ra patterns <<< "${PROCESSES[$service]}"
+    for pattern in "${patterns[@]}"; do
+        if [[ "$FORCE" == true ]]; then
+            safe_kill_process "$pattern" "$service" "KILL"
+        else
+            safe_kill_process "$pattern" "$service" "TERM"
+        fi
+    done
+
+    log_success "$service 종료됨"
+done
+
+# 3. 포트 정리
+log_header "포트 정리"
+
+for service in "${!PORTS[@]}"; do
+    release_port "${PORTS[$service]}" "$service"
+done
+
+# 4. Docker 컨테이너 처리
+if [[ "$KEEP_DOCKER" == false ]]; then
+    log_header "Docker 컨테이너 종료"
+
+    # Collabora 컨테이너 찾기
+    local containers=$(docker ps -a --filter "name=collabora" --format "{{.Names}}" 2>/dev/null || true)
+
+    if [[ -n "$containers" ]]; then
+        echo "$containers" | while read -r container; do
+            log_info "컨테이너 종료: $container"
+
+            # 정상 종료 시도
+            docker stop -t 10 "$container" 2>/dev/null || true
+
+            if [[ "$FORCE" == true ]]; then
+                # 강제 모드에서는 컨테이너 삭제
+                docker rm -f "$container" 2>/dev/null || true
+                log_success "컨테이너 삭제됨: $container"
+            else
+                log_success "컨테이너 중지됨: $container"
+            fi
+        done
+    else
+        log_info "실행 중인 Collabora 컨테이너 없음"
+    fi
+else
+    log_info "Docker 컨테이너 유지 (--keep-docker)"
+fi
+
+# 5. 임시 파일 정리
+if [[ "$CLEANUP_TEMP" == true ]]; then
+    log_header "임시 파일 정리"
+
+    # Rails 관련 정리
+    if [[ -d "/Users/kevin/excel-unified/rails-app" ]]; then
+        rm -f /Users/kevin/excel-unified/rails-app/tmp/pids/*.pid 2>/dev/null || true
+        rm -rf /Users/kevin/excel-unified/rails-app/tmp/cache/* 2>/dev/null || true
+        log_success "Rails 임시 파일 정리됨"
+    fi
+
+    # Python 관련 정리
+    if [[ -d "/Users/kevin/excel-unified/python-service" ]]; then
+        find /Users/kevin/excel-unified/python-service -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+        find /Users/kevin/excel-unified/python-service -name "*.pyc" -delete 2>/dev/null || true
+        rm -rf /Users/kevin/excel-unified/python-service/.pytest_cache 2>/dev/null || true
+        log_success "Python 캐시 정리됨"
+    fi
+
+    # 업로드된 임시 파일 정리 (7일 이상 된 파일)
+    if [[ -d "/Users/kevin/excel-unified/rails-app/tmp/uploads" ]]; then
+        find /Users/kevin/excel-unified/rails-app/tmp/uploads -type f -mtime +7 -delete 2>/dev/null || true
+        log_success "오래된 업로드 파일 정리됨"
+    fi
+fi
+
+# 6. 최종 상태 확인
+echo ""
+log_header "종료 상태 확인"
+
+# 프로세스 확인
+local all_stopped=true
+for service in "${!PROCESSES[@]}"; do
+    IFS='|' read -ra patterns <<< "${PROCESSES[$service]}"
+    for pattern in "${patterns[@]}"; do
+        if pgrep -f "$pattern" > /dev/null 2>&1; then
+            echo -e "${RED}❌ $service 프로세스가 여전히 실행 중${NC}"
+            all_stopped=false
+            break
+        fi
+    done
+
+    if [[ "$all_stopped" == true ]]; then
+        echo -e "${GREEN}✅ $service 프로세스 종료됨${NC}"
+    fi
+done
+
+# 포트 확인
+echo ""
+log_info "포트 상태:"
+for service in "${!PORTS[@]}"; do
+    local port="${PORTS[$service]}"
+    if lsof -ti:$port > /dev/null 2>&1; then
+        echo -e "${RED}❌ $service (포트 $port 사용 중)${NC}"
+    else
+        echo -e "${GREEN}✅ $service (포트 $port 해제됨)${NC}"
+    fi
+done
+
+# Docker 상태
+if [[ "$KEEP_DOCKER" == false ]]; then
+    echo ""
+    local running_containers=$(docker ps --filter "name=collabora" --format "{{.Names}}" 2>/dev/null || true)
+    if [[ -z "$running_containers" ]]; then
+        echo -e "${GREEN}✅ Collabora Docker 컨테이너 종료됨${NC}"
+    else
+        echo -e "${RED}❌ Collabora Docker 컨테이너 실행 중: $running_containers${NC}"
+    fi
+fi
+
+# 7. 완료 메시지
+echo ""
+log_header "🎉 Excel Unified 시스템 종료 완료!"
+echo ""
+
+log_info "시스템을 다시 시작하려면:"
+echo -e "  ${CYAN}./start-all-improved${NC}  # 개선된 스크립트"
+echo -e "  ${CYAN}./start-all${NC}          # 기존 스크립트"
+echo ""
+
+if [[ "$FORCE" == true ]]; then
+    log_warning "강제 종료가 사용되었습니다."
+fi
+
+# 종료 코드 반환
+if [[ "$all_stopped" == true ]]; then
+    exit 0
+else
+    exit 1
+fi

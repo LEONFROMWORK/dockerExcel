@@ -1,0 +1,138 @@
+# Collabora 필수 설정 잠금 파일
+# 이 파일의 설정들은 절대 변경되어서는 안 됩니다
+# 변경이 필요한 경우 팀 전체의 검토가 필요합니다
+
+version: "1.0"
+last_updated: "2025-08-03"
+
+# Docker 환경 필수 설정
+docker:
+  # Docker 컨테이너가 호스트 머신의 서비스에 접근하기 위한 필수 설정
+  collabora_host: "host.docker.internal"  # ⚠️ 절대 localhost로 변경 금지
+  collabora_port: 9980
+  proxy_port: 9981
+
+  # Docker Compose 필수 설정
+  compose_requirements:
+    - service: "collabora"
+      required_settings:
+        - "aliasgroup1=http://host.docker.internal:3000"
+        - "extra_hosts: - \"host.docker.internal:host-gateway\""
+
+    - service: "collabora-proxy"
+      required_settings:
+        - "ports: - \"9981:9981\""
+        - "depends_on: - collabora"
+
+# WOPI 프로토콜 필수 설정
+wopi:
+  # 허용된 호스트 (순서 중요)
+  allowed_hosts:
+    - "host.docker.internal"
+    - "host.docker.internal:3000"
+    - "localhost"  # fallback only
+    - "localhost:3000"  # fallback only
+    - ".*"  # regex for flexibility
+
+  # CORS 설정
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://host.docker.internal:3000"
+
+  # PostMessage 허용 origin
+  post_message_origins:
+    - "http://localhost:3000"
+    - "http://host.docker.internal:3000"
+
+# 보호되는 파일 및 설정
+critical_files:
+  - path: "docker-compose.yml"
+    protected_sections:
+      - section: "collabora.environment"
+        required_content:
+          - "aliasgroup1=http://host.docker.internal:3000"
+          - "extra_params=--o:ssl.enable=false"
+      - section: "collabora.extra_hosts"
+        required_content:
+          - "host.docker.internal:host-gateway"
+
+  - path: "collabora-config/coolwsd.xml"
+    protected_sections:
+      - section: "storage.wopi.alias_groups"
+        required_content:
+          - "<host desc=\"hostname pattern to allow or deny\" allow=\"true\">host.docker.internal</host>"
+          - "<host desc=\"hostname pattern to allow or deny\" allow=\"true\">.*</host>"
+      - section: "post_message_origin"
+        required_content:
+          - "http://localhost:3000 http://host.docker.internal:3000"
+
+  - path: "app/controllers/api/v1/wopi_controller.rb"
+    protected_sections:
+      - section: "allow_iframe_embedding"
+        required_patterns:
+          - "ENV.fetch\\(\"COLLABORA_HOST\", \"localhost:9980\"\\)"
+          - "ENV.fetch\\(\"COLLABORA_PROXY_HOST\", \"localhost:9981\"\\)"
+
+  - path: "collabora-nginx.conf"
+    protected_sections:
+      - section: "upstream"
+        required_content:
+          - "proxy_pass http://collabora:9980"
+
+# 환경별 설정
+environments:
+  development:
+    wopi_host: "host.docker.internal:3000"
+    collabora_url: "http://localhost:9980"
+    ssl_enabled: false
+
+  docker:
+    wopi_host: "host.docker.internal:3000"
+    collabora_url: "http://collabora:9980"
+    ssl_enabled: false
+
+  production:
+    wopi_host: "${PRODUCTION_DOMAIN}"
+    collabora_url: "${COLLABORA_URL}"
+    ssl_enabled: true
+
+# 알려진 문제 및 해결책
+known_issues:
+  - issue: "Unauthorized WOPI host error"
+    cause: "Docker 컨테이너가 localhost를 사용하여 호스트 접근 실패"
+    solution: "host.docker.internal 사용 확인"
+
+  - issue: "404 Error for Collabora resources"
+    cause: "Hash-based URL 문제"
+    solution: "Nginx proxy 설정 확인"
+
+  - issue: "Failed to read document from storage"
+    cause: "WOPI 엔드포인트 접근 실패"
+    solution: "네트워크 설정 및 CORS 확인"
+
+# 검증 명령어
+validation_commands:
+  - description: "Docker 네트워크 확인"
+    command: "docker exec collabora curl -s http://host.docker.internal:3000/api/v1/health"
+    expected: "200 OK"
+
+  - description: "Collabora 서비스 확인"
+    command: "curl -s http://localhost:9980"
+    expected: "OK"
+
+  - description: "Discovery 확인"
+    command: "curl -s http://localhost:9980/hosting/discovery | grep -c 'application/vnd'"
+    expected: "> 0"
+
+# 변경 금지 사항
+do_not_change:
+  - "Docker 환경에서 host.docker.internal을 localhost로 변경"
+  - "coolwsd.xml의 WOPI 허용 호스트 목록"
+  - "nginx proxy 설정의 upstream 주소"
+  - "환경변수 없이 하드코딩된 URL 사용"
+
+# 문서 참조
+references:
+  - "COLLABORA_DOCKER_FIX.md - Docker 네트워킹 문제 해결"
+  - "COLLABORA_INTEGRATION_COMPLETE.md - 전체 통합 가이드"
+  - "https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html"

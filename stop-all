@@ -1,0 +1,237 @@
+#!/bin/bash
+
+# Excel Unified 전체 시스템 종료 스크립트
+# 모든 서버와 Docker 서비스를 정리
+
+set -e
+
+# 색상 정의
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+# 로그 함수들
+log_info() {
+    echo -e "${BLUE}ℹ️  $1${NC}"
+}
+
+log_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+log_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
+log_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+log_header() {
+    echo -e "${BOLD}${CYAN}🛑 $1${NC}"
+}
+
+# 파라미터 파싱
+FORCE=false
+KEEP_DOCKER=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --force)
+            FORCE=true
+            shift
+            ;;
+        --keep-docker)
+            KEEP_DOCKER=true
+            shift
+            ;;
+        --help)
+            echo "사용법: ./stop-all [옵션]"
+            echo "옵션:"
+            echo "  --force        강제 종료 (SIGKILL 사용)"
+            echo "  --keep-docker  Docker 컨테이너 유지"
+            echo "  --help         도움말 표시"
+            exit 0
+            ;;
+        *)
+            log_error "알 수 없는 옵션: $1"
+            exit 1
+            ;;
+    esac
+done
+
+log_header "Excel Unified 시스템 종료"
+echo ""
+
+# 1. tmux 세션 종료
+log_info "tmux 세션 종료 중..."
+if tmux has-session -t excel-unified 2>/dev/null; then
+    tmux kill-session -t excel-unified
+    log_success "tmux 세션 'excel-unified' 종료됨"
+else
+    log_info "tmux 세션 'excel-unified'가 실행 중이지 않음"
+fi
+
+# 2. Rails 서버 종료
+log_info "Rails 서버 종료 중..."
+if [[ "$FORCE" == true ]]; then
+    pkill -9 -f "rails server" 2>/dev/null || true
+    pkill -9 -f "puma" 2>/dev/null || true
+else
+    pkill -TERM -f "rails server" 2>/dev/null || true
+    pkill -TERM -f "puma" 2>/dev/null || true
+fi
+log_success "Rails 서버 종료됨"
+
+# 3. Vite 개발 서버 종료
+log_info "Vite 개발 서버 종료 중..."
+if [[ "$FORCE" == true ]]; then
+    pkill -9 -f "vite" 2>/dev/null || true
+    pkill -9 -f "node.*vite" 2>/dev/null || true
+else
+    pkill -TERM -f "vite" 2>/dev/null || true
+    pkill -TERM -f "node.*vite" 2>/dev/null || true
+fi
+log_success "Vite 개발 서버 종료됨"
+
+# 4. Python 서비스 종료
+log_info "Python 서비스 종료 중..."
+if [[ "$FORCE" == true ]]; then
+    pkill -9 -f "uvicorn" 2>/dev/null || true
+    pkill -9 -f "python.*main:app" 2>/dev/null || true
+else
+    pkill -TERM -f "uvicorn" 2>/dev/null || true
+    pkill -TERM -f "python.*main:app" 2>/dev/null || true
+fi
+log_success "Python 서비스 종료됨"
+
+# 5. Sidekiq 종료
+log_info "Sidekiq 백그라운드 작업 종료 중..."
+if [[ "$FORCE" == true ]]; then
+    pkill -9 -f "sidekiq" 2>/dev/null || true
+else
+    pkill -TERM -f "sidekiq" 2>/dev/null || true
+fi
+log_success "Sidekiq 종료됨"
+
+# 6. Tailwind CSS 프로세스 종료
+log_info "Tailwind CSS 프로세스 종료 중..."
+if [[ "$FORCE" == true ]]; then
+    pkill -9 -f "tailwindcss" 2>/dev/null || true
+else
+    pkill -TERM -f "tailwindcss" 2>/dev/null || true
+fi
+log_success "Tailwind CSS 프로세스 종료됨"
+
+# 7. Docker 컨테이너 종료 (옵션)
+if [[ "$KEEP_DOCKER" == false ]]; then
+    log_info "Collabora Docker 컨테이너 종료 중..."
+
+    # Collabora 관련 컨테이너 찾기
+    COLLABORA_CONTAINERS=$(docker ps -a --filter "name=collabora" --format "{{.Names}}")
+
+    if [[ -n "$COLLABORA_CONTAINERS" ]]; then
+        echo "$COLLABORA_CONTAINERS" | while read -r container; do
+            log_info "컨테이너 종료: $container"
+            docker stop "$container" 2>/dev/null || true
+            if [[ "$FORCE" == true ]]; then
+                docker rm "$container" 2>/dev/null || true
+                log_success "컨테이너 삭제: $container"
+            else
+                log_success "컨테이너 중지: $container"
+            fi
+        done
+    else
+        log_info "실행 중인 Collabora 컨테이너가 없음"
+    fi
+else
+    log_info "Docker 컨테이너 유지 (--keep-docker 옵션)"
+fi
+
+# 8. 포트 사용 확인 및 정리
+log_info "포트 사용 상태 확인 중..."
+
+check_port() {
+    local port=$1
+    local service=$2
+    if lsof -ti:$port > /dev/null 2>&1; then
+        local pid=$(lsof -ti:$port)
+        log_warning "$service (포트 $port)가 여전히 실행 중 (PID: $pid)"
+        if [[ "$FORCE" == true ]]; then
+            kill -9 $pid 2>/dev/null || true
+            log_success "$service 강제 종료됨"
+        fi
+    fi
+}
+
+check_port 3000 "Rails"
+check_port 8000 "Python"
+check_port 5173 "Vite"
+check_port 9980 "Collabora"
+
+# 9. 임시 파일 정리
+log_info "임시 파일 정리 중..."
+
+# Rails PID 파일 정리
+rm -f /Users/kevin/excel-unified/rails-app/tmp/pids/server.pid 2>/dev/null || true
+
+# Python 캐시 정리
+find /Users/kevin/excel-unified/python-service -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+find /Users/kevin/excel-unified/python-service -name "*.pyc" -delete 2>/dev/null || true
+
+log_success "임시 파일 정리 완료"
+
+# 10. 프로세스 대기
+if [[ "$FORCE" == false ]]; then
+    log_info "프로세스 정리 대기 중..."
+    sleep 3
+fi
+
+echo ""
+log_header "🎉 Excel Unified 시스템 종료 완료!"
+echo ""
+
+# 종료 상태 확인
+log_info "종료 상태 확인:"
+
+PORTS_STATUS=""
+
+check_port_status() {
+    local port=$1
+    local service=$2
+    if lsof -ti:$port > /dev/null 2>&1; then
+        PORTS_STATUS+="${RED}❌ $service (포트 $port 사용 중)${NC}\n"
+    else
+        PORTS_STATUS+="${GREEN}✅ $service (포트 $port 해제됨)${NC}\n"
+    fi
+}
+
+check_port_status 3000 "Rails"
+check_port_status 8000 "Python"
+check_port_status 5173 "Vite"
+check_port_status 9980 "Collabora"
+
+echo -e "$PORTS_STATUS"
+
+# Docker 상태 확인
+if [[ "$KEEP_DOCKER" == false ]]; then
+    RUNNING_COLLABORA=$(docker ps --filter "name=collabora" --format "{{.Names}}")
+    if [[ -z "$RUNNING_COLLABORA" ]]; then
+        echo -e "${GREEN}✅ Collabora Docker 컨테이너 종료됨${NC}"
+    else
+        echo -e "${RED}❌ Collabora Docker 컨테이너 여전히 실행 중: $RUNNING_COLLABORA${NC}"
+    fi
+fi
+
+echo ""
+log_info "시스템을 다시 시작하려면:"
+echo -e "  ${CYAN}./start-all${NC}"
+echo ""
+
+if [[ "$FORCE" == true ]]; then
+    log_warning "강제 종료가 사용되었습니다. 데이터 손실이 있을 수 있습니다."
+fi

@@ -4,7 +4,7 @@ AI Client Management
 """
 
 import logging
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 
 import openai
 import anthropic
@@ -18,29 +18,30 @@ logger = logging.getLogger(__name__)
 
 class ClientManager:
     """AI 클라이언트 관리자"""
-    
+
     def __init__(self):
         self.clients: Dict[ModelProvider, Any] = {}
         self._initialize_clients()
-    
+
     def _initialize_clients(self):
         """API 클라이언트 초기화"""
         self._init_openai()
         self._init_openrouter()
         self._init_anthropic()
         self._init_groq()
-    
+
     def _init_openai(self):
         """OpenAI 클라이언트 초기화"""
         try:
-            if settings.OPENAI_API_KEY:
-                self.clients[ModelProvider.OPENAI] = openai.AsyncOpenAI(
-                    api_key=settings.OPENAI_API_KEY
-                )
+            api_key = getattr(settings, "OPENAI_API_KEY", None)
+            if api_key and api_key.strip():
+                self.clients[ModelProvider.OPENAI] = openai.AsyncOpenAI(api_key=api_key)
                 logger.info("OpenAI client initialized")
+            else:
+                logger.debug("OpenAI API key not configured")
         except Exception as e:
             logger.error(f"Failed to initialize OpenAI client: {e}")
-    
+
     def _init_openrouter(self):
         """OpenRouter 클라이언트 초기화"""
         try:
@@ -50,13 +51,13 @@ class ClientManager:
                     base_url="https://openrouter.ai/api/v1",
                     default_headers={
                         "HTTP-Referer": "https://excel-unified.app",
-                        "X-Title": "Excel Unified"
-                    }
+                        "X-Title": "Excel Unified",
+                    },
                 )
                 logger.info("OpenRouter client initialized")
         except Exception as e:
             logger.error(f"Failed to initialize OpenRouter client: {e}")
-    
+
     def _init_anthropic(self):
         """Anthropic 클라이언트 초기화"""
         try:
@@ -67,7 +68,7 @@ class ClientManager:
                 logger.info("Anthropic client initialized")
         except Exception as e:
             logger.error(f"Failed to initialize Anthropic client: {e}")
-    
+
     def _init_groq(self):
         """Groq 클라이언트 초기화"""
         try:
@@ -78,24 +79,24 @@ class ClientManager:
                 logger.info("Groq client initialized")
         except Exception as e:
             logger.error(f"Failed to initialize Groq client: {e}")
-    
+
     def get_client(self, provider: ModelProvider) -> Optional[Any]:
         """제공업체별 클라이언트 반환"""
         return self.clients.get(provider)
-    
+
     def has_client(self, provider: ModelProvider) -> bool:
         """클라이언트 사용 가능 여부 확인"""
         return provider in self.clients
-    
-    def get_available_providers(self) -> list[ModelProvider]:
+
+    def get_available_providers(self) -> List[ModelProvider]:
         """사용 가능한 제공업체 목록"""
         return list(self.clients.keys())
-    
+
     def reinitialize_client(self, provider: ModelProvider):
         """특정 클라이언트 재초기화"""
         if provider in self.clients:
             del self.clients[provider]
-        
+
         if provider == ModelProvider.OPENAI:
             self._init_openai()
         elif provider == ModelProvider.OPENROUTER:
@@ -104,13 +105,13 @@ class ClientManager:
             self._init_anthropic()
         elif provider == ModelProvider.GROQ:
             self._init_groq()
-    
+
     def test_connection(self, provider: ModelProvider) -> bool:
         """클라이언트 연결 테스트"""
         client = self.get_client(provider)
         if not client:
             return False
-        
+
         try:
             # 각 제공업체별 간단한 연결 테스트
             # 실제 구현에서는 각 API의 health check 엔드포인트 사용

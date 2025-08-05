@@ -2,18 +2,19 @@
 Advanced VBA Analyzer with oletools integration
 Based on academic research and industry best practices
 """
+
 import os
 import re
 import json
 import zipfile
-import tempfile
-from typing import Dict, List, Tuple, Optional, Any
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
 import logging
 
 try:
-    from oletools.olevba import VBA_Parser, TYPE_OLE, TYPE_OpenXML, TYPE_Word2003_XML, TYPE_MHTML
+    from oletools.olevba import VBA_Parser
+
     OLETOOLS_AVAILABLE = True
 except ImportError:
     OLETOOLS_AVAILABLE = False
@@ -24,7 +25,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # 환경변수로 디버그 모드 제어
-VBA_DEBUG_MODE = os.getenv('VBA_ANALYZER_DEBUG', 'False').lower() == 'true'
+VBA_DEBUG_MODE = os.getenv("VBA_ANALYZER_DEBUG", "False").lower() == "true"
 if VBA_DEBUG_MODE:
     logger.setLevel(logging.DEBUG)
     logger.debug("VBA 분석기 디버그 모드 활성화")
@@ -32,6 +33,7 @@ if VBA_DEBUG_MODE:
 
 class ErrorSeverity(Enum):
     """Error severity levels"""
+
     CRITICAL = "critical"
     HIGH = "high"
     MEDIUM = "medium"
@@ -41,6 +43,7 @@ class ErrorSeverity(Enum):
 
 class ErrorCategory(Enum):
     """Error categories based on research"""
+
     SYNTAX = "syntax"
     RUNTIME = "runtime"
     LOGIC = "logic"
@@ -52,6 +55,7 @@ class ErrorCategory(Enum):
 @dataclass
 class VBAError:
     """Represents a detected VBA error"""
+
     id: str
     category: ErrorCategory
     severity: ErrorSeverity
@@ -68,6 +72,7 @@ class VBAError:
 @dataclass
 class VBAModule:
     """Represents a VBA module"""
+
     name: str
     code: str
     type: str  # Module, Class, Form, etc.
@@ -80,13 +85,13 @@ class AdvancedVBAAnalyzer:
     Advanced VBA analyzer using oletools and ML-based error detection
     Based on academic research with 95.3% accuracy
     """
-    
+
     def __init__(self):
         self.oletools_available = OLETOOLS_AVAILABLE
         self._init_error_patterns()
         self._init_suspicious_keywords()
         self._init_obfuscation_patterns()
-    
+
     def _init_error_patterns(self):
         """Initialize common VBA error patterns from research"""
         self.error_patterns = {
@@ -96,62 +101,59 @@ class AdvancedVBAAnalyzer:
                 "category": ErrorCategory.RUNTIME,
                 "severity": ErrorSeverity.HIGH,
                 "description": "Potential Runtime Error 1004: Object not found",
-                "fix": "Add error handling: On Error Resume Next or check object existence"
+                "fix": "Add error handling: On Error Resume Next or check object existence",
             },
             "runtime_9": {
                 "pattern": r"(\w+)\s*\(\s*(\d+|[\"'][^\"']+[\"'])\s*\)\s*(?!\.)",
                 "category": ErrorCategory.RUNTIME,
                 "severity": ErrorSeverity.HIGH,
                 "description": "Potential Runtime Error 9: Subscript out of range",
-                "fix": "Validate array bounds or collection existence before access"
+                "fix": "Validate array bounds or collection existence before access",
             },
             "runtime_91": {
                 "pattern": r"Set\s+(\w+)\s*=\s*Nothing.*?\1\.",
                 "category": ErrorCategory.RUNTIME,
                 "severity": ErrorSeverity.CRITICAL,
                 "description": "Runtime Error 91: Object variable not set",
-                "fix": "Check if object is Nothing before use"
+                "fix": "Check if object is Nothing before use",
             },
             "runtime_13": {
                 "pattern": r"(\w+)\s*=\s*[\"'][^\"']+[\"']\s*[\+\-\*/]",
                 "category": ErrorCategory.RUNTIME,
                 "severity": ErrorSeverity.MEDIUM,
                 "description": "Potential Runtime Error 13: Type mismatch",
-                "fix": "Use proper type conversion functions (CInt, CDbl, etc.)"
+                "fix": "Use proper type conversion functions (CInt, CDbl, etc.)",
             },
-            
             # Security issues
             "shell_execution": {
                 "pattern": r"(Shell|CreateObject\s*\(\s*[\"']WScript\.Shell[\"']\s*\))",
                 "category": ErrorCategory.SECURITY,
                 "severity": ErrorSeverity.CRITICAL,
                 "description": "Security risk: Shell command execution detected",
-                "fix": "Review shell commands for security implications"
+                "fix": "Review shell commands for security implications",
             },
             "file_system_access": {
                 "pattern": r"(CreateObject\s*\(\s*[\"']Scripting\.FileSystemObject[\"']\s*\)|Open\s+[\"'][^\"']+[\"']\s+For)",
                 "category": ErrorCategory.SECURITY,
                 "severity": ErrorSeverity.HIGH,
                 "description": "File system access detected",
-                "fix": "Ensure file paths are validated and permissions are checked"
+                "fix": "Ensure file paths are validated and permissions are checked",
             },
-            
             # Performance issues
             "select_activate": {
                 "pattern": r"\.(Select|Activate)\s*$",
                 "category": ErrorCategory.PERFORMANCE,
                 "severity": ErrorSeverity.LOW,
                 "description": "Performance issue: Avoid Select/Activate",
-                "fix": "Work with objects directly without selecting"
+                "fix": "Work with objects directly without selecting",
             },
             "nested_loops": {
                 "pattern": r"For\s+.*?For\s+.*?For",
                 "category": ErrorCategory.PERFORMANCE,
                 "severity": ErrorSeverity.MEDIUM,
                 "description": "Triple nested loops detected - potential performance issue",
-                "fix": "Consider optimizing loop structure or using array operations"
+                "fix": "Consider optimizing loop structure or using array operations",
             },
-            
             # Style issues
             "missing_option_explicit": {
                 "pattern": r"^(?!.*Option\s+Explicit).*$",
@@ -159,29 +161,33 @@ class AdvancedVBAAnalyzer:
                 "severity": ErrorSeverity.MEDIUM,
                 "description": "Missing Option Explicit declaration",
                 "fix": "Add 'Option Explicit' at the top of the module",
-                "check_whole_module": True
+                "check_whole_module": True,
             },
             "hungarian_notation": {
                 "pattern": r"Dim\s+(str|int|lng|dbl|bln|obj)\w+",
                 "category": ErrorCategory.STYLE,
                 "severity": ErrorSeverity.INFO,
                 "description": "Consider using meaningful variable names",
-                "fix": "Use descriptive names instead of Hungarian notation"
-            }
+                "fix": "Use descriptive names instead of Hungarian notation",
+            },
         }
-    
+
     def _init_suspicious_keywords(self):
         """Initialize suspicious keywords based on academic research"""
         self.suspicious_keywords = {
             # Malware indicators
-            "download": ["URLDownloadToFile", "MSXML2.XMLHTTP", "WinHttp.WinHttpRequest"],
+            "download": [
+                "URLDownloadToFile",
+                "MSXML2.XMLHTTP",
+                "WinHttp.WinHttpRequest",
+            ],
             "execution": ["Shell", "CreateObject", "CallByName", "ExecuteExcel4Macro"],
             "registry": ["RegRead", "RegWrite", "RegDelete"],
             "encoding": ["Chr", "Asc", "StrReverse", "Base64"],
             "network": ["InternetOpen", "InternetConnect", "FTPPutFile"],
             "persistence": ["Auto_Open", "Workbook_Open", "Document_Open"],
         }
-    
+
     def _init_obfuscation_patterns(self):
         """Initialize obfuscation detection patterns"""
         self.obfuscation_patterns = {
@@ -191,143 +197,272 @@ class AdvancedVBAAnalyzer:
             "base64": r"[A-Za-z0-9+/]{20,}={0,2}",
             "reversed_strings": r"StrReverse\s*\(",
         }
-    
+
     async def analyze_file(self, file_path: str) -> Dict[str, Any]:
         """
-        Comprehensive VBA analysis using oletools (모니터링 강화)
+        Comprehensive VBA analysis using oletools
         Returns detailed analysis results with errors and fixes
         """
         import time
+
         start_time = time.time()
-        
+
         try:
-            logger.info(f"=== VBA 분석 시작 ===")
-            logger.info(f"파일: {os.path.basename(file_path)}")
-            file_size = os.path.getsize(file_path) / 1024 / 1024  # MB
-            logger.info(f"파일 크기: {file_size:.2f} MB")
-            
-            # Extract VBA modules
-            logger.info("VBA 모듈 추출 시작...")
-            extraction_start = time.time()
-            modules = await self._extract_vba_modules(file_path)
-            extraction_time = time.time() - extraction_start
-            logger.info(f"VBA 모듈 추출 완료: {extraction_time:.2f}초")
-            
-            if not modules:
-                logger.info("VBA 코드가 발견되지 않음")
-                return {
+            # 분석 준비
+            self._log_analysis_start(file_path)
+
+            # VBA 모듈 추출
+            extraction_result = await self._extract_and_validate_modules(
+                file_path, start_time
+            )
+            if extraction_result.get("early_return"):
+                return extraction_result["result"]
+
+            modules = extraction_result["modules"]
+            extraction_time = extraction_result["extraction_time"]
+
+            # 모듈 분석
+            analysis_result = await self._analyze_all_modules(modules)
+            all_errors = analysis_result["errors"]
+            security_score = analysis_result["security_score"]
+            analysis_time = analysis_result["analysis_time"]
+
+            # 수정 제안 생성
+            fix_result = await self._generate_fix_suggestions(all_errors)
+            fixes = fix_result["fixes"]
+            fix_time = fix_result["fix_time"]
+
+            # 결과 생성
+            return self._create_analysis_result(
+                modules,
+                all_errors,
+                fixes,
+                security_score,
+                extraction_time,
+                analysis_time,
+                fix_time,
+                start_time,
+            )
+
+        except Exception as e:
+            return self._create_error_result(e, file_path, start_time)
+
+    async def _extract_and_validate_modules(
+        self, file_path: str, start_time: float
+    ) -> Dict[str, Any]:
+        """VBA 모듈 추출 및 검증"""
+        import time
+
+        logger.info("VBA 모듈 추출 시작...")
+        extraction_start = time.time()
+        modules = await self._extract_vba_modules(file_path)
+        extraction_time = time.time() - extraction_start
+        logger.info(f"VBA 모듈 추출 완료: {extraction_time:.2f}초")
+
+        if not modules:
+            logger.info("VBA 코드가 발견되지 않음")
+            return {
+                "early_return": True,
+                "result": {
                     "has_vba": False,
                     "message": "No VBA code found in the file",
-                    "analysis_time": time.time() - start_time
-                }
-            
-            logger.info(f"VBA 모듈 {len(modules)}개 발견")
-            if VBA_DEBUG_MODE:
-                for i, module in enumerate(modules):
-                    logger.debug(f"  모듈 {i+1}: {module.name} ({module.size} bytes, {module.type})")
-            
-            # Analyze each module
-            logger.info("VBA 오류 분석 시작...")
-            analysis_start = time.time()
-            all_errors = []
-            security_score = 100
-            
-            for module_idx, module in enumerate(modules):
-                logger.debug(f"모듈 '{module.name}' 분석 중... ({module_idx+1}/{len(modules)})")
-                
-                # Detect errors
-                module_start = time.time()
-                errors = self._detect_errors_in_module(module)
-                module_time = time.time() - module_start
-                
-                all_errors.extend(errors)
-                
-                logger.debug(f"모듈 '{module.name}' 분석 완료: {len(errors)}개 오류, {module_time:.2f}초")
-                
-                # Calculate security impact
-                security_impact = self._calculate_security_impact(errors)
-                security_score -= security_impact
-            
-            analysis_time = time.time() - analysis_start
-            logger.info(f"VBA 오류 분석 완료: {len(all_errors)}개 오류 발견, {analysis_time:.2f}초")
-            
-            # Generate fix suggestions
-            logger.info("수정 제안 생성 중...")
-            fix_start = time.time()
-            fixes = self._generate_fixes(all_errors)
-            fix_time = time.time() - fix_start
-            logger.info(f"수정 제안 생성 완료: {len(fixes)}개 제안, {fix_time:.2f}초")
-            
-            # Calculate overall confidence
-            confidence = self._calculate_confidence(all_errors)
-            
-            total_time = time.time() - start_time
-            
-            # 결과 요약 로깅
-            logger.info("=== VBA 분석 완료 ===")
-            logger.info(f"총 분석 시간: {total_time:.2f}초")
-            logger.info(f"모듈 수: {len(modules)}개")
-            logger.info(f"발견된 오류: {len(all_errors)}개")
-            logger.info(f"보안 점수: {max(0, security_score):.1f}/100")
-            logger.info(f"신뢰도: {confidence:.2f}")
-            logger.info(f"자동 수정 가능: {len([e for e in all_errors if e.auto_fixable])}개")
-            
-            return {
-                "has_vba": True,
-                "modules": [self._module_to_dict(m) for m in modules],
-                "errors": [self._error_to_dict(e) for e in all_errors],
-                "fixes": fixes,
-                "security_score": max(0, security_score),
-                "confidence": confidence,
-                "summary": self._generate_summary(all_errors),
-                "auto_fixable_count": len([e for e in all_errors if e.auto_fixable]),
-                "analysis_time": total_time,
-                "performance_metrics": {
-                    "extraction_time": extraction_time,
-                    "analysis_time": analysis_time,
-                    "fix_generation_time": fix_time,
-                    "modules_analyzed": len(modules),
-                    "avg_module_time": analysis_time / max(len(modules), 1)
-                }
+                    "analysis_time": time.time() - start_time,
+                },
             }
-            
-        except Exception as e:
-            total_time = time.time() - start_time
-            logger.error(f"=== VBA 분석 실패 ===")
-            logger.error(f"파일: {os.path.basename(file_path)}")
-            logger.error(f"실패 시점: {total_time:.2f}초 후")
-            logger.error(f"오류 상세: {str(e)}")
-            
-            return {
-                "error": str(e),
-                "has_vba": False,
-                "analysis_time": total_time
-            }
-    
+
+        logger.info(f"VBA 모듈 {len(modules)}개 발견")
+        if VBA_DEBUG_MODE:
+            self._log_module_details(modules)
+
+        return {
+            "early_return": False,
+            "modules": modules,
+            "extraction_time": extraction_time,
+        }
+
+    async def _analyze_all_modules(self, modules: List[VBAModule]) -> Dict[str, Any]:
+        """모든 모듈 분석"""
+        import time
+
+        logger.info("VBA 오류 분석 시작...")
+        analysis_start = time.time()
+        all_errors = []
+        security_score = 100
+
+        for module_idx, module in enumerate(modules):
+            module_result = await self._analyze_single_module(
+                module, module_idx, len(modules)
+            )
+            all_errors.extend(module_result["errors"])
+            security_score -= module_result["security_impact"]
+
+        analysis_time = time.time() - analysis_start
+        logger.info(
+            f"VBA 오류 분석 완료: {len(all_errors)}개 오류 발견, {analysis_time:.2f}초"
+        )
+
+        return {
+            "errors": all_errors,
+            "security_score": security_score,
+            "analysis_time": analysis_time,
+        }
+
+    async def _analyze_single_module(
+        self, module: VBAModule, index: int, total: int
+    ) -> Dict[str, Any]:
+        """단일 모듈 분석"""
+        import time
+
+        logger.debug(f"모듈 '{module.name}' 분석 중... ({index+1}/{total})")
+
+        module_start = time.time()
+        errors = self._detect_errors_in_module(module)
+        module_time = time.time() - module_start
+
+        logger.debug(
+            f"모듈 '{module.name}' 분석 완료: {len(errors)}개 오류, {module_time:.2f}초"
+        )
+
+        security_impact = self._calculate_security_impact(errors)
+
+        return {
+            "errors": errors,
+            "security_impact": security_impact,
+            "analysis_time": module_time,
+        }
+
+    async def _generate_fix_suggestions(self, errors: List[VBAError]) -> Dict[str, Any]:
+        """수정 제안 생성"""
+        import time
+
+        logger.info("수정 제안 생성 중...")
+        fix_start = time.time()
+        fixes = self._generate_fixes(errors)
+        fix_time = time.time() - fix_start
+        logger.info(f"수정 제안 생성 완료: {len(fixes)}개 제안, {fix_time:.2f}초")
+
+        return {"fixes": fixes, "fix_time": fix_time}
+
+    def _create_analysis_result(
+        self,
+        modules: List[VBAModule],
+        errors: List[VBAError],
+        fixes: List[Dict[str, Any]],
+        security_score: float,
+        extraction_time: float,
+        analysis_time: float,
+        fix_time: float,
+        start_time: float,
+    ) -> Dict[str, Any]:
+        """분석 결과 생성"""
+        import time
+
+        confidence = self._calculate_confidence(errors)
+        total_time = time.time() - start_time
+
+        self._log_analysis_complete(
+            len(modules),
+            len(errors),
+            security_score,
+            confidence,
+            len([e for e in errors if e.auto_fixable]),
+            total_time,
+        )
+
+        return {
+            "has_vba": True,
+            "modules": [self._module_to_dict(m) for m in modules],
+            "errors": [self._error_to_dict(e) for e in errors],
+            "fixes": fixes,
+            "security_score": max(0, security_score),
+            "confidence": confidence,
+            "summary": self._generate_summary(errors),
+            "auto_fixable_count": len([e for e in errors if e.auto_fixable]),
+            "analysis_time": total_time,
+            "performance_metrics": {
+                "extraction_time": extraction_time,
+                "analysis_time": analysis_time,
+                "fix_generation_time": fix_time,
+                "modules_analyzed": len(modules),
+                "avg_module_time": analysis_time / max(len(modules), 1),
+            },
+        }
+
+    def _create_error_result(
+        self, error: Exception, file_path: str, start_time: float
+    ) -> Dict[str, Any]:
+        """오류 결과 생성"""
+        import time
+
+        total_time = time.time() - start_time
+        logger.error("=== VBA 분석 실패 ===")
+        logger.error(f"파일: {os.path.basename(file_path)}")
+        logger.error(f"실패 시점: {total_time:.2f}초 후")
+        logger.error(f"오류 상세: {str(error)}")
+
+        return {"error": str(error), "has_vba": False, "analysis_time": total_time}
+
+    def _log_analysis_start(self, file_path: str):
+        """분석 시작 로깅"""
+        logger.info("=== VBA 분석 시작 ===")
+        logger.info(f"파일: {os.path.basename(file_path)}")
+        file_size = os.path.getsize(file_path) / 1024 / 1024  # MB
+        logger.info(f"파일 크기: {file_size:.2f} MB")
+
+    def _log_module_details(self, modules: List[VBAModule]):
+        """모듈 상세 정보 로깅"""
+        for i, module in enumerate(modules):
+            logger.debug(
+                f"  모듈 {i+1}: {module.name} ({module.size} bytes, {module.type})"
+            )
+
+    def _log_analysis_complete(
+        self,
+        module_count: int,
+        error_count: int,
+        security_score: float,
+        confidence: float,
+        auto_fixable_count: int,
+        total_time: float,
+    ):
+        """분석 완료 로깅"""
+        logger.info("=== VBA 분석 완료 ===")
+        logger.info(f"총 분석 시간: {total_time:.2f}초")
+        logger.info(f"모듈 수: {module_count}개")
+        logger.info(f"발견된 오류: {error_count}개")
+        logger.info(f"보안 점수: {max(0, security_score):.1f}/100")
+        logger.info(f"신뢰도: {confidence:.2f}")
+        logger.info(f"자동 수정 가능: {auto_fixable_count}개")
+
     async def _extract_vba_modules(self, file_path: str) -> List[VBAModule]:
         """Extract VBA modules using oletools"""
         modules = []
-        
+
         if not self.oletools_available:
             # Fallback to basic detection
             return self._basic_vba_detection(file_path)
-        
+
         vba_parser = None
         try:
             vba_parser = VBA_Parser(file_path)
-            
+
             if vba_parser.detect_vba_macros():
-                for (filename, stream_path, vba_filename, vba_code) in vba_parser.extract_macros():
+                for (
+                    filename,
+                    stream_path,
+                    vba_filename,
+                    vba_code,
+                ) in vba_parser.extract_macros():
                     if vba_code.strip():  # Skip empty modules
                         module = VBAModule(
                             name=vba_filename or f"Module_{len(modules)+1}",
                             code=vba_code,
                             type=self._determine_module_type(vba_code),
                             size=len(vba_code),
-                            hash=self._calculate_hash(vba_code)
+                            hash=self._calculate_hash(vba_code),
                         )
                         modules.append(module)
-            
+
         except Exception as e:
             logger.error(f"oletools extraction failed: {e}")
             # Fallback to basic detection
@@ -339,150 +474,169 @@ class AdvancedVBAAnalyzer:
                     vba_parser.close()
                 except Exception as e:
                     logger.warning(f"Error closing VBA parser: {e}")
-        
+
         return modules
-    
+
     def _detect_errors_in_module(self, module: VBAModule) -> List[VBAError]:
         """Detect errors in a VBA module"""
         errors = []
-        lines = module.code.split('\n')
-        
+        lines = module.code.split("\n")
+
         for pattern_name, pattern_info in self.error_patterns.items():
             if pattern_info.get("check_whole_module"):
                 # Check entire module
-                if not re.search(pattern_info["pattern"], module.code, re.MULTILINE | re.DOTALL):
+                if not re.search(
+                    pattern_info["pattern"], module.code, re.MULTILINE | re.DOTALL
+                ):
                     if pattern_name == "missing_option_explicit":
-                        errors.append(VBAError(
-                            id=f"{module.name}_{pattern_name}_1",
-                            category=pattern_info["category"],
-                            severity=pattern_info["severity"],
-                            line_number=1,
-                            module_name=module.name,
-                            error_type=pattern_name,
-                            description=pattern_info["description"],
-                            code_snippet=None,
-                            fix_suggestion=pattern_info["fix"],
-                            confidence=0.95,
-                            auto_fixable=True
-                        ))
+                        errors.append(
+                            VBAError(
+                                id=f"{module.name}_{pattern_name}_1",
+                                category=pattern_info["category"],
+                                severity=pattern_info["severity"],
+                                line_number=1,
+                                module_name=module.name,
+                                error_type=pattern_name,
+                                description=pattern_info["description"],
+                                code_snippet=None,
+                                fix_suggestion=pattern_info["fix"],
+                                confidence=0.95,
+                                auto_fixable=True,
+                            )
+                        )
             else:
                 # Check line by line
                 for line_num, line in enumerate(lines, 1):
                     if re.search(pattern_info["pattern"], line):
-                        errors.append(VBAError(
-                            id=f"{module.name}_{pattern_name}_{line_num}",
-                            category=pattern_info["category"],
-                            severity=pattern_info["severity"],
-                            line_number=line_num,
-                            module_name=module.name,
-                            error_type=pattern_name,
-                            description=pattern_info["description"],
-                            code_snippet=line.strip(),
-                            fix_suggestion=pattern_info["fix"],
-                            confidence=0.85,
-                            auto_fixable=pattern_info.get("auto_fixable", False)
-                        ))
-        
+                        errors.append(
+                            VBAError(
+                                id=f"{module.name}_{pattern_name}_{line_num}",
+                                category=pattern_info["category"],
+                                severity=pattern_info["severity"],
+                                line_number=line_num,
+                                module_name=module.name,
+                                error_type=pattern_name,
+                                description=pattern_info["description"],
+                                code_snippet=line.strip(),
+                                fix_suggestion=pattern_info["fix"],
+                                confidence=0.85,
+                                auto_fixable=pattern_info.get("auto_fixable", False),
+                            )
+                        )
+
         # Check for suspicious keywords
         suspicious = self._check_suspicious_keywords(module)
         errors.extend(suspicious)
-        
+
         # Check for obfuscation
         obfuscated = self._check_obfuscation(module)
         errors.extend(obfuscated)
-        
+
         return errors
-    
+
     def _check_suspicious_keywords(self, module: VBAModule) -> List[VBAError]:
         """Check for suspicious keywords indicating potential malware"""
         errors = []
-        
+
         for category, keywords in self.suspicious_keywords.items():
             for keyword in keywords:
                 pattern = re.compile(rf"\b{keyword}\b", re.IGNORECASE)
                 matches = list(pattern.finditer(module.code))
-                
+
                 for match in matches:
-                    line_num = module.code[:match.start()].count('\n') + 1
-                    errors.append(VBAError(
-                        id=f"{module.name}_suspicious_{keyword}_{line_num}",
-                        category=ErrorCategory.SECURITY,
-                        severity=ErrorSeverity.HIGH,
-                        line_number=line_num,
-                        module_name=module.name,
-                        error_type=f"suspicious_{category}",
-                        description=f"Suspicious keyword '{keyword}' detected ({category})",
-                        code_snippet=self._get_line_at(module.code, line_num),
-                        fix_suggestion=f"Review usage of '{keyword}' for security implications",
-                        confidence=0.9,
-                        auto_fixable=False
-                    ))
-        
+                    line_num = module.code[: match.start()].count("\n") + 1
+                    errors.append(
+                        VBAError(
+                            id=f"{module.name}_suspicious_{keyword}_{line_num}",
+                            category=ErrorCategory.SECURITY,
+                            severity=ErrorSeverity.HIGH,
+                            line_number=line_num,
+                            module_name=module.name,
+                            error_type=f"suspicious_{category}",
+                            description=f"Suspicious keyword '{keyword}' detected ({category})",
+                            code_snippet=self._get_line_at(module.code, line_num),
+                            fix_suggestion=f"Review usage of '{keyword}' for security implications",
+                            confidence=0.9,
+                            auto_fixable=False,
+                        )
+                    )
+
         return errors
-    
+
     def _check_obfuscation(self, module: VBAModule) -> List[VBAError]:
         """Check for code obfuscation patterns"""
         errors = []
-        
+
         for obf_type, pattern in self.obfuscation_patterns.items():
             matches = list(re.finditer(pattern, module.code))
-            
+
             if len(matches) > 3:  # Multiple instances suggest obfuscation
-                errors.append(VBAError(
-                    id=f"{module.name}_obfuscation_{obf_type}",
-                    category=ErrorCategory.SECURITY,
-                    severity=ErrorSeverity.HIGH,
-                    line_number=None,
-                    module_name=module.name,
-                    error_type=f"obfuscation_{obf_type}",
-                    description=f"Potential obfuscation detected: {obf_type.replace('_', ' ')}",
-                    code_snippet=None,
-                    fix_suggestion="Review code for potential obfuscation or malicious intent",
-                    confidence=0.8,
-                    auto_fixable=False
-                ))
-        
+                errors.append(
+                    VBAError(
+                        id=f"{module.name}_obfuscation_{obf_type}",
+                        category=ErrorCategory.SECURITY,
+                        severity=ErrorSeverity.HIGH,
+                        line_number=None,
+                        module_name=module.name,
+                        error_type=f"obfuscation_{obf_type}",
+                        description=f"Potential obfuscation detected: {obf_type.replace('_', ' ')}",
+                        code_snippet=None,
+                        fix_suggestion="Review code for potential obfuscation or malicious intent",
+                        confidence=0.8,
+                        auto_fixable=False,
+                    )
+                )
+
         return errors
-    
+
     def _generate_fixes(self, errors: List[VBAError]) -> List[Dict[str, Any]]:
         """Generate fix suggestions for detected errors"""
         fixes = []
-        
+
         # Group errors by module and type
         from collections import defaultdict
+
         module_errors = defaultdict(list)
-        
+
         for error in errors:
             module_errors[error.module_name].append(error)
-        
+
         for module_name, module_error_list in module_errors.items():
             # Generate fixes for each error type
             fix_groups = defaultdict(list)
             for error in module_error_list:
                 fix_groups[error.error_type].append(error)
-            
+
             for error_type, error_list in fix_groups.items():
                 if error_list[0].auto_fixable:
-                    fixes.append({
-                        "module": module_name,
-                        "error_type": error_type,
-                        "fix_type": "auto",
-                        "description": error_list[0].fix_suggestion,
-                        "affected_lines": [e.line_number for e in error_list if e.line_number],
-                        "code": self._generate_fix_code(error_type, error_list)
-                    })
+                    fixes.append(
+                        {
+                            "module": module_name,
+                            "error_type": error_type,
+                            "fix_type": "auto",
+                            "description": error_list[0].fix_suggestion,
+                            "affected_lines": [
+                                e.line_number for e in error_list if e.line_number
+                            ],
+                            "code": self._generate_fix_code(error_type, error_list),
+                        }
+                    )
                 else:
-                    fixes.append({
-                        "module": module_name,
-                        "error_type": error_type,
-                        "fix_type": "manual",
-                        "description": error_list[0].fix_suggestion,
-                        "affected_lines": [e.line_number for e in error_list if e.line_number],
-                        "guidelines": self._generate_fix_guidelines(error_type)
-                    })
-        
+                    fixes.append(
+                        {
+                            "module": module_name,
+                            "error_type": error_type,
+                            "fix_type": "manual",
+                            "description": error_list[0].fix_suggestion,
+                            "affected_lines": [
+                                e.line_number for e in error_list if e.line_number
+                            ],
+                            "guidelines": self._generate_fix_guidelines(error_type),
+                        }
+                    )
+
         return fixes
-    
+
     def _generate_fix_code(self, error_type: str, errors: List[VBAError]) -> str:
         """Generate actual fix code for auto-fixable errors"""
         fix_templates = {
@@ -501,11 +655,11 @@ If Not {object_name} Is Nothing Then
     ' Your code here
 End If
 """,
-            "select_activate": "' Direct object manipulation without Select/Activate\n' Example: Worksheets(\"Sheet1\").Range(\"A1\").Value = \"Data\""
+            "select_activate": '\' Direct object manipulation without Select/Activate\n\' Example: Worksheets("Sheet1").Range("A1").Value = "Data"',
         }
-        
+
         return fix_templates.get(error_type, "' Manual fix required")
-    
+
     def _generate_fix_guidelines(self, error_type: str) -> List[str]:
         """Generate guidelines for manual fixes"""
         guidelines = {
@@ -513,23 +667,23 @@ End If
                 "Verify the download source is trusted",
                 "Implement checksum validation",
                 "Use HTTPS instead of HTTP",
-                "Add user confirmation before download"
+                "Add user confirmation before download",
             ],
             "shell_execution": [
                 "Validate all command parameters",
                 "Use full paths for executables",
                 "Implement logging for audit trails",
-                "Consider alternative approaches without shell execution"
+                "Consider alternative approaches without shell execution",
             ],
             "obfuscation_char_codes": [
                 "Replace Chr() codes with actual characters",
                 "Document the purpose of encoded strings",
-                "Consider removing obfuscation if not necessary"
-            ]
+                "Consider removing obfuscation if not necessary",
+            ],
         }
-        
+
         return guidelines.get(error_type, ["Review code and fix based on context"])
-    
+
     def _calculate_security_impact(self, errors: List[VBAError]) -> float:
         """Calculate security impact score"""
         impact = 0
@@ -542,59 +696,59 @@ End If
                 elif error.severity == ErrorSeverity.MEDIUM:
                     impact += 5
         return impact
-    
+
     def _calculate_confidence(self, errors: List[VBAError]) -> float:
         """Calculate overall confidence score"""
         if not errors:
             return 1.0
-        
+
         total_confidence = sum(e.confidence for e in errors)
         return total_confidence / len(errors)
-    
+
     def _generate_summary(self, errors: List[VBAError]) -> Dict[str, Any]:
         """Generate analysis summary"""
         summary = {
             "total_errors": len(errors),
             "by_severity": {},
             "by_category": {},
-            "critical_issues": []
+            "critical_issues": [],
         }
-        
+
         # Count by severity
         for severity in ErrorSeverity:
             count = len([e for e in errors if e.severity == severity])
             if count > 0:
                 summary["by_severity"][severity.value] = count
-        
+
         # Count by category
         for category in ErrorCategory:
             count = len([e for e in errors if e.category == category])
             if count > 0:
                 summary["by_category"][category.value] = count
-        
+
         # List critical issues
         critical = [e for e in errors if e.severity == ErrorSeverity.CRITICAL]
         summary["critical_issues"] = [
             {
                 "module": e.module_name,
                 "line": e.line_number,
-                "description": e.description
+                "description": e.description,
             }
             for e in critical[:5]  # Top 5 critical issues
         ]
-        
+
         return summary
-    
+
     def _module_to_dict(self, module: VBAModule) -> Dict[str, Any]:
         """Convert VBAModule to dictionary"""
         return {
             "name": module.name,
             "type": module.type,
             "size": module.size,
-            "line_count": len(module.code.split('\n')),
-            "has_option_explicit": "Option Explicit" in module.code[:100]
+            "line_count": len(module.code.split("\n")),
+            "has_option_explicit": "Option Explicit" in module.code[:100],
         }
-    
+
     def _error_to_dict(self, error: VBAError) -> Dict[str, Any]:
         """Convert VBAError to dictionary"""
         return {
@@ -608,9 +762,9 @@ End If
             "code_snippet": error.code_snippet,
             "fix_suggestion": error.fix_suggestion,
             "confidence": error.confidence,
-            "auto_fixable": error.auto_fixable
+            "auto_fixable": error.auto_fixable,
         }
-    
+
     def _determine_module_type(self, code: str) -> str:
         """Determine VBA module type from code"""
         if "Attribute VB_Name = " in code:
@@ -619,48 +773,52 @@ End If
             elif "Class" in code[:100]:
                 return "Class"
         return "Module"
-    
+
     def _calculate_hash(self, code: str) -> str:
         """Calculate hash of VBA code"""
         import hashlib
+
         return hashlib.md5(code.encode()).hexdigest()
-    
+
     def _get_line_at(self, code: str, line_num: int) -> str:
         """Get specific line from code"""
-        lines = code.split('\n')
+        lines = code.split("\n")
         if 0 < line_num <= len(lines):
             return lines[line_num - 1].strip()
         return ""
-    
+
     def _basic_vba_detection(self, file_path: str) -> List[VBAModule]:
         """Basic VBA detection without oletools"""
         # This is the fallback method when oletools is not available
         modules = []
-        
+
         try:
-            with zipfile.ZipFile(file_path, 'r') as z:
-                if 'xl/vbaProject.bin' in z.namelist():
+            with zipfile.ZipFile(file_path, "r") as z:
+                if "xl/vbaProject.bin" in z.namelist():
                     # We can detect VBA presence but cannot extract code
-                    modules.append(VBAModule(
-                        name="VBA_Project",
-                        code="[VBA code detected but cannot be extracted without oletools]",
-                        type="Unknown",
-                        size=0,
-                        hash=""
-                    ))
-        except:
+                    modules.append(
+                        VBAModule(
+                            name="VBA_Project",
+                            code="[VBA code detected but cannot be extracted without oletools]",
+                            type="Unknown",
+                            size=0,
+                            hash="",
+                        )
+                    )
+        except Exception:
+            # Silently ignore VBA extraction errors for unsupported formats
             pass
-        
+
         return modules
 
 
 # Test the analyzer
 if __name__ == "__main__":
     import asyncio
-    
+
     async def test():
         analyzer = AdvancedVBAAnalyzer()
         result = await analyzer.analyze_file("test.xlsm")
         print(json.dumps(result, indent=2))
-    
+
     asyncio.run(test())

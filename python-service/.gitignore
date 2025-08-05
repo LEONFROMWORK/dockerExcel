@@ -71,3 +71,18 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Google Cloud Service Account Keys
+google-vertex-ai-key.json
+*-key.json
+excel-unified-*.json
+
+# Test output files
+univer_output.json
+test_univer_data.json
+pic_test_output.xlsx
+test_output.xlsx
+real_errors.xlsx
+test_errors.xlsx
+test_with_errors.xlsx
+test_save_result.xlsx

@@ -1,0 +1,159 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: excel_unified_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - excel-unified
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - excel-unified
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Collabora Online Office Suite
+  collabora:
+    image: collabora/code:23.05.4.2.1
+    container_name: collabora-unified
+    environment:
+      - aliasgroup1=http://host.docker.internal:3000
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=true --o:user_interface.use_sidebar=false
+      - DONT_GEN_SSL_CERT=1
+    ports:
+      - "9980:9980"
+    networks:
+      - excel-unified
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9980/hosting/discovery"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # Rails Application (주석 처리 - 개발 시에는 호스트에서 직접 실행)
+  # rails:
+  #   build:
+  #     context: ./rails-app
+  #     dockerfile: Dockerfile.dev
+  #   environment:
+  #     - RAILS_ENV=development
+  #     - DATABASE_URL=postgresql://postgres:password@postgres:5432/excel_unified_development
+  #     - REDIS_URL=redis://redis:6379/0
+  #     - PYTHON_SERVICE_URL=http://python:8000
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./rails-app:/app
+  #     - rails_bundle:/usr/local/bundle
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   networks:
+  #     - excel-unified
+
+  # Python FastAPI Service (주석 처리 - 개발 시에는 호스트에서 직접 실행)
+  # python:
+  #   build:
+  #     context: ./python-service
+  #     dockerfile: Dockerfile.dev
+  #   environment:
+  #     - DATABASE_URL=postgresql://postgres:password@postgres:5432/excel_unified_development
+  #     - REDIS_URL=redis://redis:6379/0
+  #     - RAILS_API_URL=http://rails:3000
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./python-service:/app
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   networks:
+  #     - excel-unified
+
+  # Monitoring - Prometheus (옵션)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus-excel
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - excel-unified
+    profiles:
+      - monitoring
+
+  # Monitoring - Grafana (옵션)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana-excel
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+    networks:
+      - excel-unified
+    profiles:
+      - monitoring
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  rails_bundle:
+    driver: local
+
+networks:
+  excel-unified:
+    driver: bridge
+    name: excel-unified-network
